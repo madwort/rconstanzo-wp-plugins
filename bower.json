@@ -1,0 +1,21 @@
+{
+  "name": "infinite-scroll",
+  "version": "0.0.1",
+  "authors": [
+    "Tom Ward <tomward@fmail.co.uk>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.css": "~3.0.3",
+    "jquery": "*"
+  }
+}

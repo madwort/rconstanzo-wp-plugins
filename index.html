@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+	<title>Inifinite scroll</title>
+	<script type="text/javascript">
+    function generateText() {
+      var myText = "";
+
+      if(Math.random()>0.7) {
+        // 30% prob
+        myText += "This is ";
+      } else {
+        if(Math.random()>0.5) {
+          // 60% prob
+          myText += "You are reading ";
+        } else {
+          // 40%
+          myText += "Here we have ";
+        }
+        
+      }
+      
+      var textPhrase = "";
+      
+      if(Math.random()>0.4) {
+        // 60% prob
+        myText += "a placeholder ";
+        textPhrase = "placeholder";
+      } else {
+        // 40%
+        myText += "stand-in text ";
+        textPhrase = "text";
+      }
+      
+      myText += "for the ";
+      
+      if(Math.random()>0.3) {
+        // 70% prob
+        myText += "text ";
+      } else {
+        // 30%
+        myText += "content ";
+      }
+
+      myText += "that will " 
+      
+      if(Math.random()>0.3) {
+        // 70% prob
+        myText += "make up";
+      } else {
+        // 30%
+        myText += "comprise ";
+      }
+
+      myText += " the first chapter of ";
+      
+      if(Math.random()>0.1) {
+        // 70% prob
+        myText += "Rodrigo Constanzo";
+      } else {
+        // 30%
+        myText += "the badass MF";
+      }
+      
+      myText += "'s web thesis.";
+
+      myText += " This "+textPhrase+" can take "
+      
+      if(Math.random()>0.5) {
+        myText += "many forms, ";
+      } else {
+        myText += "a multiplicity of approaches whilst ";
+      }
+      myText += "attempting to explan the same concepts from different perspectives. ";
+      
+      return myText;
+
+    }
+  
+		$(window).scroll(function() {
+			if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+        $("#scroll-to-read").fadeOut();
+        $("p").filter(":last").append("<p style='display:none;'>"+generateText()+"</p>").fadeIn("slow");
+             // alert("near bottom!");
+		   }
+		});
+	</script>
+</head>
+<body>
+<div style="width: 30em;">
+  <p>  
+  This is a placeholder for the text that will make up the first chapter of Rodrigo Constanzo's web thesis. This text can take many forms, attempting to explan the same concepts from different perspectives. 
+  </p>
+  
+  <div id="scroll-to-read" style="padding-top: 5em;"> Scroll down to continue reading. </div>
+</div>
+
+</body>
+</html>
