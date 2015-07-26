@@ -24,11 +24,9 @@
       var textPhrase = "";
       
       if(Math.random()>0.4) {
-        // 60% prob
         myText += "a placeholder ";
         textPhrase = "placeholder";
       } else {
-        // 40%
         myText += "stand-in text ";
         textPhrase = "text";
       }
@@ -36,30 +34,24 @@
       myText += "for the ";
       
       if(Math.random()>0.3) {
-        // 70% prob
         myText += "text ";
       } else {
-        // 30%
         myText += "content ";
       }
 
       myText += "that will " 
       
       if(Math.random()>0.3) {
-        // 70% prob
         myText += "make up";
       } else {
-        // 30%
         myText += "comprise ";
       }
 
       myText += " the first chapter of ";
       
       if(Math.random()>0.1) {
-        // 70% prob
         myText += "Rodrigo Constanzo";
       } else {
-        // 30%
         myText += "the badass MF";
       }
       
@@ -72,8 +64,23 @@
       } else {
         myText += "a multiplicity of approaches whilst ";
       }
-      myText += "attempting to explain the same concepts from different perspectives. ";
-      
+
+      myText += "attempting to explain "
+
+      if(Math.random()>0.5) {
+        myText += "the same concepts ";
+      } else {
+        myText += "similar ideas ";
+      }
+
+      myText += " from ";
+
+      if(Math.random()>0.5) {
+        myText += "different perspectives.";
+      } else {
+        myText += "alternative viewpoints.";
+      }
+
       return myText;
 
     }
@@ -88,13 +95,13 @@
 	</script>
 </head>
 <body>
-<div style="width: 30em;">
-  <p>  
-  This is a placeholder for the text that will make up the first chapter of Rodrigo Constanzo's web thesis. This text can take many forms, attempting to explain the same concepts from different perspectives. 
-  </p>
+  <div style="width: 30em;">
+    <p>
+    This is a placeholder for the text that will make up the first chapter of Rodrigo Constanzo's web thesis. This text can take many forms, attempting to explain the same concepts from different perspectives. 
+    </p>
   
-  <div id="scroll-to-read" style="padding-top: 5em;"> Scroll down to continue reading. </div>
-</div>
+    <div id="scroll-to-read" style="padding-top: 5em;"> Scroll down to continue reading. </div>
+  </div>
 
 </body>
 </html>
