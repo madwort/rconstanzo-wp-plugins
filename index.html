@@ -2,9 +2,12 @@
 <html>
 <head>
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-	<title>Inifinite scroll</title>
+	<title>RODRIGO</title>
   <style type="text/css" media="screen">
   body { background-color: black; color: white; }
+  #kittens { float: left; }
+  #kittens img { display: none; position: fixed; left: 35em;}
+  #kittens #kitten1 { display: block; }
   </style>
   
 	<script type="text/javascript">
@@ -88,19 +91,35 @@
       return myText;
 
     }
-  
+
 		$(window).scroll(function() {
 			if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
         $("#scroll-to-read").fadeOut();
         $("p").filter(":last").append("<p style='display:none;'>"+generateText()+"</p>").fadeIn("slow");
              // alert("near bottom!");
 		   }
+       if ($(document).scrollTop() < 800) {
+         $("#kitten1").fadeIn();
+         $("#kitten2").fadeOut();
+         $("#kitten3").fadeOut();
+       }
+       if (($(document).scrollTop() > 800) && ($(document).scrollTop() < 1600)) {
+         $("#kitten1").fadeOut();
+         $("#kitten2").fadeIn();
+         $("#kitten3").fadeOut();
+       }
+       if ($(document).scrollTop() > 1600) {
+         $("#kitten1").fadeOut();
+         $("#kitten2").fadeOut();
+         $("#kitten3").fadeIn();
+       }
+
 		});
 	</script>
 </head>
 <body>
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 width="600px" height="100px" viewBox="0 0 600 100">
+	 width="600px" height="100px" viewBox="0 0 600 100" style="float: left;">
 <style type="text/css">
 
 <![CDATA[
@@ -193,15 +212,20 @@
 	</defs>
 
 <g>
-	<text x="0" y="100">SVG GLITCH</text>
+	<text x="0" y="100">RODRIGO</text>
 </g>
 </svg>
-  <div id="content" style="width: 30em;">
+  <div id="content" style="width: 30em; float: left; clear: left;">
     <p>
     This is a placeholder for the text that will make up the first chapter of Rodrigo Constanzo's web thesis. This text can take many forms, attempting to explain the same concepts from different perspectives. 
     </p>
   
     <div id="scroll-to-read" style="padding-top: 5em;"> Scroll down to continue reading. </div>
+  </div>
+  <div id="kittens">
+    <img src="kitten1.jpg" id="kitten1" />
+    <img src="kitten2.jpg" id="kitten2" />
+    <img src="kitten3.jpg" id="kitten3" />
   </div>
 
 </body>
