@@ -4,10 +4,7 @@
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
 	<title>RODRIGO</title>
   <style type="text/css" media="screen">
-  body { background-color: black; color: white; }
-  #kittens { float: left; }
-  #kittens img { display: none; position: fixed; left: 35em;}
-  #kittens #kitten1 { display: block; }
+  body { background-color: white; color: black; }
   </style>
   
 	<script type="text/javascript">
@@ -92,29 +89,14 @@
 
     }
 
-		$(window).scroll(function() {
-			if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+  	$(window).scroll(function() {
+  		if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
         $("#scroll-to-read").fadeOut();
         $("p").filter(":last").append("<p style='display:none;'>"+generateText()+"</p>").fadeIn("slow");
              // alert("near bottom!");
-		   }
-       if ($(document).scrollTop() < 800) {
-         $("#kitten1").fadeIn();
-         $("#kitten2").fadeOut();
-         $("#kitten3").fadeOut();
-       }
-       if (($(document).scrollTop() > 800) && ($(document).scrollTop() < 1600)) {
-         $("#kitten1").fadeOut();
-         $("#kitten2").fadeIn();
-         $("#kitten3").fadeOut();
-       }
-       if ($(document).scrollTop() > 1600) {
-         $("#kitten1").fadeOut();
-         $("#kitten2").fadeOut();
-         $("#kitten3").fadeIn();
-       }
+  	   }
+  	});
 
-		});
 	</script>
 </head>
 <body>
@@ -216,17 +198,47 @@
 </g>
 </svg>
   <div id="content" style="width: 30em; float: left; clear: left;">
+    <div id="kittens">
+      <img src="glitch_assets/1.jpg" id="rod1" style="display: block;" />
+      <img src="glitch_assets/2.jpg" id="rod2" style="display: none;" />
+      <img src="glitch_assets/3.jpg" id="rod3" style="display: none;" />
+      <img src="glitch_assets/4.jpg" id="rod4" style="display: none;" />
+      <img src="glitch_assets/5.jpg" id="rod5" style="display: none;" />
+      <img src="glitch_assets/6.jpg" id="rod6" style="display: none;" />
+      <img src="glitch_assets/7.jpg" id="rod7" style="display: none;" />
+      <img src="glitch_assets/8.jpg" id="rod8" style="display: none;" />
+    </div>
+    <script type="text/javascript">
+    function show_rod_number(j) {
+      for (var i = 1; i < 9; i++) {
+        $('#rod'+i).hide();
+        if (j == i) {
+          $('#rod'+i).show();
+        }
+      }
+
+    }
+
+  	$(window).scroll(function() {
+      var scroll_diff = 50;
+      var pos = Math.floor($(document).scrollTop()/scroll_diff)+1;
+      if (pos > 8) {
+        pos = 8;
+      }
+      if (pos < 1) {
+        pos = 1;
+      }
+      show_rod_number(pos);
+  	});
+    </script>
+    
     <p>
     This is a placeholder for the text that will make up the first chapter of Rodrigo Constanzo's web thesis. This text can take many forms, attempting to explain the same concepts from different perspectives. 
     </p>
   
     <div id="scroll-to-read" style="padding-top: 5em;"> Scroll down to continue reading. </div>
   </div>
-  <div id="kittens">
-    <img src="kitten1.jpg" id="kitten1" />
-    <img src="kitten2.jpg" id="kitten2" />
-    <img src="kitten3.jpg" id="kitten3" />
-  </div>
+
 
 </body>
 </html>
