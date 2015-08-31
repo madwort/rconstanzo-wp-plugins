@@ -91,7 +91,9 @@
       })
       .attr("class","title");
 
-    node.append("text")
+    node.append("svg:a")
+      .attr("xlink:href", function(d){ return "." + d.url; })
+      .append("text")
       .text(function(d){
         return d.subtitle;
       })
