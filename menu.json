@@ -1,0 +1,46 @@
+{
+    "links": [
+        {
+            "source": 0,
+            "target": 1
+        },
+        {
+            "source": 0,
+            "target": 2
+        },
+        {
+            "source": 1,
+            "target": 2
+        },
+        {
+            "source": 1,
+            "target": 3
+        },
+        {
+            "source": 2,
+            "target": 3
+        }
+    ],
+    "nodes": [
+        {
+            "id": "intro",
+            "x": 266,
+            "y": 132
+        },
+        {
+            "id": "making decisions in time",
+            "x": 177,
+            "y": 239
+        },
+        {
+            "id": "cut glove",
+            "x": 322,
+            "y": 260
+        },
+        {
+            "id": "conclusion",
+            "x": 232,
+            "y": 367
+        }
+    ]
+}
