@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:xlink="http://www.w3.org/1999/xlink">
+<html>
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<title>RODRIGO</title>
@@ -60,7 +60,8 @@
 
     var svg = d3.select("body").append("svg")
         .attr("width", width)
-        .attr("height", height);
+        .attr("height", height)
+        .attr("xlink","http://www.w3.org/1999/xlink");
 
     var link = svg.selectAll('.link')
       .data(graph.links)
@@ -73,13 +74,11 @@
       .attr("class","node");
 
     node.append("svg:a")
-      // requires xlink namespace in html tag
       .attr("xlink:href", function(d){ return "." + d.url; })
       .append("circle")
       .attr("r", 12);
 
     node.append("svg:a")
-      // requires xlink namespace in html tag
       .attr("xlink:href", function(d){ return "." + d.url; })
       .append("text")
       .text(function(d){
