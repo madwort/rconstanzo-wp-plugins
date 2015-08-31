@@ -25,7 +25,7 @@ add_action( 'wp_enqueue_scripts', 'springy_menu_style' );
 
 add_shortcode('springy-menu', 'springy_menu_handler');
 
-function springy_menu_handler($atts) {
+function springy_menu_handler($atts)
 {
 	return "
 	<script>
