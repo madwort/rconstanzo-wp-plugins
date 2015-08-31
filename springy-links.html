@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
   <style type="text/css" media="screen">
   body { background-color: white; color: black; }
+  text { font-family: Helvetica; }
   </style>
   <script src="../springy-chapters/bower_components/d3/d3.js" charset="utf-8"></script>
   
@@ -63,7 +64,7 @@
         .nodes(graph.nodes)
         .links(graph.links)
         // initialize with two nodes
-        .linkDistance(150)
+        .linkDistance(180)
         .charge(-60);
         // .on("tick", tick);
 
@@ -98,12 +99,6 @@
         return d.id;
       });
 
-    $("text").attr("x", function(d) {
-      console.log(d3.select(this.parentNode));
-      return d3.select(this.parentNode)[0].x;
-    })
-
-
     node.call(force.drag);
 
     force.on('tick',function(){
@@ -115,8 +110,8 @@
       d3.selectAll("circle").attr("cx", function(d) { return d.x; })
           .attr("cy", function(d) { return d.y; });
 
-      d3.selectAll("text").attr("x", function(d) { return d.x; })
-          .attr("y", function(d) { return d.y; });
+      d3.selectAll("text").attr("x", function(d) { return (d.x-50); })
+          .attr("y", function(d) { return (d.y-20); });
 
     })
 
