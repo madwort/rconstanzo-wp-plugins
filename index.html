@@ -220,6 +220,8 @@
     }
 
   	$(window).scroll(function() {
+      // adjust this parameter for how quickly to switch between
+      // images as you scroll (eg. change images every 50px?)
       var scroll_diff = 50;
       var pos = Math.floor($(document).scrollTop()/scroll_diff)+1;
       if (pos > 8) {
