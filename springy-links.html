@@ -8,8 +8,9 @@
   <style type="text/css" media="screen">
   body { background-color: white; color: black; }
   text { font-family: Helvetica; }
+  text.subtitle { font-size: 0.7em;}
   </style>
-  <script src="../springy-chapters/bower_components/d3/d3.js" charset="utf-8"></script>
+  <script src="bower_components/d3/d3.js" charset="utf-8"></script>
   
   <style>
 
@@ -91,8 +92,15 @@
       .attr("href", function(d){ return d.url; })
       .append("text")
       .text(function(d){
-        return d.id;
-      });
+        return d.title;
+      })
+      .attr("class","title");
+
+    node.append("text")
+      .text(function(d){
+        return d.subtitle;
+      })
+      .attr("class","subtitle");
 
     node.call(force.drag);
 
@@ -107,7 +115,12 @@
           .attr("cy", function(d) { return d.y; });
 
       d3.selectAll("text")
-          .attr("x", function(d) { return (d.x-(this.getBBox().width/2)); })
+          .attr("x", function(d) { return (d.x-(this.getBBox().width/2)); });
+
+      d3.selectAll("text.title")
+          .attr("y", function(d) { return (d.y-40); });
+
+      d3.selectAll("text.subtitle")
           .attr("y", function(d) { return (d.y-20); });
 
     })
