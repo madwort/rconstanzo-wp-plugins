@@ -24,21 +24,25 @@
     "nodes": [
         {
             "id": "intro",
+            "url": "/",
             "x": 250,
             "y": 110
         },
         {
             "id": "making decisions in time",
+            "url": "/decisions",
             "x": 180,
             "y": 250
         },
         {
             "id": "cut glove",
+            "url": "/glove",
             "x": 322,
             "y": 260
         },
         {
             "id": "conclusion",
+            "url": "/conclusion",
             "x": 232,
             "y": 367
         }
