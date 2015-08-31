@@ -83,18 +83,9 @@
       .attr("class","node");
 
     node.append("circle")
-      .attr("cx", function(d) {
-        return d.x;
-      })
-      .attr("cy", function(d) {
-        return d.y;
-      })
       .attr("r", 12);
 
     node.append("text")
-      .attr("y", function(d) {
-        return d.y;
-      })
       .text(function(d){
         return d.id;
       });
