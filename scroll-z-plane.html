@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+	<title>RODRIGO</title>
+  <style type="text/css" media="screen">
+  body { background-color: white; color: black; }
+  </style>
+  
+</head>
+<body>
+  <div id="content" style="width: 30em; float: left; clear: left;">
+    <div id="kittens">
+      <img src="glitch_assets/1.jpg" id="rod1" style="display: block;" />
+      <img src="glitch_assets/2.jpg" id="rod2" style="display: none;" />
+      <img src="glitch_assets/3.jpg" id="rod3" style="display: none;" />
+      <img src="glitch_assets/4.jpg" id="rod4" style="display: none;" />
+      <img src="glitch_assets/5.jpg" id="rod5" style="display: none;" />
+      <img src="glitch_assets/6.jpg" id="rod6" style="display: none;" />
+      <img src="glitch_assets/7.jpg" id="rod7" style="display: none;" />
+      <img src="glitch_assets/8.jpg" id="rod8" style="display: none;" />
+    </div>
+    <script type="text/javascript">
+    function show_rod_number(j) {
+      for (var i = 1; i < 9; i++) {
+        $('#rod'+i).hide();
+        if (j == i) {
+          $('#rod'+i).show();
+        }
+      }
+
+    }
+
+  	$(window).scroll(function() {
+      // adjust this parameter for how quickly to switch between
+      // images as you scroll (eg. change images every 50px?)
+      var scroll_diff = 50;
+      var pos = Math.floor($(document).scrollTop()/scroll_diff)+1;
+      if (pos > 8) {
+        pos = 8;
+      }
+      if (pos < 1) {
+        pos = 1;
+      }
+      show_rod_number(pos);
+  	});
+    </script>
+    
+    <p>
+<p>This is a placeholder for the text that will make up the first chapter of Rodrigo Constanzo's web thesis. This text can take many forms, attempting to explain the same concepts from different perspectives.</p>
+<p>This is stand-in text for the text that will make up the first chapter of Rodrigo Constanzo's web thesis. This text can take many forms, attempting to explain similar ideas from different perspectives.</p>
+<p>Here we have stand-in text for the text that will make up the first chapter of Rodrigo Constanzo's web thesis. This text can take a multiplicity of approaches whilst attempting to explain the same concepts from alternative viewpoints.</p>
+<p>You are reading stand-in text for the text that will make up the first chapter of Rodrigo Constanzo's web thesis. This text can take a multiplicity of approaches whilst attempting to explain the same concepts from alternative viewpoints.</p>
+<p>This is stand-in text for the text that will comprise the first chapter of the badass MF's web thesis. This text can take many forms, attempting to explain similar ideas from different perspectives.</p>
+<p>Here we have stand-in text for the text that will make up the first chapter of Rodrigo Constanzo's web thesis. This text can take a multiplicity of approaches whilst attempting to explain the same concepts from alternative viewpoints.</p>
+<p>This is stand-in text for the content that will make up the first chapter of the badass MF's web thesis. This text can take a multiplicity of approaches whilst attempting to explain the same concepts from different perspectives.</p>
+<p>Here we have a placeholder for the text that will comprise the first chapter of Rodrigo Constanzo's web thesis. This placeholder can take a multiplicity of approaches whilst attempting to explain the same concepts from different perspectives.</p>
+<p>This is a placeholder for the text that will make up the first chapter of Rodrigo Constanzo's web thesis. This placeholder can take a multiplicity of approaches whilst attempting to explain the same concepts from alternative viewpoints.</p>
+<p>This is stand-in text for the content that will make up the first chapter of Rodrigo Constanzo's web thesis. This text can take a multiplicity of approaches whilst attempting to explain the same concepts from different perspectives.</p>
+<p>You are reading a placeholder for the text that will comprise the first chapter of Rodrigo Constanzo's web thesis. This placeholder can take a multiplicity of approaches whilst attempting to explain the same concepts from different perspectives.</p>
+<p>This is a placeholder for the content that will comprise the first chapter of Rodrigo Constanzo's web thesis. This placeholder can take many forms, attempting to explain similar ideas from alternative viewpoints.</p>
+<p>Here we have a placeholder for the text that will comprise the first chapter of Rodrigo Constanzo's web thesis. This placeholder can take many forms, attempting to explain similar ideas from alternative viewpoints.</p>
+<p>You are reading a placeholder for the content that will make up the first chapter of Rodrigo Constanzo's web thesis. This placeholder can take many forms, attempting to explain similar ideas from different perspectives.</p>
+<p>You are reading stand-in text for the text that will make up the first chapter of Rodrigo Constanzo's web thesis. This text can take many forms, attempting to explain similar ideas from different perspectives.    </p></p>
+  
+  </div>
+
+
+</body>
+</html>
