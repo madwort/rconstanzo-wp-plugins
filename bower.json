@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "normalize.css": "~3.0.3",
+    "d3": "~3.5.5",
     "jquery": "*"
   }
 }
