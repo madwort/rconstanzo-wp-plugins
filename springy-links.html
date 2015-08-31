@@ -107,10 +107,12 @@
           .attr("x2", function(d) { return d.target.x; })
           .attr("y2", function(d) { return d.target.y; });
 
-      d3.selectAll("circle").attr("cx", function(d) { return d.x; })
+      d3.selectAll("circle")
+          .attr("cx", function(d) { return d.x; })
           .attr("cy", function(d) { return d.y; });
 
-      d3.selectAll("text").attr("x", function(d) { return (d.x-50); })
+      d3.selectAll("text")
+          .attr("x", function(d) { return (d.x-(this.getBBox().width/2)); })
           .attr("y", function(d) { return (d.y-20); });
 
     })
