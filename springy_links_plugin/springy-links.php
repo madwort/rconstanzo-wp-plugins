@@ -1,26 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
-	<title>RODRIGO</title>
-  
-	<script type='text/javascript' src='bower_components/jquery/dist/jquery.js'></script>
-  <style type='text/css' media='screen'>
-    body { background-color: white; color: black; }
-  </style>
+<?php
+/*
+Plugin Name: Springy Links Menu
+Plugin URI: http://www.rodrigoconstanzo.com/thesis-introduction/
+Description: Springy menu built with d3!
+Version: 0.1
+Author: MADWORT
+Author URI: http://www.madwort.co.uk
+*/
 
-  <script src='springy_links_plugin/d3.js' charset='utf-8'></script>
-  <link rel="stylesheet" href="springy_links_plugin/springy-links.css" type="text/css" media="screen">
+function d3_scripts()
+{
+		wp_register_script( 'd3', plugins_url( '/d3.js', __FILE__ ) );
+		wp_enqueue_script( 'd3' );
+}
+add_action( 'wp_enqueue_scripts', 'd3_scripts' );
 
-</head>
-<body>
-  <script>
-  // Static demo copy - see springy_links_plugin for real version
+function springy_menu_style()
+{
+    wp_register_style( 'springy-menu-style', plugins_url( '/springy-links.css', __FILE__ ));
+
+    wp_enqueue_style( 'springy-menu-style' );
+}
+add_action( 'wp_enqueue_scripts', 'springy_menu_style' );
+
+add_shortcode('springy-menu', 'springy_menu_handler');
+
+function generate_springy_menu($menu_location='menu.json')
+{
+	return "
+	<script>
 
   var width = 500,
       height = 500;
 
-  d3.json('menu.json', function(error, graph) {
+  d3.json('" . plugins_url( 'menu.json', __FILE__ ) . "', function(error, graph) {
     drawMenu(graph);
   });
   
@@ -34,7 +47,7 @@
         .linkDistance(180)
         .charge(-60);
 
-    var svg = d3.select('body').append('svg')
+    var svg = d3.select('.entry-content').append('svg')
         .attr('id','springy-menu')
         .attr('width', width)
         .attr('height', height)
@@ -97,7 +110,13 @@
     force.start();
 
   }
-  </script>
+  </script>";
+}
 
-</body>
-</html>
+function springy_menu_handler($atts) {
+
+
+}
+
+
+?>
