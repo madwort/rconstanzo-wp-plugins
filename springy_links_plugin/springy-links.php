@@ -25,7 +25,7 @@ add_action( 'wp_enqueue_scripts', 'springy_menu_style' );
 
 add_shortcode('springy-menu', 'springy_menu_handler');
 
-function generate_springy_menu($menu_location='menu.json')
+function springy_menu_handler($atts) {
 {
 	return "
 	<script>
@@ -111,11 +111,6 @@ function generate_springy_menu($menu_location='menu.json')
 
   }
   </script>";
-}
-
-function springy_menu_handler($atts) {
-
-
 }
 
 
