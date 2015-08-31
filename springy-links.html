@@ -69,6 +69,7 @@
         // .on("tick", tick);
 
     var svg = d3.select("body").append("svg")
+        // TODO: add xlink namespace
         .attr("width", width)
         .attr("height", height);
 
@@ -85,7 +86,10 @@
     node.append("circle")
       .attr("r", 12);
 
-    node.append("text")
+    node.append("a")
+      // TODO: convert to svg xlink
+      .attr("href", function(d){ return d.url; })
+      .append("text")
       .text(function(d){
         return d.id;
       });
