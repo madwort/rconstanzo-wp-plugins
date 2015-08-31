@@ -6,47 +6,34 @@
   
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
   <style type="text/css" media="screen">
-  body { background-color: white; color: black; }
-  g.node text { font-family: Helvetica; }
-  g.node text.subtitle { font-size: 0.7em; }
-  g.node circle {
-    fill: white;
-    stroke: black;
-    stroke-width: 2;
-  }
+    body { background-color: white; color: black; }
   </style>
-  <script src="bower_components/d3/d3.js" charset="utf-8"></script>
-  
-  <style>
 
-  .node {
-    fill: #000;
-  }
-
-  .link {
-    stroke: #999;
-  }
-
-  .node text {
-    color: purple;
-  }
-
-  </style>
-  
 </head>
 <body>
+  <style type="text/css" media="screen">
+    #springy-menu .link {
+      stroke: #999;
+    }
+    #springy-menu g.node text {
+      font-family: Helvetica;
+    }
+    #springy-menu g.node text.subtitle {
+      font-size: 0.7em;
+    }
+    #springy-menu g.node circle {
+      fill: white;
+      fill-opacity: 0.8;
+      stroke: black;
+      stroke-width: 2;
+    }
+  </style>
+  <script src="bower_components/d3/d3.js" charset="utf-8"></script>
   <script>
 
   var width = 500,
       height = 500;
 
-  var fill = d3.scale.category20();
-
-  // static menu
-  // var myNodes = [{ x: 100, y: 100}, {x: 200, y:200 }];
-  // drawMenu(graph);
-
-  // JSON menu
   d3.json("menu.json", function(error, graph) {
     drawMenu(graph);
   });
@@ -58,12 +45,11 @@
         .size([width, height])
         .nodes(graph.nodes)
         .links(graph.links)
-        // initialize with two nodes
         .linkDistance(180)
         .charge(-60);
-        // .on("tick", tick);
 
     var svg = d3.select("body").append("svg")
+        .attr("id","springy-menu")
         .attr("width", width)
         .attr("height", height)
         .attr("xlink","http://www.w3.org/1999/xlink");
@@ -78,22 +64,22 @@
       .enter().append("g")
       .attr("class","node");
 
-    node.append("svg:a")
-      .attr("xlink:href", function(d){ return "." + d.url; })
-      .append("circle")
+    function linkify() {
+      return node.append("svg:a")
+        .attr("xlink:href", function(d){ return "." + d.url; });
+    }
+
+    linkify().append("circle")
+      // radius of the circles
       .attr("r", 12);
 
-    node.append("svg:a")
-      .attr("xlink:href", function(d){ return "." + d.url; })
-      .append("text")
+    linkify().append("text")
       .text(function(d){
         return d.title;
       })
       .attr("class","title");
 
-    node.append("svg:a")
-      .attr("xlink:href", function(d){ return "." + d.url; })
-      .append("text")
+    linkify().append("text")
       .text(function(d){
         return d.subtitle;
       })
