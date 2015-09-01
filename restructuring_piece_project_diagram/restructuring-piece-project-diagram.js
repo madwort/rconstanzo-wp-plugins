@@ -97,7 +97,7 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
       return get_layout_for_state(d).y;
     }
 
-    var myparent = d3.select('#restructuring-piece-project-diagram');
+    var myparent = d3.select('svg#restructuring-piece-project-diagram');
 
     myparent.selectAll('g').transition()
       .attr('x', get_state_x)
