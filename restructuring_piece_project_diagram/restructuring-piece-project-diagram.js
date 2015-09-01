@@ -45,8 +45,7 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
     .attr('y', function(d) { return d.y-50; })
     .attr('width',100)
     .attr('height',100)
-    .attr('rx', 10)
-    .attr('ry', 10);
+    .attr('transform', function(d) { return 'rotate(-45 '+ d.x + ' ' + d.y + ')'; });
 
   add_title(project);
 
@@ -63,7 +62,8 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
     .attr('y', function(d) { return d.y-50; })
     .attr('width',100)
     .attr('height',100)
-    .attr('transform', function(d) { return 'rotate(-45 '+ d.x + ' ' + d.y + ')'; });
+    .attr('rx', 10)
+    .attr('ry', 10);
 
   add_title(concept);
 
