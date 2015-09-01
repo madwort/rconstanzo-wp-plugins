@@ -1,0 +1,14 @@
+{
+    "nodes": [
+        {
+            "id": "demo_piece",
+            "title": "Demo Piece",
+            "summary": "This is a description of the \"demo piece\".",
+            "thumbnail": "./image1.jpg",
+            "url": "http://www.rodrigoconstanzo.com/thesis-introduction/",
+            "shape": "circle",
+            "x": 325,
+            "y": 50
+        }
+    ]
+}

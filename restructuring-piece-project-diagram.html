@@ -14,9 +14,9 @@
 </head>
 <body>
   <script>
-  $( document ).ready( function() {
+  d3.json('restructuring_piece_project_diagram/restructuring-piece-project-diagram.json', function(error, graph) {
     var width = 650,
-      height = 400;
+      height = 800;
     drawPieceProjectDiagram('body', width, height);
   });
   </script>

@@ -38,9 +38,9 @@ add_shortcode('restructuring-piece-project-diagram', 'restructuring_piece_projec
 function restructuring_piece_project_diagram_handler($atts)
 {
 	return "<div id='restructuring-piece-project-diagram'></div><script>
-  $( document ).ready( function() {
-    var width = 650,
-      height = 400;
+  d3.json('" . plugins_url( 'restructuring-piece-project-diagram.json', __FILE__ ) . "', function(error, graph) {
+	  var width = 650,
+	      height = 800;
     drawPieceProjectDiagram('#restructuring-piece-project-diagram', width, height);
   });
   </script>";
