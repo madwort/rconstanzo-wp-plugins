@@ -26,33 +26,33 @@
             "id": "intro",
             "title": "Introduction",
             "subtitle": "(& The Past)",
-            "url": "/",
-            "x": 250,
-            "y": 110
+            "url": "http://www.rodrigoconstanzo.com/thesis-introduction/",
+            "x": 325,
+            "y": 50
         },
         {
             "id": "decisions",
             "title": "Making Decisions In Time",
-            "subtitle": "(& Space)",
-            "url": "/decisions",
-            "x": 180,
-            "y": 250
+            "subtitle": "(Technically Driven Aesthetic Developments)",
+            "url": "http://www.rodrigoconstanzo.com/2015/04/making-decisions-in-time/",
+            "x": 255,
+            "y": 190
         },
         {
             "id": "glove",
             "title": "Cut Glove",
-            "subtitle": "(& Other Clothes)",
-            "url": "/glove",
-            "x": 322,
-            "y": 260
+            "subtitle": "(Aesthetically Driven Technical Developments)",
+            "url": "http://www.rodrigoconstanzo.com/2015/06/cut-glove/",
+            "x": 390,
+            "y": 200
         },
         {
             "id": "conclusion",
             "title": "Conclusion",
             "subtitle": "(& The Future)",
-            "url": "/conclusion",
-            "x": 232,
-            "y": 367
+            "url": "http://www.rodrigoconstanzo.com/thesis-conclusion/",
+            "x": 300,
+            "y": 307
         }
     ]
 }

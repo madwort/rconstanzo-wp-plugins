@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Springy Links Menu
-Plugin URI: http://www.rodrigoconstanzo.com/thesis-introduction/
+Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: Springy menu built with d3!
 Version: 0.1
 Author: MADWORT
@@ -30,8 +30,8 @@ function springy_menu_handler($atts)
 	return "
 	<script>
 
-  var width = 500,
-      height = 500;
+  var width = 650,
+      height = 400;
 
   d3.json('" . plugins_url( 'menu.json', __FILE__ ) . "', function(error, graph) {
     drawMenu(graph);
@@ -70,7 +70,7 @@ function springy_menu_handler($atts)
 
     linkify().append('circle')
       // radius of the circles
-      .attr('r', 12);
+      .attr('r', 10);
 
     linkify().append('text')
       .text(function(d){
