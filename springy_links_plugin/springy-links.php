@@ -12,7 +12,7 @@ function springy_links_scripts()
 {
 		wp_register_script( 'd3', plugins_url( '/d3.js', __FILE__ ) );
 		wp_enqueue_script( 'd3' );
-		wp_register_script( 'springy-links', plugins_url( '/springy-links.js', __FILE__ ), array(), "04" );
+		wp_register_script( 'springy-links', plugins_url( '/springy-links.js', __FILE__ ), array(), "05" );
 		wp_enqueue_script( 'springy-links' );
 }
 add_action( 'wp_enqueue_scripts', 'springy_links_scripts' );
