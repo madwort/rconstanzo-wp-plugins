@@ -6,24 +6,28 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
 
   buttonDiv.append('button')
     .text('Conceptual')
+    .attr('id','conceptual')
     .on('click',function(){
       transition_to_layout('conceptual');
     });
 
   buttonDiv.append('button')
     .text('Temporal')
+    .attr('id','temporal')
     .on('click',function(){
       transition_to_layout('temporal');
     });
 
   buttonDiv.append('button')
     .text('Technological')
+    .attr('id','technological')
     .on('click',function(){
       transition_to_layout('technological');
     });
 
   buttonDiv.append('button')
     .text('Aesthetic')
+    .attr('id','aesthetic')
     .on('click',function(){
       transition_to_layout('aesthetic');
     });

@@ -29,3 +29,13 @@ svg#restructuring-piece-project-diagram .concept
 {
   fill: lightgreen;
 }
+
+button#conceptual,
+button#temporal,
+button#technological,
+button#aesthetic
+{
+  border: none;
+  color: white;
+  background-color: black;
+}
