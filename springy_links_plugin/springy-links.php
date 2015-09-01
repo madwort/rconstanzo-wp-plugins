@@ -3,7 +3,7 @@
 Plugin Name: Springy Links Menu
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: Springy menu built with d3!
-Version: 0.1
+Version: 0.2
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
