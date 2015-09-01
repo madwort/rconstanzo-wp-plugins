@@ -1,5 +1,6 @@
 function drawPieceProjectDiagram(parentName, graph, width, height) {
   var state = 'conceptual';
+  var object_size = 40;
 
   var buttonDiv = d3.select(parentName).append('div');
 
@@ -15,6 +16,18 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
       transition_to_layout('temporal');
     });
 
+  buttonDiv.append('button')
+    .text('Technological')
+    .on('click',function(){
+      transition_to_layout('technological');
+    });
+
+  buttonDiv.append('button')
+    .text('Aesthetic')
+    .on('click',function(){
+      transition_to_layout('aesthetic');
+    });
+
   var svg = d3.select(parentName).append('svg')
       .attr('id','restructuring-piece-project-diagram')
       .attr('width', width)
@@ -22,7 +35,7 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
       .attr('xlink','http://www.w3.org/1999/xlink');
 
   function get_layout_for_state(d) {
-    return d.layouts[state].large;
+    return d.layouts[state];
   }
 
   function get_state_x(d) {
@@ -52,7 +65,7 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
 
   piece.append('circle')
     // radius of the circles
-    .attr('r', 50);
+    .attr('r', object_size/2);
 
   add_title(piece);
 
@@ -63,8 +76,8 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
     .attr('id', function(d) { return d.id; });
 
   project.append('rect')
-    .attr('width',100)
-    .attr('height',100);
+    .attr('width',object_size)
+    .attr('height',object_size);
 
   add_title(project);
 
@@ -75,10 +88,10 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
     .attr('id', function(d) { return d.id; });
 
   concept.append('rect')
-    .attr('width',100)
-    .attr('height',100)
-    .attr('rx', 10)
-    .attr('ry', 10);
+    .attr('width',object_size)
+    .attr('height',object_size)
+    .attr('rx', object_size/10)
+    .attr('ry', object_size/10);
 
   add_title(concept);
 
@@ -94,13 +107,13 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
       .attr('cy', get_state_y);
 
     d3.selectAll('g.project rect').transition()
-      .attr('x', function(d) { return get_state_x(d)-50; })
-      .attr('y', function(d) { return get_state_y(d)-50; })
+      .attr('x', function(d) { return get_state_x(d)-(object_size/2); })
+      .attr('y', function(d) { return get_state_y(d)-(object_size/2); })
       .attr('transform', function(d) { return 'rotate(-45 '+ get_state_x(d) + ' ' + get_state_y(d) + ')'; });
 
     d3.selectAll('g.concept rect').transition()
-      .attr('x', function(d) { return get_state_x(d)-50; })
-      .attr('y', function(d) { return get_state_y(d)-50; });
+      .attr('x', function(d) { return get_state_x(d)-(object_size/2); })
+      .attr('y', function(d) { return get_state_y(d)-(object_size/2); });
 
     d3.selectAll('g text').transition()
       .attr('x', function(d) { return (get_state_x(d)-(this.getBBox().width/2)); })

@@ -8,16 +8,20 @@
             "url": "http://www.rodrigoconstanzo.com/demo-piece/",
             "layouts": {
               "conceptual": {
-                "large": {
-                  "x": 325,
-                  "y": 50
-                }
+                "x": 325,
+                "y": 50
               },
               "temporal": {
-                "large": {
-                  "x": 25,
-                  "y": 50
-                }
+                "x": 25,
+                "y": 50
+              },
+              "technological": {
+                "x": 325,
+                "y": 50
+              },
+              "aesthetic": {
+                "x": 25,
+                "y": 50
               }
             }
         },
@@ -29,16 +33,20 @@
             "url": "http://www.rodrigoconstanzo.com/everything-1/",
             "layouts": {
               "conceptual": {
-                "large": {
-                  "x": 475,
-                  "y": 50
-                }
+                "x": 475,
+                "y": 50
               },
               "temporal": {
-                "large": {
-                  "x": 475,
-                  "y": 250
-                }
+                "x": 475,
+                "y": 250
+              },
+              "technological": {
+                "x": 475,
+                "y": 50
+              },
+              "aesthetic": {
+                "x": 475,
+                "y": 250
               }
             }
         }
@@ -52,16 +60,20 @@
             "url": "http://www.rodrigoconstanzo.com/dfscore/",
             "layouts": {
               "conceptual": {
-                "large": {
-                  "x": 325,
-                  "y": 180
-                }
+                "x": 325,
+                "y": 180
               },
               "temporal": {
-                "large": {
-                  "x": 325,
-                  "y": 180
-                }
+                "x": 325,
+                "y": 180
+              },
+              "technological": {
+                "x": 325,
+                "y": 180
+              },
+              "aesthetic": {
+                "x": 325,
+                "y": 180
               }
             }
         },
@@ -73,16 +85,20 @@
             "url": "http://www.rodrigoconstanzo.com/grassi-box/",
             "layouts": {
               "conceptual": {
-                "large": {
-                  "x": 475,
-                  "y": 180
-                }
+                "x": 475,
+                "y": 180
               },
               "temporal": {
-                "large": {
-                  "x": 475,
-                  "y": 180
-                }
+                "x": 475,
+                "y": 180
+              },
+              "technological": {
+                "x": 475,
+                "y": 180
+              },
+              "aesthetic": {
+                "x": 475,
+                "y": 180
               }
             }
         },
@@ -94,16 +110,20 @@
             "url": "http://www.rodrigoconstanzo.com/party-van/",
             "layouts": {
               "conceptual": {
-                "large": {
-                  "x": 600,
-                  "y": 180
-                }
+                "x": 600,
+                "y": 180
               },
               "temporal": {
-                "large": {
-                  "x": 100,
-                  "y": 180
-                }
+                "x": 100,
+                "y": 180
+              },
+              "technological": {
+                "x": 600,
+                "y": 180
+              },
+              "aesthetic": {
+                "x": 100,
+                "y": 180
               }
             }
         }
@@ -117,16 +137,20 @@
             "url": "http://www.rodrigoconstanzo.com/improv/",
             "layouts": {
               "conceptual": {
-                "large": {
-                  "x": 325,
-                  "y": 320
-                }
+                "x": 325,
+                "y": 320
               },
               "temporal": {
-                "large": {
-                  "x": 425,
-                  "y": 320
-                }
+                "x": 425,
+                "y": 320
+              },
+              "technological": {
+                "x": 325,
+                "y": 320
+              },
+              "aesthetic": {
+                "x": 425,
+                "y": 320
               }
             }
         },
@@ -138,16 +162,20 @@
             "url": "http://www.rodrigoconstanzo.com/history-of-visual-art/",
             "layouts": {
               "conceptual": {
-                "large": {
-                  "x": 175,
-                  "y": 320
-                }
+                "x": 175,
+                "y": 320
               },
               "temporal": {
-                "large": {
-                  "x": 155,
-                  "y": 220
-                }
+                "x": 155,
+                "y": 220
+              },
+              "technological": {
+                "x": 175,
+                "y": 320
+              },
+              "aesthetic": {
+                "x": 155,
+                "y": 220
               }
             }
         }
