@@ -1,5 +1,30 @@
-svg#restructuring-piece-project-diagram circle {
-  fill-opacity: 0;
+svg#restructuring-piece-project-diagram text
+{
+  font-family: Helvetica;
+  fill-opacity: 1;
+  stroke: none;
+}
+
+svg#restructuring-piece-project-diagram .piece,
+svg#restructuring-piece-project-diagram .project,
+svg#restructuring-piece-project-diagram .concept
+{
+  fill-opacity: 0.5;
   stroke: black;
   scroke-width: 2;
+}
+
+svg#restructuring-piece-project-diagram .piece
+{
+  fill: pink;
+}
+
+svg#restructuring-piece-project-diagram .project
+{
+  fill: darkblue;
+}
+
+svg#restructuring-piece-project-diagram .concept
+{
+  fill: lightgreen;
 }

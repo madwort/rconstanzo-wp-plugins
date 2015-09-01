@@ -1,14 +1,35 @@
 {
-    "nodes": [
+    "pieces": [
         {
             "id": "demo_piece",
-            "title": "Demo Piece",
+            "title": "demo piece",
             "summary": "This is a description of the \"demo piece\".",
-            "thumbnail": "./image1.jpg",
-            "url": "http://www.rodrigoconstanzo.com/thesis-introduction/",
-            "shape": "circle",
+            "thumbnail": "./demo_piece.jpg",
+            "url": "http://www.rodrigoconstanzo.com/demo-piece/",
             "x": 325,
             "y": 50
+        }
+    ],
+    "projects": [
+        {
+            "id": "dfscore",
+            "title": "dfscore",
+            "summary": "This is a description of \"dfscore\".",
+            "thumbnail": "./dfscore.jpg",
+            "url": "http://www.rodrigoconstanzo.com/dfscore/",
+            "x": 325,
+            "y": 150
+        }
+    ],
+    "concepts": [
+        {
+            "id": "improv",
+            "title": "improv",
+            "summary": "This is a description of \"improv\".",
+            "thumbnail": "./improv.jpg",
+            "url": "http://www.rodrigoconstanzo.com/improv/",
+            "x": 325,
+            "y": 250
         }
     ]
 }
