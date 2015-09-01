@@ -67,4 +67,8 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
 
   add_title(concept);
 
+  d3.selectAll("g.piece").transition().duration(5000).attr('x', function(d) { return ( d.x + 100); });
+  d3.selectAll("g.piece circle").transition().duration(5000).attr('cx', function(d) { return ( d.x + 100); });
+  d3.selectAll("g.piece text").transition().duration(5000).attr('x', function(d) { return (d.x-(this.getBBox().width/2) + 100); });
+
 };
