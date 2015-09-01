@@ -20,6 +20,7 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
     .data(graph.pieces)
     .enter().append('g')
     .attr('class','piece')
+    .attr('id', function(d) { return d.id; })
     .attr('x', function(d) { return d.x; })
     .attr('y', function(d) { return d.y; });
 
@@ -35,6 +36,7 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
     .data(graph.projects)
     .enter().append('g')
     .attr('class','project')
+    .attr('id', function(d) { return d.id; })
     .attr('x', function(d) { return d.x; })
     .attr('y', function(d) { return d.y; });
 
@@ -52,6 +54,7 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
     .data(graph.concepts)
     .enter().append('g')
     .attr('class','concept')
+    .attr('id', function(d) { return d.id; })
     .attr('x', function(d) { return d.x; })
     .attr('y', function(d) { return d.y; });
 

@@ -8,6 +8,15 @@
             "url": "http://www.rodrigoconstanzo.com/demo-piece/",
             "x": 325,
             "y": 50
+        },
+        {
+            "id": "everything1",
+            "title": "everything 1",
+            "summary": "This is a description of the \"everything 1\".",
+            "thumbnail": "./everything_1.jpg",
+            "url": "http://www.rodrigoconstanzo.com/everything-1/",
+            "x": 475,
+            "y": 50
         }
     ],
     "projects": [
@@ -19,6 +28,24 @@
             "url": "http://www.rodrigoconstanzo.com/dfscore/",
             "x": 325,
             "y": 180
+        },
+        {
+            "id": "grassi_box",
+            "title": "grassi box",
+            "summary": "This is a description of \"grassi box\".",
+            "thumbnail": "./grassi_box.jpg",
+            "url": "http://www.rodrigoconstanzo.com/grassi-box/",
+            "x": 475,
+            "y": 180
+        },
+        {
+            "id": "party_van",
+            "title": "party van",
+            "summary": "This is a description of \"party van\".",
+            "thumbnail": "./party_van.jpg",
+            "url": "http://www.rodrigoconstanzo.com/party-van/",
+            "x": 600,
+            "y": 180
         }
     ],
     "concepts": [
@@ -29,6 +56,15 @@
             "thumbnail": "./improv.jpg",
             "url": "http://www.rodrigoconstanzo.com/improv/",
             "x": 325,
+            "y": 320
+        },
+        {
+            "id": "history_visual_art",
+            "title": "history of visual art",
+            "summary": "This is a description of \"history of visual art\".",
+            "thumbnail": "./history_visual_art.jpg",
+            "url": "http://www.rodrigoconstanzo.com/history-of-visual-art/",
+            "x": 175,
             "y": 320
         }
     ]

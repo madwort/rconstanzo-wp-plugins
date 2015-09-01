@@ -2,6 +2,7 @@ svg#restructuring-piece-project-diagram text
 {
   font-family: Helvetica;
   fill-opacity: 1;
+  fill: black;
   stroke: none;
 }
 
