@@ -6,6 +6,7 @@ This is a grab bag of stuff that will be woven into Rod's thesis.
 * Infinite scrolling generative text
 * Scroll to z plane images
 * Springy d3 menu widget 
+* Restructuring piece/project diagram
 
 ##References
 
