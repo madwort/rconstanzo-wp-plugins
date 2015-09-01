@@ -1,5 +1,19 @@
 function drawPieceProjectDiagram(parentName, graph, width, height) {
-  var state = "conceptual";
+  var state = 'conceptual';
+
+  var buttonDiv = d3.select(parentName).append('div');
+
+  buttonDiv.append('button')
+    .text('Conceptual')
+    .on('click',function(){
+      transition_to_layout('conceptual');
+    });
+
+  buttonDiv.append('button')
+    .text('Temporal')
+    .on('click',function(){
+      transition_to_layout('temporal');
+    });
 
   var svg = d3.select(parentName).append('svg')
       .attr('id','restructuring-piece-project-diagram')
@@ -34,15 +48,11 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
     .data(graph.pieces)
     .enter().append('g')
     .attr('class','piece')
-    .attr('id', function(d) { return d.id; })
-    .attr('x', get_state_x)
-    .attr('y', get_state_y);
+    .attr('id', function(d) { return d.id; });
 
   piece.append('circle')
     // radius of the circles
-    .attr('r', 50)
-    .attr('cx', get_state_x)
-    .attr('cy', get_state_y);
+    .attr('r', 50);
 
   add_title(piece);
 
@@ -50,16 +60,11 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
     .data(graph.projects)
     .enter().append('g')
     .attr('class','project')
-    .attr('id', function(d) { return d.id; })
-    .attr('x', get_state_x)
-    .attr('y', get_state_y);
+    .attr('id', function(d) { return d.id; });
 
   project.append('rect')
-    .attr('x', function(d) { return get_state_x(d)-50; })
-    .attr('y', function(d) { return get_state_y(d)-50; })
     .attr('width',100)
-    .attr('height',100)
-    .attr('transform', function(d) { return 'rotate(-45 '+ get_state_x(d) + ' ' + get_state_y(d) + ')'; });
+    .attr('height',100);
 
   add_title(project);
 
@@ -67,13 +72,9 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
     .data(graph.concepts)
     .enter().append('g')
     .attr('class','concept')
-    .attr('id', function(d) { return d.id; })
-    .attr('x', get_state_x)
-    .attr('y', get_state_y);
+    .attr('id', function(d) { return d.id; });
 
   concept.append('rect')
-    .attr('x', function(d) { return get_state_x(d)-50; })
-    .attr('y', function(d) { return get_state_y(d)-50; })
     .attr('width',100)
     .attr('height',100)
     .attr('rx', 10)
@@ -81,8 +82,32 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
 
   add_title(concept);
 
-  // d3.selectAll("g.piece").transition().duration(5000).attr('x', function(d) { return ( d.x + 100); });
-  // d3.selectAll("g.piece circle").transition().duration(5000).attr('cx', function(d) { return ( d.x + 100); });
-  // d3.selectAll("g.piece text").transition().duration(5000).attr('x', function(d) { return (d.x-(this.getBBox().width/2) + 100); });
+  function transition_to_layout(target_layout) {
+    state = target_layout;
+
+    d3.selectAll('g').transition()
+      .attr('x', get_state_x)
+      .attr('y', get_state_y);
+
+    d3.selectAll('g.piece circle').transition()
+      .attr('cx', get_state_x)
+      .attr('cy', get_state_y);
+
+    d3.selectAll('g.project rect').transition()
+      .attr('x', function(d) { return get_state_x(d)-50; })
+      .attr('y', function(d) { return get_state_y(d)-50; })
+      .attr('transform', function(d) { return 'rotate(-45 '+ get_state_x(d) + ' ' + get_state_y(d) + ')'; });
+
+    d3.selectAll('g.concept rect').transition()
+      .attr('x', function(d) { return get_state_x(d)-50; })
+      .attr('y', function(d) { return get_state_y(d)-50; });
+
+    d3.selectAll('g text').transition()
+      .attr('x', function(d) { return (get_state_x(d)-(this.getBBox().width/2)); })
+      .attr('y', get_state_y);
+
+  }
+
+  transition_to_layout('conceptual');
 
 };
