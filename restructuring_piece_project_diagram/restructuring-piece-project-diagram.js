@@ -97,24 +97,26 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
       return get_layout_for_state(d).y;
     }
 
-    d3.selectAll('g').transition()
+    var myparent = d3.select('#restructuring-piece-project-diagram');
+
+    myparent.selectAll('g').transition()
       .attr('x', get_state_x)
       .attr('y', get_state_y);
 
-    d3.selectAll('g.piece circle').transition()
+    myparent.selectAll('g.piece circle').transition()
       .attr('cx', get_state_x)
       .attr('cy', get_state_y);
 
-    d3.selectAll('g.project rect').transition()
+    myparent.selectAll('g.project rect').transition()
       .attr('x', function(d) { return get_state_x(d)-(object_size/2); })
       .attr('y', function(d) { return get_state_y(d)-(object_size/2); })
       .attr('transform', function(d) { return 'rotate(-45 '+ get_state_x(d) + ' ' + get_state_y(d) + ')'; });
 
-    d3.selectAll('g.concept rect').transition()
+    myparent.selectAll('g.concept rect').transition()
       .attr('x', function(d) { return get_state_x(d)-(object_size/2); })
       .attr('y', function(d) { return get_state_y(d)-(object_size/2); });
 
-    d3.selectAll('g text').transition()
+    myparent.selectAll('g text').transition()
       .attr('x', function(d) { return (get_state_x(d)-(this.getBBox().width/2)); })
       .attr('y', get_state_y);
 
