@@ -1,5 +1,4 @@
 function drawPieceProjectDiagram(parentName, graph, width, height) {
-  var state = 'conceptual';
   var object_size = 40;
 
   var buttonDiv = d3.select(parentName).append('div');
@@ -38,26 +37,12 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
       .attr('height', height)
       .attr('xlink','http://www.w3.org/1999/xlink');
 
-  function get_layout_for_state(d) {
-    return d.layouts[state];
-  }
-
-  function get_state_x(d) {
-    return get_layout_for_state(d).x;
-  }
-
-  function get_state_y(d) {
-    return get_layout_for_state(d).y;
-  }
-
   function add_title(svgObjects) {
     svgObjects.append('text')
       .text(function(d){
         return d.title;
       })
       .attr('class','title')
-      .attr('x', function(d) { return (get_state_x(d)-(this.getBBox().width/2)); })
-      .attr('y', get_state_y)
       .on('mouseover',function(d){ console.log("BOO!"); });
   }
 
@@ -100,7 +85,17 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
   add_title(concept);
 
   function transition_to_layout(target_layout) {
-    state = target_layout;
+    function get_layout_for_state(d) {
+      return d.layouts[target_layout];
+    }
+
+    function get_state_x(d) {
+      return get_layout_for_state(d).x;
+    }
+
+    function get_state_y(d) {
+      return get_layout_for_state(d).y;
+    }
 
     d3.selectAll('g').transition()
       .attr('x', get_state_x)
