@@ -24,7 +24,7 @@ function drawSpringyMenu(parentName, graph, width, height) {
 
   function linkify() {
     return node.append('svg:a')
-      .attr('xlink:href', function(d){ return '.' + d.url; });
+      .attr('xlink:href', function(d){ return d.url; });
   }
 
   linkify().append('circle')
