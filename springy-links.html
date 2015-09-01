@@ -16,10 +16,9 @@
 </head>
 <body>
   <script>
-  var width = 650,
-      height = 400;
-
   d3.json('springy_links_plugin/menu.json', function(error, graph) {
+    var width = 650,
+      height = 400;
     drawSpringyMenu('body', graph, width, height);
   });
   </script>

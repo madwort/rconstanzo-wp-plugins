@@ -29,12 +29,11 @@ add_shortcode('springy-menu', 'springy_menu_handler');
 
 function springy_menu_handler($atts)
 {
-	return "<div id='springy-links'></div><script>
-
-  var width = 650,
-      height = 400;
-
+	return "<div id='springy-links'></div>
+	<script>
   d3.json('" . plugins_url( 'menu.json', __FILE__ ) . "', function(error, graph) {
+	  var width = 650,
+	      height = 400;
     drawSpringyMenu('#springy-links', graph, width, height);
   });
 	</script>";
