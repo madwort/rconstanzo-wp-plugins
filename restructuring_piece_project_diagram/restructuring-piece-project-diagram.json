@@ -18,7 +18,7 @@
             "thumbnail": "./dfscore.jpg",
             "url": "http://www.rodrigoconstanzo.com/dfscore/",
             "x": 325,
-            "y": 150
+            "y": 180
         }
     ],
     "concepts": [
@@ -29,7 +29,7 @@
             "thumbnail": "./improv.jpg",
             "url": "http://www.rodrigoconstanzo.com/improv/",
             "x": 325,
-            "y": 250
+            "y": 320
         }
     ]
 }
