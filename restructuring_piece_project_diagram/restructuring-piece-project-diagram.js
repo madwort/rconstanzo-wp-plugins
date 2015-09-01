@@ -7,12 +7,16 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
       .attr('height', height)
       .attr('xlink','http://www.w3.org/1999/xlink');
 
+  function get_layout_for_state(d) {
+    return d.layouts[state].large;
+  }
+
   function get_state_x(d) {
-    return d.layouts[state].large.x;
+    return get_layout_for_state(d).x;
   }
 
   function get_state_y(d) {
-    return d.layouts[state].large.y;
+    return get_layout_for_state(d).y;
   }
 
   function add_title(svgObjects) {
