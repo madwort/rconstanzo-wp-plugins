@@ -33,7 +33,8 @@ svg#restructuring-piece-project-diagram .concept
 button#conceptual,
 button#temporal,
 button#technological,
-button#aesthetic
+button#aesthetic,
+button#draggable
 {
   border: none;
   color: white;

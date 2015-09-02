@@ -31,6 +31,13 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
       transition_to_layout('aesthetic');
     });
 
+  buttonDiv.append('button')
+    .text('Draggable')
+    .attr('id','draggable')
+    .on('click',function(){
+      start_draggable_layout();
+    });
+
   var svg = d3.select(parentName).append('svg')
       .attr('id','restructuring-piece-project-diagram')
       .attr('width', width)
@@ -84,7 +91,90 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
 
   add_title(concept);
 
+  var force1, force2, force3;
+
+  function create_draggable_layout() {
+    force1 = d3.layout.force()
+        .size([width, height])
+        .nodes(graph.pieces)
+        .charge(0)
+        .gravity(0);
+
+    force1.on('tick',function(){
+      var myParent = d3.select('svg#restructuring-piece-project-diagram');
+
+      myParent.selectAll('g.piece circle')
+          .attr('cx', function(d) { return d.x; })
+          .attr('cy', function(d) { return d.y; });
+
+      myParent.selectAll('text')
+          .attr('x', function(d) { return (d.x-(this.getBBox().width/2)); })
+          .attr('y', function(d) { return d.y; });
+    })
+
+    force2 = d3.layout.force()
+        .size([width, height])
+        .nodes(graph.projects)
+        .charge(0)
+        .gravity(0);
+
+    force2.on('tick',function(){
+      var myParent = d3.select('svg#restructuring-piece-project-diagram');
+
+      myParent.selectAll('g.project rect')
+          .attr('x', function(d) { return d.x-(object_size/2); })
+          .attr('y', function(d) { return d.y-(object_size/2); })
+          .attr('transform', function(d) { return 'rotate(-45 '+ d.x + ' ' + d.y + ')'; });
+
+      myParent.selectAll('text')
+          .attr('x', function(d) { return (d.x-(this.getBBox().width/2)); })
+          .attr('y', function(d) { return d.y; });
+    })
+
+    force3 = d3.layout.force()
+        .size([width, height])
+        .nodes(graph.concepts)
+        .charge(0)
+        .gravity(0);
+
+    force3.on('tick',function(){
+      var myParent = d3.select('svg#restructuring-piece-project-diagram');
+
+      myParent.selectAll('g.concept rect')
+          .attr('x', function(d) { return d.x-(object_size/2); })
+          .attr('y', function(d) { return d.y-(object_size/2); });
+
+      myParent.selectAll('text')
+          .attr('x', function(d) { return (d.x-(this.getBBox().width/2)); })
+          .attr('y', function(d) { return d.y; });
+    })
+
+  }
+
+  create_draggable_layout();
+
+  function start_draggable_layout() {
+    piece.call(force1.drag);
+    project.call(force2.drag);
+    concept.call(force3.drag);
+    force1.start();
+    force2.start();
+    force3.start();
+  }
+
+  function stop_draggable_layout() {
+    piece.on('mousedown.drag', null);
+    project.on('mousedown.drag', null);
+    concept.on('mousedown.drag', null);
+    force1.stop();
+    force2.stop();
+    force3.stop();
+  }
+
   function transition_to_layout(target_layout) {
+
+    stop_draggable_layout();
+
     function get_layout_for_state(d) {
       return d.layouts[target_layout];
     }
