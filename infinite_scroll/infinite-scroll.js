@@ -79,7 +79,7 @@ function generateText() {
 
 }
 
-$(window).scroll(function() {
+jQuery(window).scroll(function() {
 	if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
     $("div#scroll-to-read").fadeOut();
     $("p").filter(":last").append("<p style='display:none;'>"+generateText()+"</p>").fadeIn("slow");
