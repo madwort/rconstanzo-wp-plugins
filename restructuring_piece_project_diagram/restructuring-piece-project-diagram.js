@@ -103,21 +103,21 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
   add_title(concept);
 
   function dump_current_layout() {
-    d3.selectAll('table#dump tr').remove();
+    d3.selectAll('table#dump tr.data').remove();
     piece.select('circle')[0].forEach(function(d) {
-      var myrow = d3.select('table#dump').append('tr');
+      var myrow = d3.select('table#dump').append('tr').attr('class','data');
       myrow.append('td').text(d.id);
       myrow.append('td').text(d.cx.baseVal.valueAsString);
       myrow.append('td').text(d.cy.baseVal.valueAsString);
     });
     project.select('rect')[0].forEach(function(d) {
-      var myrow = d3.select('table#dump').append('tr');
+      var myrow = d3.select('table#dump').append('tr').attr('class','data');
       myrow.append('td').text(d.id);
       myrow.append('td').text(d.x.baseVal.valueAsString);
       myrow.append('td').text(d.y.baseVal.valueAsString);
     });
     concept.select('rect')[0].forEach(function(d){
-      var myrow = d3.select('table#dump').append('tr');
+      var myrow = d3.select('table#dump').append('tr').attr('class','data');
       myrow.append('td').text(d.id);
       myrow.append('td').text(d.x.baseVal.valueAsString);
       myrow.append('td').text(d.y.baseVal.valueAsString);
@@ -129,10 +129,10 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
   function create_draggable_layout() {
     // create container for dumps
     d3.select('svg#restructuring-piece-project-diagram').attr('style','float:left');
-    var dump_header = d3.select('body').append('table').attr('style','float:left;').attr('id','dump').append('th');
-    dump_header.append('td').text('id');
-    dump_header.append('td').text('x');
-    dump_header.append('td').text('y');
+    var dump_header = d3.select('body').append('table').attr('style','float:left;').attr('id','dump').append('tr');
+    dump_header.append('th').text('id');
+    dump_header.append('th').text('x');
+    dump_header.append('th').text('y');
 
     force1 = d3.layout.force()
         .size([width, height])
