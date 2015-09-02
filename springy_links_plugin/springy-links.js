@@ -52,17 +52,19 @@ function drawSpringyMenu(parentName, graph, width, height) {
         .attr('x2', function(d) { return d.target.x; })
         .attr('y2', function(d) { return d.target.y; });
 
-    d3.selectAll('circle')
+    var myParent = d3.select('#springy-menu');
+
+    myParent.selectAll('circle')
         .attr('cx', function(d) { return d.x; })
         .attr('cy', function(d) { return d.y; });
 
-    d3.selectAll('text')
+    myParent.selectAll('text')
         .attr('x', function(d) { return (d.x-(this.getBBox().width/2)); });
 
-    d3.selectAll('text.title')
+    myParent.selectAll('text.title')
         .attr('y', function(d) { return (d.y-40); });
 
-    d3.selectAll('text.subtitle')
+    myParent.selectAll('text.subtitle')
         .attr('y', function(d) { return (d.y-20); });
 
   })
