@@ -4,108 +4,21 @@
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
 	<title>RODRIGO</title>
   <link rel="stylesheet" href="rod_demos.css" type="text/css" media="screen">
+
+  <link rel="stylesheet" href="infinite_scroll/infinite-scroll.css" type="text/css" media="screen">
+
+  <script src='infinite_scroll/infinite-scroll.js' charset='utf-8'></script>
   
-	<script type="text/javascript">
-    function generateText() {
-      var myText = "";
-
-      if(Math.random()>0.7) {
-        // 30% prob
-        myText += "This is ";
-      } else {
-        if(Math.random()>0.5) {
-          // 60% prob
-          myText += "You are reading ";
-        } else {
-          // 40%
-          myText += "Here we have ";
-        }
-        
-      }
-      
-      var textPhrase = "";
-      
-      if(Math.random()>0.4) {
-        myText += "a placeholder ";
-        textPhrase = "placeholder";
-      } else {
-        myText += "stand-in text ";
-        textPhrase = "text";
-      }
-      
-      myText += "for the ";
-      
-      if(Math.random()>0.3) {
-        myText += "text ";
-      } else {
-        myText += "content ";
-      }
-
-      myText += "that will " 
-      
-      if(Math.random()>0.3) {
-        myText += "make up";
-      } else {
-        myText += "comprise ";
-      }
-
-      myText += " the first chapter of ";
-      
-      if(Math.random()>0.1) {
-        myText += "Rodrigo Constanzo";
-      } else {
-        myText += "the badass MF";
-      }
-      
-      myText += "'s web thesis.";
-
-      myText += " This "+textPhrase+" can take "
-      
-      if(Math.random()>0.5) {
-        myText += "many forms, ";
-      } else {
-        myText += "a multiplicity of approaches whilst ";
-      }
-
-      myText += "attempting to explain "
-
-      if(Math.random()>0.5) {
-        myText += "the same concepts ";
-      } else {
-        myText += "similar ideas ";
-      }
-
-      myText += " from ";
-
-      if(Math.random()>0.5) {
-        myText += "different perspectives.";
-      } else {
-        myText += "alternative viewpoints.";
-      }
-
-      return myText;
-
-    }
-
-  	$(window).scroll(function() {
-  		if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-        $("#scroll-to-read").fadeOut();
-        $("p").filter(":last").append("<p style='display:none;'>"+generateText()+"</p>").fadeIn("slow");
-             // alert("near bottom!");
-  	   }
-  	});
-
-	</script>
 </head>
 <body>
 
     <p>
     This is a placeholder for the text that will make up the first chapter of Rodrigo Constanzo's web thesis. This text can take many forms, attempting to explain the same concepts from different perspectives. 
     </p>
-  
-    <div id="scroll-to-read" style="padding-top: 5em;"> Scroll down to continue reading. </div>
-  </div>
 
+    <div id='scroll-to-read'> Scroll down to continue reading. </div>
+
+  </div>
 
 </body>
 </html>
