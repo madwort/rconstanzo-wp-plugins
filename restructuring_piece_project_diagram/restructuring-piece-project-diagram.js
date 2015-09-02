@@ -38,6 +38,13 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
       start_draggable_layout();
     });
 
+  buttonDiv.append('button')
+    .text('Dump')
+    .attr('id','dump')
+    .on('click',function(){
+      dump_current_layout();
+    });
+
   var svg = d3.select(parentName).append('svg')
       .attr('id','restructuring-piece-project-diagram')
       .attr('width', width)
@@ -50,7 +57,8 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
         return d.title;
       })
       .attr('class','title')
-      .on('mouseover',function(d){ console.log("BOO!"); });
+      .on('mouseover',function(d){ console.log("BOO!"); })
+      ;
   }
 
   var piece = svg.selectAll('g.piece')
@@ -61,7 +69,8 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
 
   piece.append('circle')
     // radius of the circles
-    .attr('r', object_size/2);
+    .attr('r', object_size/2)
+    .attr('id', function(d) { return d.id; });
 
   add_title(piece);
 
@@ -73,7 +82,8 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
 
   project.append('rect')
     .attr('width',object_size)
-    .attr('height',object_size);
+    .attr('height',object_size)
+    .attr('id', function(d) { return d.id; });
 
   add_title(project);
 
@@ -87,13 +97,43 @@ function drawPieceProjectDiagram(parentName, graph, width, height) {
     .attr('width',object_size)
     .attr('height',object_size)
     .attr('rx', object_size/10)
-    .attr('ry', object_size/10);
+    .attr('ry', object_size/10)
+    .attr('id', function(d) { return d.id; });
 
   add_title(concept);
+
+  function dump_current_layout() {
+    d3.selectAll('table#dump tr').remove();
+    piece.select('circle')[0].forEach(function(d) {
+      var myrow = d3.select('table#dump').append('tr');
+      myrow.append('td').text(d.id);
+      myrow.append('td').text(d.cx.baseVal.valueAsString);
+      myrow.append('td').text(d.cy.baseVal.valueAsString);
+    });
+    project.select('rect')[0].forEach(function(d) {
+      var myrow = d3.select('table#dump').append('tr');
+      myrow.append('td').text(d.id);
+      myrow.append('td').text(d.x.baseVal.valueAsString);
+      myrow.append('td').text(d.y.baseVal.valueAsString);
+    });
+    concept.select('rect')[0].forEach(function(d){
+      var myrow = d3.select('table#dump').append('tr');
+      myrow.append('td').text(d.id);
+      myrow.append('td').text(d.x.baseVal.valueAsString);
+      myrow.append('td').text(d.y.baseVal.valueAsString);
+    });
+  }
 
   var force1, force2, force3;
 
   function create_draggable_layout() {
+    // create container for dumps
+    d3.select('svg#restructuring-piece-project-diagram').attr('style','float:left');
+    var dump_header = d3.select('body').append('table').attr('style','float:left;').attr('id','dump').append('th');
+    dump_header.append('td').text('id');
+    dump_header.append('td').text('x');
+    dump_header.append('td').text('y');
+
     force1 = d3.layout.force()
         .size([width, height])
         .nodes(graph.pieces)
