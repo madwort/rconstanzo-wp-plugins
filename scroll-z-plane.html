@@ -4,6 +4,11 @@
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
 	<title>RODRIGO</title>
   <link rel="stylesheet" href="rod_demos.css" type="text/css" media="screen">
+
+  <link rel="stylesheet" href="infinite_scroll/infinite-scroll.css" type="text/css" media="screen">
+
+  <script src='scroll_z_plane/scroll-z-plane.js' charset='utf-8'></script>
+
   
 </head>
 <body>
@@ -18,31 +23,6 @@
       <img src="scroll_z_plane/glitch_assets/7.jpg" id="rod7" style="display: none;" />
       <img src="scroll_z_plane/glitch_assets/8.jpg" id="rod8" style="display: none;" />
     </div>
-    <script type="text/javascript">
-    function show_rod_number(j) {
-      for (var i = 1; i < 9; i++) {
-        $('#rod'+i).hide();
-        if (j == i) {
-          $('#rod'+i).show();
-        }
-      }
-
-    }
-
-  	$(window).scroll(function() {
-      // adjust this parameter for how quickly to switch between
-      // images as you scroll (eg. change images every 50px?)
-      var scroll_diff = 50;
-      var pos = Math.floor($(document).scrollTop()/scroll_diff)+1;
-      if (pos > 8) {
-        pos = 8;
-      }
-      if (pos < 1) {
-        pos = 1;
-      }
-      show_rod_number(pos);
-  	});
-    </script>
     
     <p>
 <p>This is a placeholder for the text that will make up the first chapter of Rodrigo Constanzo's web thesis. This text can take many forms, attempting to explain the same concepts from different perspectives.</p>
