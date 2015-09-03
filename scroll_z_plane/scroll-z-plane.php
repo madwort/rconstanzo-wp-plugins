@@ -31,7 +31,6 @@ function scroll_z_plane_handler($atts)
   $a = shortcode_atts( array(
       'path' => plugins_url( '/scroll_z_plane_assets/', __FILE__ ),
   ), $atts );
-	var_dump($a);
 
 	return "
     <div id='scroll-z-plane'>
