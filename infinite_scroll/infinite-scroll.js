@@ -12,11 +12,11 @@ function generateText() {
       // 40%
       myText += "Here we have ";
     }
-    
+  
   }
-  
+
   var textPhrase = "";
-  
+
   if(Math.random()>0.4) {
     myText += "a placeholder ";
     textPhrase = "placeholder";
@@ -24,9 +24,9 @@ function generateText() {
     myText += "stand-in text ";
     textPhrase = "text";
   }
-  
+
   myText += "for the ";
-  
+
   if(Math.random()>0.3) {
     myText += "text ";
   } else {
@@ -34,7 +34,7 @@ function generateText() {
   }
 
   myText += "that will " 
-  
+
   if(Math.random()>0.3) {
     myText += "make up";
   } else {
@@ -42,17 +42,17 @@ function generateText() {
   }
 
   myText += " the first chapter of ";
-  
+
   if(Math.random()>0.1) {
     myText += "Rodrigo Constanzo";
   } else {
     myText += "the badass MF";
   }
-  
+
   myText += "'s web thesis.";
 
   myText += " This "+textPhrase+" can take "
-  
+
   if(Math.random()>0.5) {
     myText += "many forms, ";
   } else {
@@ -79,10 +79,12 @@ function generateText() {
 
 }
 
-jQuery(window).scroll(function() {
-	if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-    $("div#scroll-to-read").fadeOut();
-    $("p").filter(":last").append("<p style='display:none;'>"+generateText()+"</p>").fadeIn("slow");
-         // alert("near bottom!");
-   }
-});
+( function($) {
+  $(window).scroll(function() {
+  	if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+      $("div#scroll-to-read").fadeOut();
+      $("p").filter(":last").append("<p style='display:none;'>"+generateText()+"</p>").fadeIn("slow");
+           // alert("near bottom!");
+     }
+  });
+} )( jQuery );
