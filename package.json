@@ -1,6 +1,6 @@
 {
-  "name": "infinite-scroll",
-  "description": "Demo Infinite Scroll",
+  "name": "rconstanzo-wp-plugins",
+  "description": "Rodrigo Constanzo's Thesis Wordpress plugins",
   "author": "Tom Ward <tomward@fmail.co.uk>",
   "version": "0.0.1",
   "dependencies": {
