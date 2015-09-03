@@ -1,9 +1,9 @@
 ( function($) {
   function show_rod_number(j) {
     for (var i = 1; i < 9; i++) {
-      $('#rod'+i).hide();
+      $('#scroll-z-plane #rod'+i).hide();
       if (j == i) {
-        $('#rod'+i).show();
+        $('#scroll-z-plane #rod'+i).show();
       }
     }
 

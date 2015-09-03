@@ -28,7 +28,23 @@ add_shortcode('scroll-z-plane', 'scroll_z_plane_handler');
 
 function scroll_z_plane_handler($atts)
 {
-	return "";
+  $a = shortcode_atts( array(
+      'path' => plugins_url( '/scroll_z_plane_assets/', __FILE__ ),
+  ), $atts );
+	var_dump($a);
+
+	return "
+    <div id='scroll-z-plane'>
+      <img src='".$a['path']."/1.jpg' id='rod1' style='display: block;' />
+      <img src='".$a['path']."/2.jpg' id='rod2' style='display: none;' />
+      <img src='".$a['path']."/3.jpg' id='rod3' style='display: none;' />
+      <img src='".$a['path']."/4.jpg' id='rod4' style='display: none;' />
+      <img src='".$a['path']."/5.jpg' id='rod5' style='display: none;' />
+      <img src='".$a['path']."/6.jpg' id='rod6' style='display: none;' />
+      <img src='".$a['path']."/7.jpg' id='rod7' style='display: none;' />
+      <img src='".$a['path']."/8.jpg' id='rod8' style='display: none;' />
+		</div>
+			";
 }
 
 ?>
