@@ -10,7 +10,7 @@ Author URI: http://www.madwort.co.uk
 
 function infinite_scroll_scripts()
 {
-		wp_register_script( 'infinite-scroll', plugins_url( '/infinite-scroll.js', __FILE__ ), array(), "01" );
+		wp_register_script( 'infinite-scroll', plugins_url( '/infinite-scroll.js', __FILE__ ), array('jquery'), "01" );
 		wp_enqueue_script( 'infinite-scroll' );
 }
 add_action( 'wp_enqueue_scripts', 'infinite_scroll_scripts' );
@@ -27,7 +27,7 @@ add_shortcode('infinite-scroll', 'infinite_scroll_handler');
 
 function infinite_scroll_handler($atts)
 {
-	return "<div id='scroll-to-read'> Scroll down to continue reading. </div>";
+	return "<div id='scroll-to-read'><p id='continue-reading'> Scroll down to continue reading. </p></div>";
 }
 
 ?>
