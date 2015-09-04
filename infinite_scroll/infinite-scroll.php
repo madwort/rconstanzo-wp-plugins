@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Infinite Scroll
+Plugin Name: Thesis Infinite Scroll
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: Scroll..scroll..scroll..FOREVER!!!!
-Version: 0.4
+Version: 0.45
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
@@ -27,7 +27,7 @@ add_shortcode('infinite-scroll', 'infinite_scroll_handler');
 
 function infinite_scroll_handler($atts)
 {
- return "<div id='scroll-to-read'><p>The process</p></div>";
+ return "<div id='scroll-to-read'><p></p></div>";
 }
 
 ?>
