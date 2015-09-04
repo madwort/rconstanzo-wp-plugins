@@ -1,7 +1,7 @@
 ( function($) {
   // infinite_scroll/chapter1.html
   // http://madwort.co.uk/wp-content/plugins/infinite_scroll/chapter1.html
-  // http://www.rodrigoconstanzo.com/wp-content/plugins/infinite_scroll/chapter1.html
+  // http://www.rodrigoconstanzo.com/thesisfiles/chapter1.html
   $.get( "infinite_scroll/chapter1.html", function( data ) {
     $(window).scroll(function() {
     	if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
@@ -9,7 +9,8 @@
           .filter(':last')
           .append(data)
           .hide()
-          .fadeIn("slow");
+          .delay(100)
+          .fadeIn(500);
        }
     });
   });
