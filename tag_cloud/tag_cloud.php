@@ -39,30 +39,39 @@ function tag_cloud_handler($atts)
         );
 
   return "
-    <div id='tag_cloud'>
-      [
-        composition,
-        improvisation,
-        performance,
-        diy,
-        software,
-        controller,
-        mapping,
-        gesture,
-        video,
-        analysis,
-        framework,
-        feedback,
-        noise,
-        interaction,
-        behavior,
-        game,
-        battle,
-        dfscore,
-        networked score,
-        drums
-      ]    
-    </div>
+<div id='tag_cloud'>
+  <div>
+    [
+    <span class='tag'>composition</span>,
+    <span class='tag'>improvisation</span>,
+    <span class='tag'>performance</span>,
+    <span class='tag'>diy</span>,
+    <span class='tag'>software</span>,
+  </div>  
+  <div>
+    <span class='tag'>controller</span>,
+    <span class='tag'>mapping</span>,
+    <span class='tag'>gesture</span>,
+    <span class='tag'>video</span>,
+    <span class='tag'>analysis</span>,
+    <span class='tag'>framework</span>,
+  </div>
+  <div>
+    <span class='tag'>feedback</span>,
+    <span class='tag'>noise</span>,
+    <span class='tag'>interaction</span>,
+    <span class='tag'>behavior</span>,
+    <span class='tag'>game</span>,
+    <span class='tag'>battle</span>,
+    <span class='tag'>dfscore</span>,
+  </div>
+  <div>
+    <span class='tag'>networked score</span>,
+    <span class='tag'>drums</span>
+
+    ]
+  </div>
+</div>
       ";
 }
 
