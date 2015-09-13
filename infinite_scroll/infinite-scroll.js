@@ -5,10 +5,18 @@
   $.get( "http://madwort.co.uk/wp-content/plugins/infinite_scroll/chapter1.html", function( data ) {
     $(window).scroll(function() {
     	if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-        $("div#scroll-to-read p")
-          .filter(':last')
+        var current_last_element =
+          $("div#scroll-to-read p").filter(':last');
+
+        current_last_element
           .append(data)
-          .hide()
+          .hide();
+
+        // cosy up the first <p> to the end of the previous content
+        current_last_element.children('p').filter(':first')
+          .css('display','inline');
+
+        current_last_element
           .delay(100)
           .fadeIn(1000);
        }
