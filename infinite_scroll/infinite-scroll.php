@@ -3,7 +3,7 @@
 Plugin Name: Thesis Infinite Scroll
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: Scroll..scroll..scroll..FOREVER!!!!
-Version: 0.5
+Version: 0.6
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
