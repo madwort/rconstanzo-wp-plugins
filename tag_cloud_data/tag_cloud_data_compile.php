@@ -30,18 +30,25 @@ $keywords["dfscore"] = ["dfscore"];
 $keywords["networked score"] = ["networked score"];
 $keywords["drums"] = ["drums"];
 
+echo "tag,term,text,url\n";
+
 foreach ($urls as $url_key => $url) {
+  // $html = file_get_contents($url);
   $dom = new Dom;
   $dom->loadFromUrl($url);
   // echo $dom->innerHtml;
   $html = $dom->find('#colLeft')[0];
-  // $html = file_get_contents($url);
+  $html = strip_tags($html);
   // echo count($html);
   foreach ($keywords as $keyword => $keyword_alternatives) {
     foreach ($keyword_alternatives as $keyword_alt_id => $keyword_alternative) {
       // var_dump($keyword_alternative);
       preg_match('/.{0,15}' . $keyword_alternative . '.{0,15}/', $html, $matches);
       foreach ($matches as $key => $match) {
+        // if (htmlspecialchars($match, ENT_QUOTES, "UTF-8") == "") {
+        //   var_dump($match);
+        //   var_dump(htmlspecialchars($match, ENT_QUOTES, "UTF-8"));
+        // }
         echo $keyword.",".
           $keyword_alternative.",\"".
           $match."\",\"".
