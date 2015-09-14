@@ -8,6 +8,14 @@
       tag_data = data;
     }
   });
+  
+  function htmlEncode(value){
+    if (value) {
+      return $('<div />').text(value).html();
+    } else {
+      return '';
+    }
+  }
 
   function create_tag_handlers() {
     $("#tag_cloud .tag").css('line-height','2em').each(function (t) {
@@ -30,7 +38,7 @@
           }));
           console.log(my_data);
           my_data.forEach(function(result, index) {
-            my_html += "<li><a href='" + result.url + "'>" + result.text + "</a></li>";
+            my_html += "<li><a href='" + result.url + "'>" + htmlEncode(result.text) + "</a></li>";
           });;
 
           my_html += "</ul>";
