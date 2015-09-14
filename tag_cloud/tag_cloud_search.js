@@ -6,9 +6,9 @@
 
     var results = $('p').filter(':contains(' + search_term + ')');
     var target = $(results[search_id]).offset().top;
-    console.log('scroll to', search_term, search_id, target);
+    // console.log('scroll to', search_term, search_id, target);
     $('body').scrollTop(target);
-    console.log('scrolled');
+    // console.log('scrolled');
   };
 
   $(search_tag);

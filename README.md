@@ -22,3 +22,17 @@ http://code.tutsplus.com/articles/how-to-include-javascript-and-css-in-your-word
 * jQuery :contains() selector
 * $.merge(selection(improv), selection(improvisation))
 * window.location.search params
+
+Where do we put the dynamic selection of results?
+
+#### Return JSON file with all results for all keywords
+* a bit more to download, but file can be cached in browser
+* how do we construct the file? 
+  * stringify & manually construct?
+  * can we produce JSON files for each page, then munge them together?
+  * is a CSV file a better bet? less structure makes it easier to produce, we can just concat?
+
+
+#### Return JSON file for each click, with (eg) 10 results
+* requires server-side processing (PHP)
+  
