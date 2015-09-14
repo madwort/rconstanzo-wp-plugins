@@ -47,7 +47,7 @@ function tag_cloud_handler($atts)
     <span class='tag'>performance</span>,
     <span class='tag'>diy</span>,
     <span class='tag'>software</span>,
-  </div>  
+  </div>
   <div>
     <span class='tag'>controller</span>,
     <span class='tag'>mapping</span>,
@@ -71,6 +71,7 @@ function tag_cloud_handler($atts)
 
     ]
   </div>
+  <div id='results'></div>
 </div>
       ";
 }
