@@ -1,7 +1,7 @@
 ( function($) {
   var tag_data;
 
-  Papa.parse('http://localhost/~tom/rod/rconstanzo-wp-plugins/tag_cloud/tag_cloud_data.csv', { 
+  Papa.parse('tag_cloud/tag_cloud_data.csv', { 
     download: true,
     header: true,
     complete: function (data) {
