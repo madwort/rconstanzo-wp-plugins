@@ -1,5 +1,9 @@
+#tag_cloud {
+  width: 650px;
+}
+
 #tag_cloud #popup {
-  background-color: rgba(255,0,0,125);
-  width: 300px;
+  background-color: darkgrey;
+  width: 650px;
   height: 300px;
 }
