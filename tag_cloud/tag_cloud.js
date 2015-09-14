@@ -6,17 +6,22 @@
         .click(function (e) {
           console.log("click", e, this);
 
-          $.getJSON('tag_cloud/tag_cloud_sample_result.json', function (data) {
-            var my_html = 
-              "<h2>Search results for " + data.search + "</h2>" +
-              "<ul>";
+          Papa.parse('http://localhost/~tom/rod/rconstanzo-wp-plugins/tag_cloud/tag_cloud_sample_result.csv', { 
+            download: true,
+            header: true,
+            complete: function (data) {
+              // console.log(e);
+              var my_html = 
+                "<h2>Search results for " + e.target.textContent + "</h2>" +
+                "<ul>";
+                console.log(data.data);
+               data.data.forEach(function(result, index) {
+                my_html += "<li><a href='" + result.url + "'>" + result.text + "</a></li>";
+              });;
 
-             data.results.forEach(function(result, index) {
-              my_html += "<li><a href='" + result.url + "'>" + result.text + "</a></li>";
-            });;
-
-            my_html += "</ul>";
-            $('#tag_cloud #results').html(my_html);
+              my_html += "</ul>";
+              $('#tag_cloud #results').html(my_html);
+            }
           });
         });
       });
