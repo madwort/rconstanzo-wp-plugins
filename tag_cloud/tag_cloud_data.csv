@@ -1,24 +1,24 @@
 tag,term,text,url
-composition,compose,I wanted to compose something that we played once.,tag_cloud_search.html?search=composition&result=1
-composition,composition,I wrote a composition that we played twice.,tag_cloud_search.html?search=composition&result=2
-composition,composing,I was composing something that we played thrice.,tag_cloud_search.html?search=composition&result=3
-composition,composition,I wrote a composition that we played often.,tag_cloud_search.html?search=composition&result=4
-improvisation,improvisation,some text relating to improvisation goes in the middle here,tag_cloud_search.html?search=improvisation&result=1
-performance,performance,some text relating to performance goes in the middle here,tag_cloud_search.html?search=performance&result=1
-diy,diy,some text relating to diy goes in the middle here,tag_cloud_search.html?search=diy&result=1
-software,software,some text relating to software goes in the middle here,tag_cloud_search.html?search=software&result=1
-controller,controller,some text relating to controller goes in the middle here,tag_cloud_search.html?search=controller&result=1
-mapping,mapping,some text relating to mapping goes in the middle here,tag_cloud_search.html?search=mapping&result=1
-gesture,gesture,some text relating to gesture goes in the middle here,tag_cloud_search.html?search=gesture&result=1
-video,video,some text relating to video goes in the middle here,tag_cloud_search.html?search=video&result=1
-analysis,analysis,some text relating to analysis goes in the middle here,tag_cloud_search.html?search=analysis&result=1
-framework,framework,some text relating to framework goes in the middle here,tag_cloud_search.html?search=framework&result=1
-feedback,feedback,some text relating to feedback goes in the middle here,tag_cloud_search.html?search=feedback&result=1
-noise,noise,some text relating to noise goes in the middle here,tag_cloud_search.html?search=noise&result=1
-interaction,interaction,some text relating to interaction goes in the middle here,tag_cloud_search.html?search=interaction&result=1
-behavior,behavior,some text relating to behavior goes in the middle here,tag_cloud_search.html?search=behavior&result=1
-game,game,some text relating to game goes in the middle here,tag_cloud_search.html?search=game&result=1
-battle,battle,some text relating to battle goes in the middle here,tag_cloud_search.html?search=battle&result=1
-dfscore,dfscore,some text relating to dfscore goes in the middle here,tag_cloud_search.html?search=dfscore&result=1
-networked score,networked score,some text relating to networked score goes in the middle here,tag_cloud_search.html?search=networked score&result=1
-drum,drum,some text relating to drum goes in the middle here,tag_cloud_search.html?search=drum&result=1
+composition,compose,I wanted to compose something that we played once.,"tag_cloud_search.html#composition,1"
+composition,composition,I wrote a composition that we played twice.,"tag_cloud_search.html#composition,2"
+composition,composing,I was composing something that we played thrice.,"tag_cloud_search.html#composition,3"
+composition,composition,I wrote a composition that we played often.,"tag_cloud_search.html#composition,4"
+improvisation,improvisation,some text relating to improvisation goes in the middle here,"tag_cloud_search.html#improvisation,1"
+performance,performance,some text relating to performance goes in the middle here,"tag_cloud_search.html#performance,1"
+diy,diy,some text relating to diy goes in the middle here,"tag_cloud_search.html#diy,1"
+software,software,some text relating to software goes in the middle here,"tag_cloud_search.html#software,1"
+controller,controller,some text relating to controller goes in the middle here,"tag_cloud_search.html#controller,1"
+mapping,mapping,some text relating to mapping goes in the middle here,"tag_cloud_search.html#mapping,1"
+gesture,gesture,some text relating to gesture goes in the middle here,"tag_cloud_search.html#gesture,1"
+video,video,some text relating to video goes in the middle here,"tag_cloud_search.html#video,1"
+analysis,analysis,some text relating to analysis goes in the middle here,"tag_cloud_search.html#analysis,1"
+framework,framework,some text relating to framework goes in the middle here,"tag_cloud_search.html#framework,1"
+feedback,feedback,some text relating to feedback goes in the middle here,"tag_cloud_search.html#feedback,1"
+noise,noise,some text relating to noise goes in the middle here,"tag_cloud_search.html#noise,1"
+interaction,interaction,some text relating to interaction goes in the middle here,"tag_cloud_search.html#interaction,1"
+behavior,behavior,some text relating to behavior goes in the middle here,"tag_cloud_search.html#behavior,1"
+game,game,some text relating to game goes in the middle here,"tag_cloud_search.html#game,1"
+battle,battle,some text relating to battle goes in the middle here,"tag_cloud_search.html#battle,1"
+dfscore,dfscore,some text relating to dfscore goes in the middle here,"tag_cloud_search.html#dfscore,1"
+networked score,networked score,some text relating to networked score goes in the middle here,"tag_cloud_search.html#networked score,1"
+drum,drum,some text relating to drum goes in the middle here,tag_cloud_search.html#drum,1

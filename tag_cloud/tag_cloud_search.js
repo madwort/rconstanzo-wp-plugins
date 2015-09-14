@@ -1,8 +1,8 @@
 ( function($) {
   function search_tag() {
-    var params = window.location.search.split('&');
-    var search_term = params[0].replace('?search=','');
-    var search_id = parseInt(params[1].replace('result=','')) - 1;
+    var params = window.location.hash.split(',');
+    var search_term = params[0].replace('#','');
+    var search_id = parseInt(params[1]) - 1;
 
     var results = $('p').filter(':contains(' + search_term + ')');
     var target = $(results[search_id]).offset().top;
