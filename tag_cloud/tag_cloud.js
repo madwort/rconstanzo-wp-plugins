@@ -6,7 +6,7 @@
         .click(function (e) {
           console.log("click", e, this);
 
-          Papa.parse('http://localhost/~tom/rod/rconstanzo-wp-plugins/tag_cloud/tag_cloud_sample_result.csv', { 
+          Papa.parse('http://localhost/~tom/rod/rconstanzo-wp-plugins/tag_cloud/tag_cloud_data.csv', { 
             download: true,
             header: true,
             complete: function (data) {
