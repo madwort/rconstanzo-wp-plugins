@@ -3,32 +3,44 @@
 require __DIR__ . '/vendor/autoload.php';
 use PHPHtmlParser\Dom;
 
-$urls[] = 'http://www.rodrigoconstanzo.com/thesis-introduction/';
-$urls[] = 'http://www.rodrigoconstanzo.com/2015/04/making-decisions-in-time/';
-$urls[] = 'http://www.rodrigoconstanzo.com/2015/06/cut-glove/';
-$urls[] = 'http://www.rodrigoconstanzo.com/thesis-conclusion/';
+$urls = [
+  'http://www.rodrigoconstanzo.com/thesis-introduction/',
+  'http://www.rodrigoconstanzo.com/2015/04/making-decisions-in-time/',
+  'http://www.rodrigoconstanzo.com/2015/06/cut-glove/',
+  'http://www.rodrigoconstanzo.com/thesis-conclusion/',
+  'http://www.rodrigoconstanzo.com/2013/09/com-pieces/',
+  'http://www.rodrigoconstanzo.com/combine/',
+  'http://www.rodrigoconstanzo.com/grassi-box/',
+  'http://www.rodrigoconstanzo.com/2013/10/everything-at-once/',
+  'http://www.rodrigoconstanzo.com/2014/03/everything-everything-at-once-once-2/',
+  'http://www.rodrigoconstanzo.com/2015/02/everything-everything-at-once-once-3/',
+  'http://www.rodrigoconstanzo.com/2013/02/strikethrough-me-you-battle-pieces/',
+  'http://www.rodrigoconstanzo.com/the-party-van/',
+  'http://www.rodrigoconstanzo.com/2015/05/karma/',
+  'http://www.rodrigoconstanzo.com/2013/12/an-amplifier/'
+];
 
-// $keywords = [ "composition", "drums", "improvisation"];
-$keywords["composition"] = ["composition", "compose"];
-$keywords["improvisation"] = ["improvisation"];
-$keywords["performance"] = ["performance"];
+$keywords["composition"] = ["composition", "compose", "composed"];
+$keywords["improvisation"] = ["improvisation", "improv", "improvisational"];
+$keywords["performance"] = ["performance", "performed"];
 $keywords["diy"] = ["diy"];
 $keywords["software"] = ["software"];
 $keywords["controller"] = ["controller"];
-$keywords["mapping"] = ["mapping"];
+$keywords["mapping"] = ["mapping", "mapped"];
 $keywords["gesture"] = ["gesture"];
 $keywords["video"] = ["video"];
-$keywords["analysis"] = ["analysis"];
+$keywords["analysis"] = ["analysis", "analyses", "analyzed", "analysed"];
 $keywords["framework"] = ["framework"];
 $keywords["feedback"] = ["feedback"];
 $keywords["noise"] = ["noise"];
-$keywords["interaction"] = ["interaction"];
-$keywords["behavior"] = ["behavior"];
-$keywords["game"] = ["game"];
+$keywords["interaction"] = ["interaction", "interact"];
+$keywords["behavior"] = ["behavior", "behaviour"];
+$keywords["game"] = ["game", "etude"];
 $keywords["battle"] = ["battle"];
-$keywords["dfscore"] = ["dfscore"];
-$keywords["networked score"] = ["networked score"];
-$keywords["drums"] = ["drums"];
+$keywords["dfscore"] = ["dfscore", "dfs", "networked score"];
+$keywords["drums"] = ["drums", "percussion"];
+$keywords["memory"] = ["memory", "memories"];
+$keywords["glitch"] = ["glitch"];
 
 echo "tag,term,text,url\n";
 
