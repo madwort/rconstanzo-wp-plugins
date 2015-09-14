@@ -3,22 +3,21 @@
     $("#tag_cloud .tag").css('line-height','2em').each(function (t) {
       // console.log($(this));
       $(this)
-        .mouseenter(function (e) {
-          // console.log("in", e, this);
-          $(this).animate({"font-size": "2em", "line-height": "1em"},300);
-        })
-        .mouseleave(function (e) {
-          // console.log("out", e, this);
-          $(this).animate({"font-size": "1em", "line-height": "2em"},300);
-        })
         .click(function (e) {
           console.log("click", e, this);
-          $('#tag_cloud #popup').remove();
-          $('#tag_cloud').append("<div id='popup' "+
-            "style='position: fixed; top: " + (e.pageY + 20) + 
-            "px; left: " + (e.pageX + 20) + "px;'>"+
-            "BLAH BLAH BLAH "+$(this).text()+"</div>"
-          );
+
+          $.getJSON('tag_cloud/tag_cloud_sample_result.json', function (data) {
+            var my_html = 
+              "<h2>Search results for " + data.search + "</h2>" +
+              "<ul>";
+
+             data.results.forEach(function(result, index) {
+              my_html += "<li><a href='" + result.url + "'>" + result.text + "</a></li>";
+            });;
+
+            my_html += "</ul>";
+            $('#tag_cloud #results').html(my_html);
+          });
         });
       });
   };
