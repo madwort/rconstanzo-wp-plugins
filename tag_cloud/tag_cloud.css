@@ -2,8 +2,10 @@
   width: 650px;
 }
 
-#tag_cloud #popup {
-  background-color: darkgrey;
+#tag_cloud #results {
   width: 650px;
-  height: 300px;
+}
+
+#tag_cloud #results li {
+  list-style-type: none;
 }

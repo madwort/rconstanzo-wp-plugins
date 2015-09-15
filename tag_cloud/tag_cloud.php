@@ -47,16 +47,12 @@ function tag_cloud_handler($atts)
     <span class='tag'>performance</span>,
     <span class='tag'>diy</span>,
     <span class='tag'>software</span>,
-  </div>
-  <div>
     <span class='tag'>controller</span>,
     <span class='tag'>mapping</span>,
     <span class='tag'>gesture</span>,
     <span class='tag'>video</span>,
     <span class='tag'>analysis</span>,
     <span class='tag'>framework</span>,
-  </div>
-  <div>
     <span class='tag'>feedback</span>,
     <span class='tag'>noise</span>,
     <span class='tag'>interaction</span>,
@@ -64,10 +60,8 @@ function tag_cloud_handler($atts)
     <span class='tag'>game</span>,
     <span class='tag'>battle</span>,
     <span class='tag'>dfscore</span>,
-  </div>
-  <div>
-    <span class='tag'>networked score</span>,
-    <span class='tag'>drums</span>
+    <span class='tag'>drums</span>,
+    <span class='tag'>memory</span>,
 
     ]
   </div>
