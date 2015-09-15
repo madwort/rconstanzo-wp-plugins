@@ -61,7 +61,7 @@ function tag_cloud_handler($atts)
     <span class='tag'>battle</span>,
     <span class='tag'>dfscore</span>,
     <span class='tag'>drums</span>,
-    <span class='tag'>memory</span>,
+    <span class='tag'>memory</span>
 
     ]
   </div>

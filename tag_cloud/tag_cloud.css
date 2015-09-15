@@ -8,4 +8,5 @@
 
 #tag_cloud #results li {
   list-style-type: none;
+  font-family: Monaco, sans-serif;
 }
