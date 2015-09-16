@@ -3,9 +3,10 @@
 }
 #springy-menu g.node text {
   font-family: Helvetica;
+  font-size: 1.5em;
 }
 #springy-menu g.node text.subtitle {
-  font-size: 0.7em;
+  font-size: 0.78em;
 }
 #springy-menu g.node circle {
   fill: #FF0066;

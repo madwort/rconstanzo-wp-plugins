@@ -28,7 +28,7 @@
             "subtitle": "(& The Past)",
             "url": "http://www.rodrigoconstanzo.com/thesis-introduction/",
             "x": 325,
-            "y": 50
+            "y": 70
         },
         {
             "id": "decisions",
@@ -36,7 +36,7 @@
             "subtitle": "(Technically Driven Aesthetic Developments)",
             "url": "http://www.rodrigoconstanzo.com/2015/04/making-decisions-in-time/",
             "x": 255,
-            "y": 190
+            "y": 210
         },
         {
             "id": "glove",
@@ -44,7 +44,7 @@
             "subtitle": "(Aesthetically Driven Technical Developments)",
             "url": "http://www.rodrigoconstanzo.com/2015/06/cut-glove/",
             "x": 390,
-            "y": 200
+            "y": 220
         },
         {
             "id": "conclusion",
@@ -52,7 +52,7 @@
             "subtitle": "(& The Future)",
             "url": "http://www.rodrigoconstanzo.com/thesis-conclusion/",
             "x": 300,
-            "y": 307
+            "y": 327
         }
     ]
 }
