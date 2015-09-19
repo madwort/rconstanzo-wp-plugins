@@ -46,12 +46,12 @@ foreach ($urls as $url_key => $url) {
   // $url_key = 2;
   // $url = $urls[$url_key];
   $html = file_get_contents($url);
-  $html = strip_tags($html);
+  $clean_html = strip_tags($html);
 
   foreach ($keywords as $keyword => $keyword_alternatives) {
     foreach ($keyword_alternatives as $keyword_alt_id => $keyword_alternative) {
       // var_dump($keyword_alternative);
-      preg_match_all('/.{0,15}' . $keyword_alternative . '.{0,15}/', $html, $matches);
+      preg_match_all('/.{0,15}' . $keyword_alternative . '.{0,15}/', $clean_html, $matches);
       foreach ($matches[0] as $key => $match) {
         // if (htmlspecialchars($match, ENT_QUOTES, "UTF-8") == "") {
         //   var_dump($match);
@@ -59,7 +59,7 @@ foreach ($urls as $url_key => $url) {
         // }
         echo $keyword.",".
           $keyword_alternative.",\"".
-          $match."\",\"".
+          str_replace('"','""',$match)."\",\"".
           $url."#".
           $keyword_alternative.
           ",".$key."\""."\n";

@@ -14,6 +14,10 @@
       download: true,
       header: true,
       complete: function (data) {
+        if (data.errors.length > 0) {
+          console.log("Error:", data.errors[0].message);
+          console.log(tag_data);
+        }
         tag_data = data;
       }
     });
