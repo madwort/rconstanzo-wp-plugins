@@ -10,19 +10,19 @@ Author URI: http://www.madwort.co.uk
 
 function tag_cloud_scripts()
 {
-    wp_register_script( 'papaparse',
-   plugins_url( '/papaparse.js',
-   __FILE__ ),
-   array(''),
-   "01" );
-    wp_enqueue_script( 'papaparse' );
+  wp_register_script( 'papaparse',
+    plugins_url( '/papaparse.js',
+    __FILE__ ),
+    array(),
+    "01" );
+  wp_enqueue_script( 'papaparse' );
 
-    wp_register_script( 'tag_cloud',
-   plugins_url( '/tag_cloud.js',
-   __FILE__ ),
-   array('jquery','papaparse'),
-   "01" );
-    wp_enqueue_script( 'tag_cloud' );
+  wp_register_script( 'tag_cloud',
+    plugins_url( '/tag_cloud.js',
+    __FILE__ ),
+    array('papaparse'),
+    "01" );
+  wp_enqueue_script( 'tag_cloud' );
 }
 add_action( 'wp_enqueue_scripts', 'tag_cloud_scripts' );
 
