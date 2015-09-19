@@ -3,23 +3,29 @@
 Plugin Name: Tag cloud
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: The amazing dynamic tag cloud
-Version: 0.1
+Version: 0.2
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
 
 function tag_cloud_scripts()
 {
+    wp_register_script( 'papaparse',
+   plugins_url( '/papaparse.js',
+   __FILE__ ),
+   array(''),
+   "01" );
+    wp_enqueue_script( 'papaparse' );
+
     wp_register_script( 'tag_cloud',
    plugins_url( '/tag_cloud.js',
    __FILE__ ),
-   array('jquery'),
+   array('jquery','papaparse'),
    "01" );
     wp_enqueue_script( 'tag_cloud' );
 }
 add_action( 'wp_enqueue_scripts', 'tag_cloud_scripts' );
 
-// Don't need any styles right now, but might do later...
 // function tag_cloud_style()
 // {
 //     wp_register_style( 'tag_cloud-style', plugins_url( '/tag_cloud.css', __FILE__ ));
