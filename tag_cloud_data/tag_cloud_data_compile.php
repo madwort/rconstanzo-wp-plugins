@@ -20,8 +20,8 @@ $urls = [
   'http://www.rodrigoconstanzo.com/2013/12/an-amplifier/'
 ];
 
-$keywords["composition"] = ["composition", "compose", "composed"];
-$keywords["improvisation"] = ["improvisation", "improv", "improvisational"];
+$keywords["composition"] = ["composition", "compose"];
+$keywords["improvisation"] = ["improv"];
 $keywords["performance"] = ["performance", "performed"];
 $keywords["diy"] = ["diy"];
 $keywords["software"] = ["software"];
@@ -33,7 +33,7 @@ $keywords["analysis"] = ["analysis", "analyses", "analyzed", "analysed"];
 $keywords["framework"] = ["framework"];
 $keywords["feedback"] = ["feedback"];
 $keywords["noise"] = ["noise"];
-$keywords["interaction"] = ["interaction", "interact"];
+$keywords["interaction"] = ["interact"];
 $keywords["behavior"] = ["behavior", "behaviour"];
 $keywords["game"] = ["game", "etude"];
 $keywords["battle"] = ["battle"];
