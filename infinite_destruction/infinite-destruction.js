@@ -21,7 +21,10 @@
       &&
       !(random_element.hasClass('content')) 
     ) {
-      random_element.replaceWith("<p>The process</p>");
+      var font_size = Math.floor(1+(Math.random()*10));
+      random_element
+        .replaceWith("<p style='font-size: " + font_size + 
+                     "em;'>The process</p>");
     }
   }
 
