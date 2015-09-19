@@ -17,7 +17,7 @@
     if (random_element.is('a')) {
       // implies li.menu-item > a
       max_font_size = 2;
-    };
+    }
     var font_size = Math.floor(1+(Math.random()*max_font_size));
     random_element
       .replaceWith("<p style='font-size: " + font_size + 
@@ -37,13 +37,13 @@
       $('div#colLeft > p').not('.theprocess').not(':last-child');
 
     var new_elements = $('li.menu-item > a');
-    my_elements = $.merge(my_elements, new_elements)
+    my_elements = $.merge(my_elements, new_elements);
 
     new_elements = $('div.rightBox > ul > li');
-    my_elements = $.merge(my_elements, new_elements)
+    my_elements = $.merge(my_elements, new_elements);
 
     new_elements = $('div.rightBox > div.textwidget');
-    my_elements = $.merge(my_elements, new_elements)
+    my_elements = $.merge(my_elements, new_elements);
 
     if (my_elements.length > 0) {
       remove_random_element(my_elements);
@@ -62,6 +62,6 @@
         debounce(handle_scroll, 75);
     });
     
-  }
+  };
 
 } )( window, jQuery );
