@@ -45,7 +45,10 @@ $keywords["glitch"] = ["glitch"];
 echo "tag,term,text,url\n";
 
 foreach ($urls as $url_key => $url) {
-  // $html = file_get_contents($url);
+
+  // $url_key = 2;
+  // $url = $urls[$url_key];
+
   $dom = new Dom;
   $dom->loadFromUrl($url);
   // echo $dom->innerHtml;
@@ -55,8 +58,8 @@ foreach ($urls as $url_key => $url) {
   foreach ($keywords as $keyword => $keyword_alternatives) {
     foreach ($keyword_alternatives as $keyword_alt_id => $keyword_alternative) {
       // var_dump($keyword_alternative);
-      preg_match('/.{0,15}' . $keyword_alternative . '.{0,15}/', $html, $matches);
-      foreach ($matches as $key => $match) {
+      preg_match_all('/.{0,15}' . $keyword_alternative . '.{0,15}/', $html, $matches);
+      foreach ($matches[0] as $key => $match) {
         // if (htmlspecialchars($match, ENT_QUOTES, "UTF-8") == "") {
         //   var_dump($match);
         //   var_dump(htmlspecialchars($match, ENT_QUOTES, "UTF-8"));
@@ -70,6 +73,7 @@ foreach ($urls as $url_key => $url) {
       }
     }
   }
+  // die();
 }
 
 ?>
