@@ -23,6 +23,14 @@ function tag_cloud_scripts()
     array('papaparse'),
     "01" );
   wp_enqueue_script( 'tag_cloud' );
+
+  wp_register_script( 'tag_cloud_search',
+    plugins_url( '/tag_cloud_search.js',
+    __FILE__ ),
+    array(),
+    "01" );
+  wp_enqueue_script( 'tag_cloud_search' );
+
 }
 add_action( 'wp_enqueue_scripts', 'tag_cloud_scripts' );
 
