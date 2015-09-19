@@ -67,7 +67,7 @@ function drawSpringyMenu(parentName, graph, width, height) {
     myParent.selectAll('text.subtitle')
         .attr('y', function(d) { return (d.y-20); });
 
-  })
+  });
 
   force.start();
 
