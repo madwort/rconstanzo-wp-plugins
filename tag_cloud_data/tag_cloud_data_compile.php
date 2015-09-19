@@ -52,7 +52,7 @@ foreach ($urls as $url_key => $url) {
   $dom = new Dom;
   $dom->loadFromUrl($url);
   // echo $dom->innerHtml;
-  $html = $dom->find('#colLeft')[0];
+  $html = $dom->find('body');
   $html = strip_tags($html);
   // echo count($html);
   foreach ($keywords as $keyword => $keyword_alternatives) {
