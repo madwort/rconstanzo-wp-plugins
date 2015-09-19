@@ -1,8 +1,5 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
-use PHPHtmlParser\Dom;
-
 $urls = [
   'http://www.rodrigoconstanzo.com/thesis-introduction/',
   'http://www.rodrigoconstanzo.com/2015/04/making-decisions-in-time/',
@@ -48,13 +45,9 @@ foreach ($urls as $url_key => $url) {
 
   // $url_key = 2;
   // $url = $urls[$url_key];
-
-  $dom = new Dom;
-  $dom->loadFromUrl($url);
-  // echo $dom->innerHtml;
-  $html = $dom->find('body');
+  $html = file_get_contents($url);
   $html = strip_tags($html);
-  // echo count($html);
+
   foreach ($keywords as $keyword => $keyword_alternatives) {
     foreach ($keyword_alternatives as $keyword_alt_id => $keyword_alternative) {
       // var_dump($keyword_alternative);
