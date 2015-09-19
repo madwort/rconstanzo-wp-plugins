@@ -1,5 +1,5 @@
-( function($) {
-  function search_tag() {
+( function(w, $) {
+  w.search_tag = function () {
     var params = window.location.hash.split(',');
     var search_term = params[0].replace('#','');
     var search_id = parseInt(params[1]) - 1;
@@ -11,6 +11,4 @@
     // console.log('scrolled');
   };
 
-  $(search_tag);
-
-} )( jQuery );
+} )( window, jQuery );

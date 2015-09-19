@@ -70,4 +70,21 @@ function tag_cloud_handler($atts)
       ";
 }
 
+add_shortcode('tag_cloud_search', 'tag_cloud_search_handler');
+
+function tag_cloud_search_handler($atts)
+{
+  $a = shortcode_atts( 
+          array(
+            'path' => plugins_url( '/tag_cloud_assets/', __FILE__ ),
+          ), $atts 
+        );
+
+  return "
+  <script type='text/javascript'>
+    $(window.search_tag);
+  </script>";
+
+}
+
 ?>
