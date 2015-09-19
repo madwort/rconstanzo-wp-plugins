@@ -1,4 +1,4 @@
-( function($) {
+( function(w, d, $) {
   var my_data;
 
   // from http://stackoverflow.com/questions/12009367/javascript-event-handling-scroll-event-with-a-delay
@@ -10,7 +10,7 @@
   }
 
   function handle_scroll() {
-  	if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+    if($(w).scrollTop() + $(w).height() > $(d).height() - 100) {
       var current_last_element =
         $("div#scroll-to-read p").filter(':last');
       current_last_element
@@ -30,10 +30,10 @@
   // http://madwort.co.uk/wp-content/plugins/infinite_scroll/chapter1.html
   // http://www.rodrigoconstanzo.com/thesisfiles/chapter1.html
   $.get( "http://www.rodrigoconstanzo.com/thesisfiles/chapter1.html", function( data ) {
-    $(window).scroll(function() {
+    $(w).scroll(function() {
       my_data = data;
       debounce(handle_scroll, 200);
     });
   });
 
-} )( jQuery );
+} )( window, document, jQuery );
