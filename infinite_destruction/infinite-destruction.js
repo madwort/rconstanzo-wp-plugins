@@ -21,7 +21,7 @@
     var font_size = Math.floor(1+(Math.random()*max_font_size));
     random_element
       .replaceWith("<p style='font-size: " + font_size + 
-                   "em; margin: 0;'>The process</p>");
+                   "em; margin: 0;' class='theprocess'>The process</p>");
   }
 
   function handle_scroll() {
@@ -33,7 +33,8 @@
     // * div.rightBox > ul > li
     // * div.rightBox > div.textwidget
 
-    var my_elements = $('div#colLeft > p').not(':last-child');
+    var my_elements = 
+      $('div#colLeft > p').not('.theprocess').not(':last-child');
 
     var new_elements = $('li.menu-item > a');
     my_elements = $.merge(my_elements, new_elements)
@@ -44,11 +45,15 @@
     new_elements = $('div.rightBox > div.textwidget');
     my_elements = $.merge(my_elements, new_elements)
 
-    // console.log(my_elements.length);
-    remove_random_element(my_elements);
+    if (my_elements.length > 0) {
+      remove_random_element(my_elements);
+      return;
+    }
 
-    // TODO: implement phase 2...
-    // Phase 2: divs apart from .colLeft, .colRight & .content
+    // We have wiped out all the elements from Phase 1. Begin Phase 2.
+    // Phase 2: divs apart from #colLeft, #colRight & #content
+    my_elements = $('div').not('#colLeft').not('#colRight').not('#content');
+    remove_random_element(my_elements);
 
   }
 

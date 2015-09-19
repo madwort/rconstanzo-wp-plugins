@@ -3,14 +3,14 @@
 Plugin Name: Thesis Infinite DESTRUCTION
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: Destroy all the things
-Version: 0.3
+Version: 0.4
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
 
 function infinite_destruction_scripts()
 {
-	wp_register_script( 'infinite_destruction', plugins_url( '/infinite-destruction.js', __FILE__ ), array('jquery'), "01" );
+	wp_register_script( 'infinite_destruction', plugins_url( '/infinite-destruction.js', __FILE__ ), array('jquery'), "04" );
 	wp_enqueue_script( 'infinite_destruction' );
 }
 add_action( 'wp_enqueue_scripts', 'infinite_destruction_scripts' );
