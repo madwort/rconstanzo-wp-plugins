@@ -1,7 +1,7 @@
-( function($) {
+(function (w, $) {
   var tag_data;
   
-  function htmlEncode(value){
+  function htmlEncode (value) {
     if (value) {
       return $('<div />').text(value).html();
     } else {
@@ -9,8 +9,8 @@
     }
   }
 
-  function create_tag_handlers() {
-    Papa.parse('tag_cloud/tag_cloud_data.csv', { 
+  w.create_tag_handlers = function ($path) {
+    Papa.parse($path, { 
       download: true,
       header: true,
       complete: function (data) {
@@ -44,6 +44,4 @@
       });
   };
 
-  $(create_tag_handlers);
-
-} )( jQuery );
+} )( window, jQuery );

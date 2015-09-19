@@ -34,7 +34,7 @@ function tag_cloud_handler($atts)
 {
   $a = shortcode_atts( 
           array(
-            'path' => plugins_url( '/tag_cloud_assets/', __FILE__ ),
+            'path' => plugins_url( '/tag_cloud_data.csv', __FILE__ ),
           ), $atts 
         );
 
@@ -62,12 +62,14 @@ function tag_cloud_handler($atts)
     <span class='tag'>dfscore</span>,
     <span class='tag'>drums</span>,
     <span class='tag'>memory</span>
-
     ]
   </div>
   <div id='results'></div>
 </div>
-      ";
+<script type='text/javascript'>
+  $(window.create_tag_handlers('".$a['path']."'));
+</script>
+";
 }
 
 add_shortcode('tag_cloud_search', 'tag_cloud_search_handler');
@@ -83,8 +85,8 @@ function tag_cloud_search_handler($atts)
   return "
   <script type='text/javascript'>
     $(window.search_tag);
-  </script>";
-
+  </script>
+";
 }
 
 ?>
