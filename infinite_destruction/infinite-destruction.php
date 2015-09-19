@@ -3,7 +3,7 @@
 Plugin Name: Thesis Infinite DESTRUCTION
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: Destroy all the things
-Version: 0.1
+Version: 0.2
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
