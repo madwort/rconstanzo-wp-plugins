@@ -1,6 +1,6 @@
-(function (w, $) {
+(function (w, $, p) {
   var tag_data;
-  
+
   function htmlEncode (value) {
     if (value) {
       return $('<div />').text(value).html();
@@ -10,7 +10,7 @@
   }
 
   w.create_tag_handlers = function ($path) {
-    Papa.parse($path, { 
+    p.parse($path, { 
       download: true,
       header: true,
       complete: function (data) {
@@ -35,8 +35,9 @@
           }));
 
           my_data.forEach(function(result, index) {
-            my_html += "<li>...<a href='" + result.url + "'>" + htmlEncode(result.text) + "</a>...</li>";
-          });;
+            my_html += "<li>...<a href='" + result.url + "'>" +
+                       htmlEncode(result.text) + "</a>...</li>";
+          });
 
           my_html += "</ul>";
           $('#tag_cloud #results').html(my_html);
@@ -44,4 +45,4 @@
       });
   };
 
-} )( window, jQuery );
+} )( window, jQuery, Papa );
