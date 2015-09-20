@@ -39,7 +39,7 @@ $keywords["drums"] = ["drums", "percussion"];
 $keywords["memory"] = ["memory", "memories"];
 $keywords["glitch"] = ["glitch"];
 
-echo "tag,term,text,url\n";
+echo "tag,term,text,url\r\n";
 
 foreach ($urls as $url_key => $url) {
 
@@ -62,7 +62,7 @@ foreach ($urls as $url_key => $url) {
           str_replace('"','""',$match)."\",\"".
           $url."#".
           $keyword_alternative.
-          ",".$key."\""."\n";
+          ",".$key."\""."\r\n";
       }
     }
   }
