@@ -19,47 +19,19 @@
     var TECHNICAL = 3;
     var AESTHETIC = 4;
 
-    buttonDiv.append('button')
-      .text('Conceptual')
-      .attr('id','conceptual')
-      .on('click',function(){
-        transition_to_layout(CONCEPTUAL);
-      });
+    function make_button(button_name, key) {
+      buttonDiv.append('button')
+        .text(button_name)
+        .attr('id',button_name.toLowerCase())
+        .on('click',function(){
+          transition_to_layout(key);
+        });
+    }
 
-    buttonDiv.append('button')
-      .text('Temporal')
-      .attr('id','temporal')
-      .on('click',function(){
-        transition_to_layout(TEMPORAL);
-      });
-
-    buttonDiv.append('button')
-      .text('Technological')
-      .attr('id','technological')
-      .on('click',function(){
-        transition_to_layout(TECHNICAL);
-      });
-
-    buttonDiv.append('button')
-      .text('Aesthetic')
-      .attr('id','aesthetic')
-      .on('click',function(){
-        transition_to_layout(AESTHETIC);
-      });
-
-    buttonDiv.append('button')
-      .text('Draggable')
-      .attr('id','draggable')
-      .on('click',function(){
-        start_draggable_layout();
-      });
-
-    buttonDiv.append('button')
-      .text('Dump')
-      .attr('id','dump')
-      .on('click',function(){
-        dump_current_layout();
-      });
+    make_button('Conceptual', CONCEPTUAL);
+    make_button('Temporal',TEMPORAL);
+    make_button('Technological',TECHNICAL);
+    make_button('Aesthetic',AESTHETIC);
 
     var svg = d3.select(parentName).append('svg')
         .attr('id','restructuring-piece-project-diagram')
@@ -81,14 +53,6 @@
 
     var force1;
 
-    function move_to_centre(n) {
-      n.x += (n.centre.x - n.x) * 0.1;
-      n.y += (n.centre.y - n.y) * 0.1;
-    }
-
-    var centre_of_gravity = { 'x': (width/2), 'y': (height/2)};
-    var centre_of_oblivios = { 'x': 1, 'y': 1}
-
     d3.select('svg#restructuring-piece-project-diagram').attr('style','float:left');
     var dump_header = d3.select('body').append('table').attr('style','float:left;').attr('id','dump').append('tr');
     dump_header.append('th').text('id');
@@ -99,14 +63,11 @@
         .size([width, height])
         .nodes(nodes)
         .links(links)
-        .gravity(0)
+        .gravity(0.1)
         .charge(-200)
         .linkDistance(100);
 
     force1.on('tick',function(){
-      nodes.forEach(function (n){
-        move_to_centre(n);
-      })
 
       var myParent = d3.select('svg#restructuring-piece-project-diagram');
 
@@ -132,17 +93,32 @@
 
       console.log("all links", links.length);
       var my_links = links.filter(function (d) {
+        console.log(parseInt(d.mode), target_layout, parseInt(d.mode) == target_layout);
         return parseInt(d.mode) == target_layout;
       })
-      
       console.log("filtered links",my_links.length);
+      
+      // off-screen centre of gravity for irrelevant nodes
+      var my_nodes = nodes.filter(function(d) {
+        if (my_links.some(
+          function (l) {
+            return d.id == l.source.id || d.id == l.target.id;
+          })) 
+        {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      console.log('node count', my_nodes.length);
+
       var link_lines = svg.selectAll('.link')
                           .data(my_links)
                           .enter().append('line')
                           .attr('class','link');
 
       var node = svg.selectAll('g.node')
-        .data(nodes)
+        .data(my_nodes)
         .enter().append('g')
         .attr('class','node')
         .attr('id', function(d) { return d.id; });
@@ -154,50 +130,11 @@
 
       add_title(node);
 
-      force1.links(my_links);
+      force1.nodes(my_nodes).links(my_links);
       node.call(force1.drag);
 
-      // off-screen centre of gravity for irrelevant nodes
-      nodes.forEach(function(d) {
-        if (my_links.some(
-          function (l) {
-            return d.id == l.source.id || d.id == l.target.id;
-          })) 
-        {
-          d.centre = centre_of_gravity;
-        } else {
-          d.centre = centre_of_oblivios;
-          console.log('oblivios ',d.title);
-        }
-      });
-
-      // stop_draggable_layout();
-      //
-      // function get_layout_for_state(d) {
-      //   return d.layouts[target_layout];
-      // }
-      //
-      // function get_state_x(d) {
-      //   return get_layout_for_state(d).x;
-      // }
-      //
-      // function get_state_y(d) {
-      //   return get_layout_for_state(d).y;
-      // }
-      //
-      // var myparent = d3.select('svg#restructuring-piece-project-diagram');
-      //
-      // myparent.selectAll('g').transition()
-      //   .attr('x', get_state_x)
-      //   .attr('y', get_state_y);
-      //
-      // myparent.selectAll('g.node circle').transition()
-      //   .attr('cx', get_state_x)
-      //   .attr('cy', get_state_y);
-      //
-      // myparent.selectAll('g text').transition()
-      //   .attr('x', function(d) { return (get_state_x(d)-(this.getBBox().width/2)); })
-      //   .attr('y', get_state_y);
+      // give the layout a kick so that it doesn't break after a while
+      force1.alpha(0.2);
 
     }
 
