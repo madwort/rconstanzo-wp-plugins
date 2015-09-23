@@ -53,8 +53,13 @@
 
     var force1;
 
-    d3.select('svg#restructuring-piece-project-diagram').attr('style','float:left');
-    var dump_header = d3.select('body').append('table').attr('style','float:left;').attr('id','dump').append('tr');
+    d3.select('svg#restructuring-piece-project-diagram')
+      .attr('style','float:left');
+    var dump_header = 
+      d3.select('body').append('table')
+        .attr('style','float:left;')
+        .attr('id','dump')
+        .append('tr');
     dump_header.append('th').text('id');
     dump_header.append('th').text('x');
     dump_header.append('th').text('y');
@@ -93,7 +98,8 @@
 
       console.log("all links", links.length);
       var my_links = links.filter(function (d) {
-        console.log(parseInt(d.mode), target_layout, parseInt(d.mode) == target_layout);
+        // console.log(parseInt(d.mode), target_layout,
+        //             parseInt(d.mode) == target_layout);
         return parseInt(d.mode) == target_layout;
       })
       console.log("filtered links",my_links.length);
