@@ -9,16 +9,32 @@
   <link rel="stylesheet" href="restructuring_piece_project_diagram/restructuring-piece-project-diagram.css" type="text/css" media="screen">
 
   <script src='restructuring_piece_project_diagram/d3.js' charset='utf-8'></script>
+  <script src='restructuring_piece_project_diagram/queue.js' charset='utf-8'></script>
   <script src='restructuring_piece_project_diagram/restructuring-piece-project-diagram.js' charset='utf-8'></script>
 
 </head>
 <body>
   <script>
-  d3.json('restructuring_piece_project_diagram/restructuring-piece-project-diagram.json', function(error, graph) {
-    var width = 650,
-      height = 800;
-    drawPieceProjectDiagram('body', graph, width, height);
-  });
+  // TODO: use queue!
+  // https://github.com/mbostock/queue
+  // http://bl.ocks.org/mbostock/4060606
+
+  d3.csv(
+    'restructuring_piece_project_diagram_assets/blurbs.csv', 
+    function (error, pieces) {
+      if (error) throw error;
+  
+      d3.csv(
+        'restructuring_piece_project_diagram_assets/connections.csv', 
+        function (error, connections) {
+          if (error) throw error;
+          console.log(connections[0]);
+
+          var width = 650,
+              height = 650;
+          drawPieceProjectDiagram('body', pieces, connections, width, height);
+      });
+    });
   </script>
 
 </body>

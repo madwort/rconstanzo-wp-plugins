@@ -40,7 +40,7 @@ function restructuring_piece_project_diagram_handler($atts)
 	return "<div id='restructuring-piece-project-diagram'></div><script>
   d3.json('" . plugins_url( 'restructuring-piece-project-diagram.json', __FILE__ ) . "', function(error, graph) {
 	  var width = 650,
-	      height = 800;
+	      height = 650;
     drawPieceProjectDiagram('#restructuring-piece-project-diagram', graph, width, height);
   });
   </script>";

@@ -1,257 +1,191 @@
-function drawPieceProjectDiagram(parentName, graph, width, height) {
-  var object_size = 40;
+(function (w, d3) {
+  'use strict';
+  w.drawPieceProjectDiagram = function (parentName, nodes, 
+                                        links, width, height) 
+  {
+    var object_size = 40;
 
-  var buttonDiv = d3.select(parentName).append('div');
+    var buttonDiv = d3.select(parentName).append('div');
 
-  buttonDiv.append('button')
-    .text('Conceptual')
-    .attr('id','conceptual')
-    .on('click',function(){
-      transition_to_layout('conceptual');
-    });
+    var nodeMap = d3.map(nodes, function(d) { return d.id; });
 
-  buttonDiv.append('button')
-    .text('Temporal')
-    .attr('id','temporal')
-    .on('click',function(){
-      transition_to_layout('temporal');
-    });
+    links.forEach(function (d){
+      d.source = nodeMap.get(d.source);
+      d.target = nodeMap.get(d.target);
+    })
 
-  buttonDiv.append('button')
-    .text('Technological')
-    .attr('id','technological')
-    .on('click',function(){
-      transition_to_layout('technological');
-    });
+    var CONCEPTUAL = 1;
+    var TEMPORAL = 2;
+    var TECHNICAL = 3;
+    var AESTHETIC = 4;
 
-  buttonDiv.append('button')
-    .text('Aesthetic')
-    .attr('id','aesthetic')
-    .on('click',function(){
-      transition_to_layout('aesthetic');
-    });
+    function make_button(button_name, key) {
+      buttonDiv.append('button')
+        .text(button_name)
+        .attr('id',button_name.toLowerCase())
+        .on('click',function(){
+          transition_to_layout(key);
+        });
+    }
 
-  buttonDiv.append('button')
-    .text('Draggable')
-    .attr('id','draggable')
-    .on('click',function(){
-      start_draggable_layout();
-    });
+    make_button('Conceptual', CONCEPTUAL);
+    make_button('Temporal',TEMPORAL);
+    make_button('Technological',TECHNICAL);
+    make_button('Aesthetic',AESTHETIC);
 
-  buttonDiv.append('button')
-    .text('Dump')
-    .attr('id','dump')
-    .on('click',function(){
-      dump_current_layout();
-    });
+    var svg = d3.select(parentName).append('svg')
+        .attr('id','restructuring-piece-project-diagram')
+        .attr('width', width)
+        .attr('height', height)
+        .attr('style','float:left')
+        .attr('xlink','http://www.w3.org/1999/xlink');
 
-  var svg = d3.select(parentName).append('svg')
-      .attr('id','restructuring-piece-project-diagram')
-      .attr('width', width)
-      .attr('height', height)
-      .attr('xlink','http://www.w3.org/1999/xlink');
+    var metadata_display = d3.select(parentName).append('div');
+    metadata_display.append('h2').text('Metadata');
 
-  function add_title(svgObjects) {
-    svgObjects.append('text')
-      .text(function(d){
-        return d.title;
-      })
-      .attr('class','title')
-      .on('mouseover',function(d){ console.log("BOO!"); })
-      ;
-  }
+    var connection_metadata_display = d3.select(parentName).append('div');
+    connection_metadata_display.append('h2').text('Connections');
 
-  var piece = svg.selectAll('g.piece')
-    .data(graph.pieces)
-    .enter().append('g')
-    .attr('class','piece')
-    .attr('id', function(d) { return d.id; });
+    function add_title(svgObjects) {
+      svgObjects.append('text')
+        .text(function(d){
+          return d.title;
+        })
+        .attr('class','title')
+        .on('mouseover',function(d){ display_metadata(d); })
+        ;
+    }
 
-  piece.append('circle')
-    // radius of the circles
-    .attr('r', object_size/2)
-    .attr('id', function(d) { return d.id; });
+    var node;
 
-  add_title(piece);
-
-  var project = svg.selectAll('g.project')
-    .data(graph.projects)
-    .enter().append('g')
-    .attr('class','project')
-    .attr('id', function(d) { return d.id; });
-
-  project.append('rect')
-    .attr('width',object_size)
-    .attr('height',object_size)
-    .attr('id', function(d) { return d.id; });
-
-  add_title(project);
-
-  var concept = svg.selectAll('g.concept')
-    .data(graph.concepts)
-    .enter().append('g')
-    .attr('class','concept')
-    .attr('id', function(d) { return d.id; });
-
-  concept.append('rect')
-    .attr('width',object_size)
-    .attr('height',object_size)
-    .attr('rx', object_size/10)
-    .attr('ry', object_size/10)
-    .attr('id', function(d) { return d.id; });
-
-  add_title(concept);
-
-  function dump_current_layout() {
-    d3.selectAll('table#dump tr.data').remove();
-    piece.select('circle')[0].forEach(function(d) {
-      var myrow = d3.select('table#dump').append('tr').attr('class','data');
-      myrow.append('td').text(d.id);
-      myrow.append('td').text(d.cx.baseVal.valueAsString);
-      myrow.append('td').text(d.cy.baseVal.valueAsString);
-    });
-    project.select('rect')[0].forEach(function(d) {
-      var myrow = d3.select('table#dump').append('tr').attr('class','data');
-      myrow.append('td').text(d.id);
-      myrow.append('td').text(d.x.baseVal.valueAsString);
-      myrow.append('td').text(d.y.baseVal.valueAsString);
-    });
-    concept.select('rect')[0].forEach(function(d){
-      var myrow = d3.select('table#dump').append('tr').attr('class','data');
-      myrow.append('td').text(d.id);
-      myrow.append('td').text(d.x.baseVal.valueAsString);
-      myrow.append('td').text(d.y.baseVal.valueAsString);
-    });
-  }
-
-  var force1, force2, force3;
-
-  function create_draggable_layout() {
-    // create container for dumps
-    d3.select('svg#restructuring-piece-project-diagram').attr('style','float:left');
-    var dump_header = d3.select('body').append('table').attr('style','float:left;').attr('id','dump').append('tr');
-    dump_header.append('th').text('id');
-    dump_header.append('th').text('x');
-    dump_header.append('th').text('y');
+    var force1;
 
     force1 = d3.layout.force()
         .size([width, height])
-        .nodes(graph.pieces)
-        .charge(0)
-        .gravity(0);
+        .nodes(nodes)
+        .links(links)
+        .gravity(0.1)
+        .charge(-250)
+        .linkDistance(80);
 
     force1.on('tick',function(){
-      var myParent = d3.select('svg#restructuring-piece-project-diagram');
 
-      myParent.selectAll('g.piece circle')
+      svg.selectAll('g.node circle')
           .attr('cx', function(d) { return d.x; })
           .attr('cy', function(d) { return d.y; });
 
-      myParent.selectAll('text')
+      svg.selectAll('text')
           .attr('x', function(d) { return (d.x-(this.getBBox().width/2)); })
           .attr('y', function(d) { return d.y; });
-    })
 
-    force2 = d3.layout.force()
-        .size([width, height])
-        .nodes(graph.projects)
-        .charge(0)
-        .gravity(0);
+      svg.selectAll('.link')
+          .attr('x1', function(d) { return d.source.x; })
+          .attr('y1', function(d) { return d.source.y; })
+          .attr('x2', function(d) { return d.target.x; })
+          .attr('y2', function(d) { return d.target.y; });
 
-    force2.on('tick',function(){
-      var myParent = d3.select('svg#restructuring-piece-project-diagram');
+    });
 
-      myParent.selectAll('g.project rect')
-          .attr('x', function(d) { return d.x-(object_size/2); })
-          .attr('y', function(d) { return d.y-(object_size/2); })
-          .attr('transform', function(d) { return 'rotate(-45 '+ d.x + ' ' + d.y + ')'; });
-
-      myParent.selectAll('text')
-          .attr('x', function(d) { return (d.x-(this.getBBox().width/2)); })
-          .attr('y', function(d) { return d.y; });
-    })
-
-    force3 = d3.layout.force()
-        .size([width, height])
-        .nodes(graph.concepts)
-        .charge(0)
-        .gravity(0);
-
-    force3.on('tick',function(){
-      var myParent = d3.select('svg#restructuring-piece-project-diagram');
-
-      myParent.selectAll('g.concept rect')
-          .attr('x', function(d) { return d.x-(object_size/2); })
-          .attr('y', function(d) { return d.y-(object_size/2); });
-
-      myParent.selectAll('text')
-          .attr('x', function(d) { return (d.x-(this.getBBox().width/2)); })
-          .attr('y', function(d) { return d.y; });
-    })
-
-  }
-
-  create_draggable_layout();
-
-  function start_draggable_layout() {
-    piece.call(force1.drag);
-    project.call(force2.drag);
-    concept.call(force3.drag);
     force1.start();
-    force2.start();
-    force3.start();
-  }
 
-  function stop_draggable_layout() {
-    piece.on('mousedown.drag', null);
-    project.on('mousedown.drag', null);
-    concept.on('mousedown.drag', null);
-    force1.stop();
-    force2.stop();
-    force3.stop();
-  }
+    function display_metadata(d) {
+      // clean-up old stuff
+      metadata_display.selectAll('div').remove();
 
-  function transition_to_layout(target_layout) {
+      metadata_display.append('div').text(d.title);
+      metadata_display.append('div').text(d.type);
+      metadata_display.append('div').text(d.date);
+      if (d.instrumentation) {
+        metadata_display.append('div').text(d.instrumentation);
+      }
+      metadata_display.append('div').text(d.blurb);
+      metadata_display.append('div').text(d.edit);
+      metadata_display.append('div').text(d.proof);
+      metadata_display.append('div').text(d.draft);
+      metadata_display.append('div').text(d.page);
+      metadata_display.append('div').text(d.comments);
+      metadata_display.append('div').text(d.video_url);
+      metadata_display.append('div').text(d.embed);
 
-    stop_draggable_layout();
-
-    function get_layout_for_state(d) {
-      return d.layouts[target_layout];
+      connection_metadata_display.selectAll('div').remove();
+      force1.links()
+        .filter(
+          function(l) {
+            return ((l.target.id == d.id) || (l.source.id == d.id));
+          }
+        )
+        .forEach(
+          function (l) {
+            connection_metadata_display
+              .append('div')
+              .text(
+                ((l.target.id == d.id)? l.source.title: l.target.title ) + 
+                " - " + l.text);
+          }
+        );
     }
 
-    function get_state_x(d) {
-      return get_layout_for_state(d).x;
+    function transition_to_layout(target_layout) {
+
+      console.log("all links", links.length);
+      var my_links = links.filter(function (d) {
+        // console.log(parseInt(d.mode), target_layout,
+        //             parseInt(d.mode) == target_layout);
+        return parseInt(d.mode) == target_layout;
+      })
+      console.log("filtered links",my_links.length);
+      
+      // hide irrelevant nodes
+      var my_nodes = nodes.filter(function(d) {
+        if (my_links.some(
+          function (l) {
+            return d.id == l.source.id || d.id == l.target.id;
+          })) 
+        {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      console.log('node count', my_nodes.length);
+
+      // remove contents of graph & replace with new set
+      // just doing .enter() didn't seem to remove links correctly
+      svg.selectAll('.link').remove();
+      svg.selectAll('.node').remove();
+
+      var link_lines = svg.selectAll('.link')
+                          .data(my_links)
+                          .enter().append('line')
+                          .attr('class','link');
+
+      var node = svg.selectAll('g.node')
+        .data(my_nodes)
+        .enter().append('g')
+        .attr('class','node')
+        .attr('id', function(d) { return d.id; });
+
+      node.append('circle')
+        // radius of the circles
+        .attr('r', object_size/2)
+        .attr('id', function(d) { return d.id; })
+        .attr('class',function(d) { return d.type; })
+        .on('mouseover',function(d) { display_metadata(d); });
+
+      // add_title(node);
+
+      force1
+        .nodes(my_nodes)
+        .links(my_links);
+
+      node.call(force1.drag);
+
+      // give the layout a kick so that it doesn't break after a while
+      force1.alpha(0.2);
+
     }
 
-    function get_state_y(d) {
-      return get_layout_for_state(d).y;
-    }
+    transition_to_layout(CONCEPTUAL);
 
-    var myparent = d3.select('svg#restructuring-piece-project-diagram');
-
-    myparent.selectAll('g').transition()
-      .attr('x', get_state_x)
-      .attr('y', get_state_y);
-
-    myparent.selectAll('g.piece circle').transition()
-      .attr('cx', get_state_x)
-      .attr('cy', get_state_y);
-
-    myparent.selectAll('g.project rect').transition()
-      .attr('x', function(d) { return get_state_x(d)-(object_size/2); })
-      .attr('y', function(d) { return get_state_y(d)-(object_size/2); })
-      .attr('transform', function(d) { return 'rotate(-45 '+ get_state_x(d) + ' ' + get_state_y(d) + ')'; });
-
-    myparent.selectAll('g.concept rect').transition()
-      .attr('x', function(d) { return get_state_x(d)-(object_size/2); })
-      .attr('y', function(d) { return get_state_y(d)-(object_size/2); });
-
-    myparent.selectAll('g text').transition()
-      .attr('x', function(d) { return (get_state_x(d)-(this.getBBox().width/2)); })
-      .attr('y', get_state_y);
-
-  }
-
-  transition_to_layout('conceptual');
-
-};
+  };
+} )( window, d3 );

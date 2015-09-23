@@ -6,28 +6,46 @@ svg#restructuring-piece-project-diagram text
   stroke: none;
 }
 
-svg#restructuring-piece-project-diagram .piece,
-svg#restructuring-piece-project-diagram .project,
-svg#restructuring-piece-project-diagram .concept
+svg#restructuring-piece-project-diagram .node
 {
+}
+
+svg#restructuring-piece-project-diagram .node circle
+{
+  fill: white;
   fill-opacity: 0.5;
   stroke: black;
   scroke-width: 2;
 }
 
-svg#restructuring-piece-project-diagram .piece
+svg#restructuring-piece-project-diagram .node circle.piece
 {
-  fill: pink;
+  fill: #FF0066;
+  stroke: #FF0066;
 }
 
-svg#restructuring-piece-project-diagram .project
+svg#restructuring-piece-project-diagram .node circle.software
 {
-  fill: darkblue;
+  fill: limegreen;
+  stroke: limegreen;
 }
 
-svg#restructuring-piece-project-diagram .concept
+svg#restructuring-piece-project-diagram .node circle.framework
 {
-  fill: lightgreen;
+  fill: darkgreen;
+  stroke: darkgreen;
+}
+
+svg#restructuring-piece-project-diagram .node circle.concept
+{
+  fill: blue;
+  stroke: blue;
+}
+
+svg#restructuring-piece-project-diagram .link {
+  fill: none;
+  stroke: #9ecae1;
+  stroke-width: 1.5px;
 }
 
 button#conceptual,
@@ -39,4 +57,24 @@ button#draggable
   border: none;
   color: white;
   background-color: black;
+}
+
+svg#restructuring-piece-project-diagram div.piece
+{
+  background-color: #FF0066;
+}
+
+svg#restructuring-piece-project-diagram div.software
+{
+  background-color: limegreen;
+}
+
+svg#restructuring-piece-project-diagram div.framework
+{
+  background-color: darkgreen;
+}
+
+svg#restructuring-piece-project-diagram div.concept
+{
+  background-color: blue;
 }
