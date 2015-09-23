@@ -90,8 +90,7 @@
 
       force1 = d3.layout.force()
           .size([width, height])
-          .nodes(graph)
-          .links(connections);
+          .nodes(graph);
 
       force1.on('tick',function(){
         var myParent = d3.select('svg#restructuring-piece-project-diagram');
