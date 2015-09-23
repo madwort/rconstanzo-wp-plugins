@@ -23,28 +23,28 @@
       .text('Conceptual')
       .attr('id','conceptual')
       .on('click',function(){
-        transition_to_layout('conceptual');
+        transition_to_layout(CONCEPTUAL);
       });
 
     buttonDiv.append('button')
       .text('Temporal')
       .attr('id','temporal')
       .on('click',function(){
-        transition_to_layout('temporal');
+        transition_to_layout(TEMPORAL);
       });
 
     buttonDiv.append('button')
       .text('Technological')
       .attr('id','technological')
       .on('click',function(){
-        transition_to_layout('technological');
+        transition_to_layout(TECHNICAL);
       });
 
     buttonDiv.append('button')
       .text('Aesthetic')
       .attr('id','aesthetic')
       .on('click',function(){
-        transition_to_layout('aesthetic');
+        transition_to_layout(AESTHETIC);
       });
 
     buttonDiv.append('button')
@@ -77,87 +77,100 @@
         ;
     }
 
-    var link_lines = svg.selectAll('.link')
-                        .data(links)
-                        .enter().append('line')
-                        .attr('class','link');
-
-    var piece = svg.selectAll('g.piece')
-      .data(nodes)
-      .enter().append('g')
-      .attr('class','piece')
-      .attr('id', function(d) { return d.id; });
-
-    piece.append('circle')
-      // radius of the circles
-      .attr('r', object_size/2)
-      .attr('id', function(d) { return d.id; });
-
-    add_title(piece);
+    var node;
 
     var force1;
 
-    function create_draggable_layout() {
-      // create container for dumps
-      d3.select('svg#restructuring-piece-project-diagram').attr('style','float:left');
-      var dump_header = d3.select('body').append('table').attr('style','float:left;').attr('id','dump').append('tr');
-      dump_header.append('th').text('id');
-      dump_header.append('th').text('x');
-      dump_header.append('th').text('y');
+    function move_to_centre(n) {
+      n.x += (n.centre.x - n.x) * 0.1;
+      n.y += (n.centre.y - n.y) * 0.1;
+    }
 
-      force1 = d3.layout.force()
-          .size([width, height])
-          .nodes(nodes)
-          .links(links)
-          .gravity(0.1)
-          .charge(-150)
-          .linkDistance(50);
+    var centre_of_gravity = { 'x': (width/2), 'y': (height/2)};
+    var centre_of_oblivios = { 'x': 1, 'y': 1}
 
-      force1.on('tick',function(){
-        var myParent = d3.select('svg#restructuring-piece-project-diagram');
+    d3.select('svg#restructuring-piece-project-diagram').attr('style','float:left');
+    var dump_header = d3.select('body').append('table').attr('style','float:left;').attr('id','dump').append('tr');
+    dump_header.append('th').text('id');
+    dump_header.append('th').text('x');
+    dump_header.append('th').text('y');
 
-        myParent.selectAll('g.piece circle')
-            .attr('cx', function(d) { return d.x; })
-            .attr('cy', function(d) { return d.y; });
+    force1 = d3.layout.force()
+        .size([width, height])
+        .nodes(nodes)
+        .links(links)
+        .gravity(0)
+        .charge(-200)
+        .linkDistance(100);
 
-        myParent.selectAll('text')
-            .attr('x', function(d) { return (d.x-(this.getBBox().width/2)); })
-            .attr('y', function(d) { return d.y; });
-
-        myParent.selectAll('.link')
-            .attr('x1', function(d) { return d.source.x; })
-            .attr('y1', function(d) { return d.source.y; })
-            .attr('x2', function(d) { return d.target.x; })
-            .attr('y2', function(d) { return d.target.y; });
-
+    force1.on('tick',function(){
+      nodes.forEach(function (n){
+        move_to_centre(n);
       })
 
-    }
+      var myParent = d3.select('svg#restructuring-piece-project-diagram');
 
-    create_draggable_layout();
-    start_draggable_layout();
+      myParent.selectAll('g.node circle')
+          .attr('cx', function(d) { return d.x; })
+          .attr('cy', function(d) { return d.y; });
 
-    function start_draggable_layout() {
-      piece.call(force1.drag);
-      force1.start();
-    }
+      myParent.selectAll('text')
+          .attr('x', function(d) { return (d.x-(this.getBBox().width/2)); })
+          .attr('y', function(d) { return d.y; });
 
-    function stop_draggable_layout() {
-      piece.on('mousedown.drag', null);
-      force1.stop();
-    }
+      myParent.selectAll('.link')
+          .attr('x1', function(d) { return d.source.x; })
+          .attr('y1', function(d) { return d.source.y; })
+          .attr('x2', function(d) { return d.target.x; })
+          .attr('y2', function(d) { return d.target.y; });
+
+    });
+
+    force1.start();
 
     function transition_to_layout(target_layout) {
 
-      console.log(links);
+      console.log("all links", links.length);
       var my_links = links.filter(function (d) {
         return parseInt(d.mode) == target_layout;
       })
       
-      console.log(my_links);
-      // link.data(my_links)
+      console.log("filtered links",my_links.length);
+      var link_lines = svg.selectAll('.link')
+                          .data(my_links)
+                          .enter().append('line')
+                          .attr('class','link');
+
+      var node = svg.selectAll('g.node')
+        .data(nodes)
+        .enter().append('g')
+        .attr('class','node')
+        .attr('id', function(d) { return d.id; });
+
+      node.append('circle')
+        // radius of the circles
+        .attr('r', object_size/2)
+        .attr('id', function(d) { return d.id; });
+
+      add_title(node);
+
       force1.links(my_links);
-      
+      node.call(force1.drag);
+
+      // off-screen centre of gravity for irrelevant nodes
+      nodes.forEach(function(d) {
+        if (my_links.some(
+          function (l) {
+            return d.id == l.source.id || d.id == l.target.id;
+          })) 
+        {
+          d.centre = centre_of_gravity;
+        } else {
+          d.centre = centre_of_oblivios;
+          console.log('oblivios ',d.title);
+        }
+      });
+
       // stop_draggable_layout();
       //
       // function get_layout_for_state(d) {
@@ -178,7 +191,7 @@
       //   .attr('x', get_state_x)
       //   .attr('y', get_state_y);
       //
-      // myparent.selectAll('g.piece circle').transition()
+      // myparent.selectAll('g.node circle').transition()
       //   .attr('cx', get_state_x)
       //   .attr('cy', get_state_y);
       //

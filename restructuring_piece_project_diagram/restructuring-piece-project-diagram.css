@@ -6,28 +6,22 @@ svg#restructuring-piece-project-diagram text
   stroke: none;
 }
 
-svg#restructuring-piece-project-diagram .piece,
-svg#restructuring-piece-project-diagram .project,
-svg#restructuring-piece-project-diagram .concept
+svg#restructuring-piece-project-diagram .node
 {
   fill-opacity: 0.5;
   stroke: black;
   scroke-width: 2;
 }
 
-svg#restructuring-piece-project-diagram .piece
+svg#restructuring-piece-project-diagram .node
 {
   fill: pink;
 }
 
-svg#restructuring-piece-project-diagram .project
-{
-  fill: darkblue;
-}
-
-svg#restructuring-piece-project-diagram .concept
-{
-  fill: lightgreen;
+svg#restructuring-piece-project-diagram .link {
+  fill: none;
+  stroke: #9ecae1;
+  stroke-width: 1.5px;
 }
 
 button#conceptual,
