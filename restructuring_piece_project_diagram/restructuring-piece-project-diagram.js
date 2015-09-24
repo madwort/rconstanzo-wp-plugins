@@ -104,7 +104,7 @@
       })
       console.log("filtered links",my_links.length);
       
-      // off-screen centre of gravity for irrelevant nodes
+      // hide irrelevant nodes
       var my_nodes = nodes.filter(function(d) {
         if (my_links.some(
           function (l) {
@@ -117,6 +117,9 @@
         }
       });
       console.log('node count', my_nodes.length);
+
+      svg.selectAll('.link').remove();
+      svg.selectAll('.node').remove();
 
       var link_lines = svg.selectAll('.link')
                           .data(my_links)
@@ -132,11 +135,32 @@
       node.append('circle')
         // radius of the circles
         .attr('r', object_size/2)
-        .attr('id', function(d) { return d.id; });
+        .attr('id', function(d) { return d.id; })
+        .style('fill', function(d) {
+          switch (d.type) {
+          case "piece":
+            return 'pink'
+            break;
+          case "software":
+            return 'green'
+            break;
+          case "framework":
+            return 'green'
+            break;
+          case "concept":
+            return 'blue'
+            break;
+          default:
+            return 'white'
+          }
+        });
 
       add_title(node);
 
-      force1.nodes(my_nodes).links(my_links);
+      force1
+        .nodes(my_nodes)
+        .links(my_links);
+
       node.call(force1.drag);
 
       // give the layout a kick so that it doesn't break after a while
