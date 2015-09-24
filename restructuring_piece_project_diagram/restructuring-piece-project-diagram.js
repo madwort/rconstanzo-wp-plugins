@@ -70,7 +70,7 @@
         .links(links)
         .gravity(0.1)
         .charge(-200)
-        .linkDistance(100);
+        .linkDistance(150);
 
     force1.on('tick',function(){
 
@@ -139,13 +139,13 @@
         .style('fill', function(d) {
           switch (d.type) {
           case "piece":
-            return 'pink'
+            return '#FF0066'
             break;
           case "software":
-            return 'green'
+            return 'limegreen'
             break;
           case "framework":
-            return 'green'
+            return 'darkgreen'
             break;
           case "concept":
             return 'blue'
