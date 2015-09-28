@@ -67,17 +67,15 @@
 
     force1.on('tick',function(){
 
-      var myParent = d3.select('svg#restructuring-piece-project-diagram');
-
-      myParent.selectAll('g.node circle')
+      svg.selectAll('g.node circle')
           .attr('cx', function(d) { return d.x; })
           .attr('cy', function(d) { return d.y; });
 
-      myParent.selectAll('text')
+      svg.selectAll('text')
           .attr('x', function(d) { return (d.x-(this.getBBox().width/2)); })
           .attr('y', function(d) { return d.y; });
 
-      myParent.selectAll('.link')
+      svg.selectAll('.link')
           .attr('x1', function(d) { return d.source.x; })
           .attr('y1', function(d) { return d.source.y; })
           .attr('x2', function(d) { return d.target.x; })
