@@ -13,9 +13,29 @@ svg#restructuring-piece-project-diagram .node
   scroke-width: 2;
 }
 
-svg#restructuring-piece-project-diagram .node
+svg#restructuring-piece-project-diagram .node circle
 {
-  fill: pink;
+  fill: white;
+}
+
+svg#restructuring-piece-project-diagram .node circle.piece
+{
+  fill: #FF0066;
+}
+
+svg#restructuring-piece-project-diagram .node circle.software
+{
+  fill: limegreen;
+}
+
+svg#restructuring-piece-project-diagram .node circle.framework
+{
+  fill: darkgreen;
+}
+
+svg#restructuring-piece-project-diagram .node circle.concept
+{
+  fill: blue;
 }
 
 svg#restructuring-piece-project-diagram .link {

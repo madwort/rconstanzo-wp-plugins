@@ -37,7 +37,11 @@
         .attr('id','restructuring-piece-project-diagram')
         .attr('width', width)
         .attr('height', height)
+        .attr('style','float:left')
         .attr('xlink','http://www.w3.org/1999/xlink');
+
+    var metadata_display = d3.select(parentName).append('div')
+        .text('Metadata Display');
 
     function add_title(svgObjects) {
       svgObjects.append('text')
@@ -45,24 +49,13 @@
           return d.title;
         })
         .attr('class','title')
-        .on('mouseover',function(d){ console.log("BOO!"); })
+        .on('mouseover',function(d){ console.log("Mouseover text"); })
         ;
     }
 
     var node;
 
     var force1;
-
-    d3.select('svg#restructuring-piece-project-diagram')
-      .attr('style','float:left');
-    var dump_header = 
-      d3.select('body').append('table')
-        .attr('style','float:left;')
-        .attr('id','dump')
-        .append('tr');
-    dump_header.append('th').text('id');
-    dump_header.append('th').text('x');
-    dump_header.append('th').text('y');
 
     force1 = d3.layout.force()
         .size([width, height])
@@ -118,6 +111,8 @@
       });
       console.log('node count', my_nodes.length);
 
+      // remove contents of graph & replace with new set
+      // just doing .enter() didn't seem to remove links correctly
       svg.selectAll('.link').remove();
       svg.selectAll('.node').remove();
 
@@ -136,24 +131,8 @@
         // radius of the circles
         .attr('r', object_size/2)
         .attr('id', function(d) { return d.id; })
-        .style('fill', function(d) {
-          switch (d.type) {
-          case "piece":
-            return '#FF0066'
-            break;
-          case "software":
-            return 'limegreen'
-            break;
-          case "framework":
-            return 'darkgreen'
-            break;
-          case "concept":
-            return 'blue'
-            break;
-          default:
-            return 'white'
-          }
-        });
+        .attr('class',function(d) { return d.type; })
+        .on('mouseover',function(d) { console.log('Mousover circle'); });
 
       add_title(node);
 
