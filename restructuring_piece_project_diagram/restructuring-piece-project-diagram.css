@@ -54,3 +54,23 @@ button#draggable
   color: white;
   background-color: black;
 }
+
+svg#restructuring-piece-project-diagram div.piece
+{
+  background-color: #FF0066;
+}
+
+svg#restructuring-piece-project-diagram div.software
+{
+  background-color: limegreen;
+}
+
+svg#restructuring-piece-project-diagram div.framework
+{
+  background-color: darkgreen;
+}
+
+svg#restructuring-piece-project-diagram div.concept
+{
+  background-color: blue;
+}

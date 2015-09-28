@@ -15,20 +15,23 @@
 </head>
 <body>
   <script>
+  // TODO: use queue!
+  // https://github.com/mbostock/queue
+  // http://bl.ocks.org/mbostock/4060606
 
   d3.csv(
     'restructuring_piece_project_diagram_assets/blurbs.csv', 
     function (error, pieces) {
       if (error) throw error;
-      console.log(pieces);
   
       d3.csv(
         'restructuring_piece_project_diagram_assets/connections.csv', 
         function (error, connections) {
           if (error) throw error;
+          console.log(connections[0]);
 
           var width = 650,
-              height = 800;
+              height = 650;
           drawPieceProjectDiagram('body', pieces, connections, width, height);
       });
     });

@@ -40,8 +40,11 @@
         .attr('style','float:left')
         .attr('xlink','http://www.w3.org/1999/xlink');
 
-    var metadata_display = d3.select(parentName).append('div')
-        .text('Metadata Display');
+    var metadata_display = d3.select(parentName).append('div');
+    metadata_display.append('h2').text('Metadata');
+
+    var connection_metadata_display = d3.select(parentName).append('div');
+    connection_metadata_display.append('h2').text('Connections');
 
     function add_title(svgObjects) {
       svgObjects.append('text')
@@ -49,7 +52,7 @@
           return d.title;
         })
         .attr('class','title')
-        .on('mouseover',function(d){ console.log("Mouseover text"); })
+        .on('mouseover',function(d){ display_metadata(d); })
         ;
     }
 
@@ -84,6 +87,44 @@
     });
 
     force1.start();
+
+    function display_metadata(d) {
+      // clean-up old stuff
+      metadata_display.selectAll('div').remove();
+
+      metadata_display.append('div').text(d.title);
+      metadata_display.append('div').text(d.type);
+      metadata_display.append('div').text(d.date);
+      if (d.instrumentation) {
+        metadata_display.append('div').text(d.instrumentation);
+      }
+      metadata_display.append('div').text(d.blurb);
+      metadata_display.append('div').text(d.edit);
+      metadata_display.append('div').text(d.proof);
+      metadata_display.append('div').text(d.draft);
+      metadata_display.append('div').text(d.page);
+      metadata_display.append('div').text(d.comments);
+      metadata_display.append('div').text(d.video_url);
+      metadata_display.append('div').text(d.embed);
+
+      connection_metadata_display.selectAll('div').remove();
+      $.each(
+        force1.links()
+          .filter(
+            function(l) {
+              return ((l.target.id == d.id) || (l.source.id == d.id));
+            }),
+        function (i, l) {
+          connection_metadata_display
+            .append('div')
+            .text(
+              ((l.target.id == d.id)? l.source.title: l.target.title ) + 
+              " - " + l.text);
+        }
+        
+      );
+      
+    }
 
     function transition_to_layout(target_layout) {
 
@@ -130,7 +171,7 @@
         .attr('r', object_size/2)
         .attr('id', function(d) { return d.id; })
         .attr('class',function(d) { return d.type; })
-        .on('mouseover',function(d) { console.log('Mousover circle'); });
+        .on('mouseover',function(d) { display_metadata(d); });
 
       add_title(node);
 
