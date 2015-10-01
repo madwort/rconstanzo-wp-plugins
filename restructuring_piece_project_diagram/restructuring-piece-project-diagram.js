@@ -107,7 +107,9 @@
     function display_metadata(d) {
       // clean-up old stuff
       metadata_display.selectAll('div').remove();
+      metadata_display.selectAll('img').remove();
 
+      metadata_display.append('img').attr('src',"restructuring_piece_project_diagram_assets/"+d.id+".jpg");
       metadata_display.append('div').text(d.title);
       metadata_display.append('div').text(d.type);
       metadata_display.append('div').text(d.date);
