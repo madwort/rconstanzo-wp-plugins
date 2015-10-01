@@ -110,17 +110,19 @@
       metadata_display.selectAll('img').remove();
 
       metadata_display.append('img').attr('src',"restructuring_piece_project_diagram_assets/"+d.id+".jpg");
-      metadata_display.append('div').text(d.title);
+      metadata_display.append('div').style('font-weight','bold').text(d.title);
       metadata_display.append('div').text(d.type);
-      metadata_display.append('div').text(d.date);
+      if (d.instrumentation) {
+          metadata_display.append('div').text("Date: "+d.date);
+      }
       if (d.instrumentation) {
         metadata_display.append('div').text(d.instrumentation);
       }
       metadata_display.append('div').text(d.blurb);
-      metadata_display.append('div').text(d.edit);
-      metadata_display.append('div').text(d.proof);
-      metadata_display.append('div').text(d.draft);
-      metadata_display.append('div').text(d.page);
+      // metadata_display.append('div').text(d.edit);
+      // metadata_display.append('div').text(d.proof);
+      // metadata_display.append('div').text(d.draft);
+      metadata_display.append('div').append('a').attr('href',d.page).text(d.page);
       metadata_display.append('div').text(d.comments);
       metadata_display.append('div').append('a').attr('href',d.video_url).text(d.video_url);
       metadata_display.append('div').html(d.embed);
