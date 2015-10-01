@@ -40,6 +40,22 @@
         .attr('style','float:left')
         .attr('xlink','http://www.w3.org/1999/xlink');
 
+    var defs = svg.append('defs')
+
+    for (var i = 1; i < 16; i++) {
+        defs.append('pattern')
+            .attr('id','image'+i)
+            .attr('width','50')
+            .attr('height','50')
+            .attr('patternUnits','userSpaceOnUse')
+            .append('image')
+            .attr('x','0')
+            .attr('y','0')
+            .attr('width','50')
+            .attr('height','50')
+            .attr('xlink:href',"restructuring_piece_project_diagram_assets/"+i+".jpg");
+    }
+
     var metadata_display = d3.select(parentName).append('div');
     metadata_display.append('h2').text('Metadata');
 
@@ -170,7 +186,12 @@
         .attr('r', object_size/2)
         .attr('id', function(d) { return d.id; })
         .attr('class',function(d) { return d.type; })
+        .style('fill',function (d) {
+            return 'url(#image'+d.id+')';
+        })
         .on('mouseover',function(d) { display_metadata(d); });
+
+      d3.select('circle').style('fill','url(#image1)');
 
       // add_title(node);
 
