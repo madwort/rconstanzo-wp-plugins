@@ -78,3 +78,17 @@ svg#restructuring-piece-project-diagram div.concept
 {
   background-color: blue;
 }
+
+div#metadata {
+    width: 650px;
+}
+
+div#metadata img {
+    padding: 5px;
+    float: left;
+}
+
+div#metadata_connections {
+    width: 650px;
+    clear: both;
+}

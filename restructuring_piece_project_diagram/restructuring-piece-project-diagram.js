@@ -3,7 +3,7 @@
   w.drawPieceProjectDiagram = function (parentName, nodes, 
                                         links, width, height) 
   {
-    var object_size = 40;
+    var object_size = 30;
 
     var buttonDiv = d3.select(parentName).append('div');
 
@@ -37,7 +37,7 @@
         .attr('id','restructuring-piece-project-diagram')
         .attr('width', width)
         .attr('height', height)
-        .attr('style','float:left')
+        // .attr('style','float:left')
         .attr('xlink','http://www.w3.org/1999/xlink');
 
     var defs = svg.append('defs')
@@ -45,21 +45,23 @@
     for (var i = 1; i < 16; i++) {
         defs.append('pattern')
             .attr('id','image'+i)
-            .attr('width','50')
-            .attr('height','50')
+            .attr('width','40')
+            .attr('height','40')
             .attr('patternUnits','userSpaceOnUse')
             .append('image')
             .attr('x','0')
             .attr('y','0')
-            .attr('width','50')
-            .attr('height','50')
+            .attr('width','40')
+            .attr('height','40')
             .attr('xlink:href',"restructuring_piece_project_diagram_assets/"+i+".jpg");
     }
 
-    var metadata_display = d3.select(parentName).append('div');
+    var metadata_display = 
+        d3.select(parentName).append('div').attr('id','metadata');
     metadata_display.append('h2').text('Metadata');
 
-    var connection_metadata_display = d3.select(parentName).append('div');
+    var connection_metadata_display = 
+        d3.select(parentName).append('div').attr('id','metadata_connections');
     connection_metadata_display.append('h2').text('Connections');
 
     function add_title(svgObjects) {
@@ -80,9 +82,9 @@
         .size([width, height])
         .nodes(nodes)
         .links(links)
-        .gravity(0.1)
-        .charge(-250)
-        .linkDistance(80);
+        .gravity(0.2)
+        .charge(-180)
+        .linkDistance(50);
 
     force1.on('tick',function(){
 
@@ -109,7 +111,10 @@
       metadata_display.selectAll('div').remove();
       metadata_display.selectAll('img').remove();
 
-      metadata_display.append('img').attr('src',"restructuring_piece_project_diagram_assets/"+d.id+".jpg");
+      metadata_display
+          .append('img')
+          .attr('src',"restructuring_piece_project_diagram_assets/" + 
+                      d.id + ".jpg");
       metadata_display.append('div').style('font-weight','bold').text(d.title);
       metadata_display.append('div').text(d.type);
       if (d.instrumentation) {
