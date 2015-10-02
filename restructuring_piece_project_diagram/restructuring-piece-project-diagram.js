@@ -56,12 +56,15 @@
             .attr('xlink:href',"restructuring_piece_project_diagram_assets/"+i+".jpg");
     }
 
+    var metadata_container = 
+        d3.select(parentName).append('div').attr('id','metadata_container');
+
     var metadata_display = 
-        d3.select(parentName).append('div').attr('id','metadata');
+        metadata_container.append('div').attr('id','metadata');
     metadata_display.append('h2').text('Metadata');
 
     var connection_metadata_display = 
-        d3.select(parentName).append('div').attr('id','metadata_connections');
+        metadata_container.append('div').attr('id','metadata_connections');
     connection_metadata_display.append('h2').text('Connections');
 
     function add_title(svgObjects) {
@@ -196,7 +199,14 @@
         .style('fill',function (d) {
             return 'url(#image'+d.id+')';
         })
-        .on('mouseover',function(d) { display_metadata(d); });
+        .on('mouseover',function(d) { 
+            display_metadata(d);
+            console.log(d3.mouse(this)[0], d3.mouse(this)[1]);
+            metadata_container
+                .style('display','block')
+                .style('left',(d3.mouse(this)[0]+20)+"px")
+                .style('top',(d3.mouse(this)[1]+20)+"px");
+        });
 
       d3.select('circle').style('fill','url(#image1)');
 

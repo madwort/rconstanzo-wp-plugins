@@ -79,8 +79,14 @@ svg#restructuring-piece-project-diagram div.concept
   background-color: blue;
 }
 
+div#metadata_container {
+    width: 400px;
+    display: none;
+    position: absolute;
+    background-color: rgba(50, 205, 50, 0.6);
+}
+
 div#metadata {
-    width: 650px;
 }
 
 div#metadata img {
@@ -89,6 +95,5 @@ div#metadata img {
 }
 
 div#metadata_connections {
-    width: 650px;
     clear: both;
 }
