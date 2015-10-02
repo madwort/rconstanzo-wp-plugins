@@ -12,8 +12,8 @@ svg#restructuring-piece-project-diagram .node
 
 svg#restructuring-piece-project-diagram .node circle
 {
-  fill: white;
-  fill-opacity: 0.5;
+/*  fill: white;
+  fill-opacity: 0.5;*/
   stroke: black;
   scroke-width: 2;
 }
