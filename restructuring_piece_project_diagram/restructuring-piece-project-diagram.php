@@ -38,12 +38,26 @@ add_shortcode('restructuring-piece-project-diagram', 'restructuring_piece_projec
 function restructuring_piece_project_diagram_handler($atts)
 {
 	return "<div id='restructuring-piece-project-diagram'></div><script>
-  d3.json('" . plugins_url( 'restructuring-piece-project-diagram.json', __FILE__ ) . "', function(error, graph) {
-	  var width = 650,
-	      height = 650;
-    drawPieceProjectDiagram('#restructuring-piece-project-diagram', graph, width, height);
-  });
-  </script>";
+  d3.csv(
+    '" . plugins_url( 'assets/blurbs.csv', __FILE__ ) . "',
+    function (error, pieces) {
+      if (error) throw error;
+  
+      d3.csv(
+        '" . plugins_url( 'assets/connections.csv', __FILE__ ) . "',
+        function (error, connections) {
+          if (error) throw error;
+          console.log(connections[0]);
+
+          var width = 650,
+              height = 650;
+          drawPieceProjectDiagram('body', pieces, connections,
+                                  '" . plugins_url( 'assets', __FILE__ ) . "',
+                                  width, height);
+      });
+    });
+  </script>
+";
 }
 
 ?>

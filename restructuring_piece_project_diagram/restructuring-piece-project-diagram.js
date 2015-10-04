@@ -1,7 +1,9 @@
 (function (w, d3) {
   'use strict';
-  w.drawPieceProjectDiagram = function (parentName, nodes, 
-                                        links, width, height) 
+  w.drawPieceProjectDiagram = function (parentName,
+                                        nodes, links,
+                                        assets_path,
+                                        width, height)
   {
     var object_size = 40;
 
@@ -53,7 +55,7 @@
             .attr('y','0')
             .attr('width','40')
             .attr('height','40')
-            .attr('xlink:href',"restructuring_piece_project_diagram_assets/"+i+".jpg");
+            .attr('xlink:href',assets_path + i + ".jpg");
     }
 
     var metadata_container = 
@@ -115,7 +117,7 @@
 
       metadata_display
           .append('img')
-          .attr('src',"restructuring_piece_project_diagram_assets/" + 
+          .attr('src', assets_path +
                       d.id + ".jpg");
       // metadata_display.append('div').style('font-weight','bold').text(d.title);
       metadata_display.select('h2').text(d.title);
