@@ -202,14 +202,16 @@
             return 'url(#image'+d.id+')';
         })
         .on('mouseover',function(d) { 
+            if(metadata_container.style('display') == 'block') return;
             display_metadata(d);
-            console.log(d3.mouse(this)[0], d3.mouse(this)[1]);
+            // console.log(d3.mouse(this)[0], d3.mouse(this)[1]);
             metadata_container
                 .style('display','block')
                 .style('left',(d3.mouse(this)[0]+10)+"px")
                 .style('top',(d3.mouse(this)[1]+10)+"px");
         })
         .on('mouseout',function(d){
+            if(metadata_container.style('display') == 'none') return;
             metadata_container.style('display','none');
         });
 
