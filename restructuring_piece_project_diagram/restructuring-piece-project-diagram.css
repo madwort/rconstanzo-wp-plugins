@@ -83,10 +83,14 @@ div#metadata_container {
     width: 400px;
     display: none;
     position: absolute;
-    background-color: rgba(50, 205, 50, 0.6);
+    background-color: rgba(50, 205, 50, 0.9);
+    padding: 10px;
+    border: 1px solid rgba(50, 205, 50, 1);
+    border-radius: 10px;
 }
 
-div#metadata {
+div#metadata h2 {
+    margin-top: 10px;
 }
 
 div#metadata img {

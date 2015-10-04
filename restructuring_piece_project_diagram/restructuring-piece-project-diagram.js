@@ -3,7 +3,7 @@
   w.drawPieceProjectDiagram = function (parentName, nodes, 
                                         links, width, height) 
   {
-    var object_size = 30;
+    var object_size = 40;
 
     var buttonDiv = d3.select(parentName).append('div');
 
@@ -65,7 +65,7 @@
 
     var connection_metadata_display = 
         metadata_container.append('div').attr('id','metadata_connections');
-    connection_metadata_display.append('h2').text('Connections');
+    connection_metadata_display.append('h3').text('Connections');
 
     function add_title(svgObjects) {
       svgObjects.append('text')
@@ -73,8 +73,7 @@
           return d.title;
         })
         .attr('class','title')
-        .on('mouseover',function(d){ display_metadata(d); })
-        ;
+        .on('mouseover',function(d){ display_metadata(d); });
     }
 
     var node;
@@ -85,9 +84,9 @@
         .size([width, height])
         .nodes(nodes)
         .links(links)
-        .gravity(0.2)
-        .charge(-180)
-        .linkDistance(50);
+        .gravity(0.1)
+        .charge(-200)
+        .linkDistance(80);
 
     force1.on('tick',function(){
 
@@ -118,7 +117,8 @@
           .append('img')
           .attr('src',"restructuring_piece_project_diagram_assets/" + 
                       d.id + ".jpg");
-      metadata_display.append('div').style('font-weight','bold').text(d.title);
+      // metadata_display.append('div').style('font-weight','bold').text(d.title);
+      metadata_display.select('h2').text(d.title);
       metadata_display.append('div').text(d.type);
       if (d.instrumentation) {
           metadata_display.append('div').text("Date: "+d.date);
@@ -204,8 +204,11 @@
             console.log(d3.mouse(this)[0], d3.mouse(this)[1]);
             metadata_container
                 .style('display','block')
-                .style('left',(d3.mouse(this)[0]+20)+"px")
-                .style('top',(d3.mouse(this)[1]+20)+"px");
+                .style('left',(d3.mouse(this)[0]+10)+"px")
+                .style('top',(d3.mouse(this)[1]+10)+"px");
+        })
+        .on('mouseout',function(d){
+            metadata_container.style('display','none');
         });
 
       d3.select('circle').style('fill','url(#image1)');
