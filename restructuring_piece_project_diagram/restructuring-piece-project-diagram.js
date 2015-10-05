@@ -207,8 +207,8 @@
             var body = d3.select('body')[0][0];
             metadata_container
                 .style('display','block')
-                .style('left',(d3.mouse(body)[0]+10)+"px")
-                .style('top',(d3.mouse(body)[1]+10)+"px");
+                .style('left',(d3.mouse(body)[0])+"px")
+                .style('top',(d3.mouse(body)[1])+"px");
         })
         .on('mouseout',function(d){
             if(metadata_container.style('display') == 'none') return;
