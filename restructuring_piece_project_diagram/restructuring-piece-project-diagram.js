@@ -215,6 +215,12 @@
             metadata_container.style('display','none');
         });
 
+      metadata_container.on('mouseover', function () {
+        metadata_container.style('display','block');
+      }).on('mouseout', function () {
+        metadata_container.style('display','none');
+      });
+
       // add_title(node);
 
       force1
