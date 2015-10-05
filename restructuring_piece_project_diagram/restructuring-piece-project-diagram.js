@@ -204,11 +204,11 @@
         .on('mouseover',function(d) { 
             if(metadata_container.style('display') == 'block') return;
             display_metadata(d);
-            // console.log(d3.mouse(this)[0], d3.mouse(this)[1]);
+            var body = d3.select('body')[0][0];
             metadata_container
                 .style('display','block')
-                .style('left',(d3.mouse(this)[0]+10)+"px")
-                .style('top',(d3.mouse(this)[1]+10)+"px");
+                .style('left',(d3.mouse(body)[0]+10)+"px")
+                .style('top',(d3.mouse(body)[1]+10)+"px");
         })
         .on('mouseout',function(d){
             if(metadata_container.style('display') == 'none') return;
