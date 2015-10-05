@@ -51,7 +51,7 @@ function restructuring_piece_project_diagram_handler($atts)
 
           var width = 650,
               height = 650;
-          drawPieceProjectDiagram('body', pieces, connections,
+          drawPieceProjectDiagram('div#restructuring-piece-project-diagram', pieces, connections,
                                   '" . plugins_url( 'assets', __FILE__ ) . "',
                                   width, height);
       });
