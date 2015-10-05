@@ -215,8 +215,6 @@
             metadata_container.style('display','none');
         });
 
-      d3.select('circle').style('fill','url(#image1)');
-
       // add_title(node);
 
       force1
