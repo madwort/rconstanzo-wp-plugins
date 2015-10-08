@@ -5,7 +5,7 @@
                                         assets_path,
                                         width, height)
   {
-    var object_size = 20;
+    var object_size = 25;
 
     var buttonDiv = d3.select(parentName).append('div');
 
@@ -47,14 +47,14 @@
     for (var i = 1; i < 16; i++) {
         defs.append('pattern')
             .attr('id','image'+i)
-            .attr('width','150')
-            .attr('height','150')
+            .attr('width','100')
+            .attr('height','100')
             .attr('patternUnits','userSpaceOnUse')
             .append('image')
             .attr('x','0')
             .attr('y','0')
-            .attr('width','150')
-            .attr('height','150')
+            .attr('width','100')
+            .attr('height','100')
             .attr('xlink:href',assets_path + i + ".jpg");
     }
 
@@ -86,9 +86,9 @@
         .size([width, height])
         .nodes(nodes)
         .links(links)
-        .gravity(0.2)
+        .gravity(0.1)
         .charge(-300)
-        .linkDistance(200);
+        .linkDistance(300);
 
     force1.on('tick',function(){
 
