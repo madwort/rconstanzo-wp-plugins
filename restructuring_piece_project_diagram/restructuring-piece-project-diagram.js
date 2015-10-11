@@ -132,8 +132,11 @@
       metadata_display.append('div')
                       .append('a').attr('href',d.page).text(d.page);
       metadata_display.append('div').text(d.comments);
-      metadata_display.append('div')
-                      .append('a') .attr('href',d.video_url).text(d.video_url);
+	  metadata_display.append('div')
+             	   	  .append('a')
+            		  .attr('href',d.video_url)
+              	      .attr('target','_blank')
+	 	 			  .text(d.video_url);
 
       connection_metadata_display.selectAll('div').remove();
       force1.links()
