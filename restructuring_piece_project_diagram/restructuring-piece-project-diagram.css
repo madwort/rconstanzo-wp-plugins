@@ -53,10 +53,15 @@ button#temporal,
 button#technological,
 button#aesthetic,
 button#draggable
+
 {
-  border: none;
-  color: white;
-  background-color: black;
+  border: 1px solid black;
+  padding: 3px;
+  padding-left: 7px;
+  padding-right: 7px;
+  color: black;
+  background-color: #7CAAAC;
+  margin: 0.5em 1em 0 0 ;
 }
 
 svg#restructuring-piece-project-diagram div.piece
