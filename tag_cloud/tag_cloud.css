@@ -10,3 +10,7 @@
   list-style-type: none;
   font-family: Monaco, sans-serif;
 }
+
+span.tag {
+  cursor: pointer;
+}
