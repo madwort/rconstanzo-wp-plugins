@@ -56,26 +56,26 @@ function tag_cloud_handler($atts)
 <div id='tag_cloud'>
   <div>
     [
-    <span class='tag'>composition</span>,
-    <span class='tag'>improvisation</span>,
-    <span class='tag'>performance</span>,
-    <span class='tag'>diy</span>,
-    <span class='tag'>software</span>,
-    <span class='tag'>controller</span>,
-    <span class='tag'>mapping</span>,
-    <span class='tag'>gesture</span>,
-    <span class='tag'>video</span>,
-    <span class='tag'>analysis</span>,
-    <span class='tag'>framework</span>,
-    <span class='tag'>feedback</span>,
-    <span class='tag'>noise</span>,
-    <span class='tag'>interaction</span>,
-    <span class='tag'>behavior</span>,
-    <span class='tag'>game</span>,
-    <span class='tag'>battle</span>,
-    <span class='tag'>dfscore</span>,
-    <span class='tag'>drums</span>,
-    <span class='tag'>memory</span>
+    <a class='tag'>composition</a>,
+    <a class='tag'>improvisation</a>,
+    <a class='tag'>performance</a>,
+    <a class='tag'>diy</a>,
+    <a class='tag'>software</a>,
+    <a class='tag'>controller</a>,
+    <a class='tag'>mapping</a>,
+    <a class='tag'>gesture</a>,
+    <a class='tag'>video</a>,
+    <a class='tag'>analysis</a>,
+    <a class='tag'>framework</a>,
+    <a class='tag'>feedback</a>,
+    <a class='tag'>noise</a>,
+    <a class='tag'>interaction</a>,
+    <a class='tag'>behavior</a>,
+    <a class='tag'>game</a>,
+    <a class='tag'>battle</a>,
+    <a class='tag'>dfscore</a>,
+    <a class='tag'>drums</a>,
+    <a class='tag'>memory</a>
     ]
   </div>
   <div id='results'></div>
