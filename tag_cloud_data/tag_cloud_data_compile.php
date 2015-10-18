@@ -14,27 +14,28 @@ $urls = [
   'http://www.rodrigoconstanzo.com/2013/02/strikethrough-me-you-battle-pieces/',
   'http://www.rodrigoconstanzo.com/the-party-van/',
   'http://www.rodrigoconstanzo.com/2015/05/karma/',
-  'http://www.rodrigoconstanzo.com/2013/12/an-amplifier/'
+  'http://www.rodrigoconstanzo.com/2015/10/dfscore-2/',
+  'http://www.rodrigoconstanzo.com/dfscore'
 ];
 
-$keywords["composition"] = ["composition", "compose"];
-$keywords["improvisation"] = ["improv"];
+$keywords["composition"] = ["composition", "compose", "composer"];
+$keywords["improvisation"] = ["improv", "improvised", "improviser"];
 $keywords["performance"] = ["performance", "performed"];
-$keywords["diy"] = ["diy"];
+$keywords["diy"] = ["diy", "DIY"];
 $keywords["software"] = ["software"];
 $keywords["controller"] = ["controller"];
-$keywords["mapping"] = ["mapping", "mapped"];
+$keywords["mapping"] = ["mapping", "mapped", "map"];
 $keywords["gesture"] = ["gesture"];
-$keywords["video"] = ["video"];
+$keywords["video"] = ["video", "videos"];
 $keywords["analysis"] = ["analysis", "analyses", "analyzed", "analysed"];
 $keywords["framework"] = ["framework"];
 $keywords["feedback"] = ["feedback"];
 $keywords["noise"] = ["noise"];
-$keywords["interaction"] = ["interact"];
-$keywords["behavior"] = ["behavior", "behaviour"];
+$keywords["interaction"] = ["interact", "interacted"];
+$keywords["behavior"] = ["behavior", "behaviour", "behaviors"];
 $keywords["game"] = ["game", "etude"];
 $keywords["battle"] = ["battle"];
-$keywords["dfscore"] = ["dfscore", "dfs", "networked score"];
+$keywords["dfscore"] = ["dfscore", "dfs", "networked score", "network score"];
 $keywords["drums"] = ["drums", "percussion"];
 $keywords["memory"] = ["memory", "memories"];
 $keywords["glitch"] = ["glitch"];
