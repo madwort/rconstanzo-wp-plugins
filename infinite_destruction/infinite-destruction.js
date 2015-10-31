@@ -13,7 +13,7 @@
   function remove_random_element(elements) {
     var random_element_id = Math.floor(elements.length*Math.random());
     var random_element = $(elements[random_element_id]);
-    var max_font_size = 5;
+    var max_font_size = 6;
     if (random_element.is('a')) {
       // implies li.menu-item > a
       max_font_size = 2;
@@ -59,7 +59,7 @@
 
   w.destruction = function () {
     $(w).scroll(function() {
-        debounce(handle_scroll, 75);
+        debounce(handle_scroll, 32);
     });
     
   };
