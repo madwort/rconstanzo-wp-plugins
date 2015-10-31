@@ -44,7 +44,7 @@
 
     var defs = svg.append('defs')
 
-    for (var i = 1; i < 16; i++) {
+    for (var i = 1; i < 31; i++) {
         defs.append('pattern')
             .attr('id','image'+i)
             .attr('width','100')
