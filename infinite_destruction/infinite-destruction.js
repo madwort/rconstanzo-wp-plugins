@@ -59,7 +59,7 @@
 
   w.destruction = function () {
     $(w).scroll(function() {
-        debounce(handle_scroll, 32);
+        debounce(handle_scroll, 25);
     });
     
   };
