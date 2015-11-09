@@ -120,13 +120,13 @@
           .attr('src', assets_path +
                       d.id + ".jpg");
       // metadata_display.append('div').style('font-weight','bold').text(d.title);
-      metadata_display.select('h2').text(d.title);
-      metadata_display.append('div').text(d.type);
+      metadata_display.select('h2').style('font-weight','bold').text(d.title);
+      metadata_display.append('div').style('font-weight','bold').text("Type : "+d.type);
       if (d.instrumentation) {
-          metadata_display.append('div').text("Date: "+d.date);
+          metadata_display.append('div').style('font-style','italic').text(d.instrumentation);
       }
       if (d.instrumentation) {
-        metadata_display.append('div').text(d.instrumentation);
+          metadata_display.append('div').text("Date: "+d.date);
       }
       metadata_display.append('div').text(d.blurb);
       metadata_display.append('div')
