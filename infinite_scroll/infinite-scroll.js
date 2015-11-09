@@ -22,7 +22,7 @@
         .css('display','inline');
 
       current_last_element
-        .fadeIn(1500);
+        .fadeIn(2500);
      }
   }
 
