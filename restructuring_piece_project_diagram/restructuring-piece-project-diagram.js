@@ -87,8 +87,8 @@
         .nodes(nodes)
         .links(links)
     	.gravity(0.1)
-   	 	.charge(-700)
-    	.linkDistance(60);
+   	 	.charge(-800)
+    	.linkDistance(90);
 
     force1.on('tick',function(){
 
