@@ -6,39 +6,39 @@ $urls = [
   'http://www.rodrigoconstanzo.com/2015/06/cut-glove/',
   'http://www.rodrigoconstanzo.com/thesis-conclusion/',
   'http://www.rodrigoconstanzo.com/2013/09/com-pieces/',
-  'http://www.rodrigoconstanzo.com/combine/',
-  'http://www.rodrigoconstanzo.com/grassi-box/',
+  'http://www.rodrigoconstanzo.com/2013/02/strikethrough-me-you-battle-pieces/',
+  'http://www.rodrigoconstanzo.com/2015/11/dfscore-2/',
+  'http://www.rodrigoconstanzo.com/dfscore/',
   'http://www.rodrigoconstanzo.com/2013/10/everything-at-once/',
   'http://www.rodrigoconstanzo.com/2014/03/everything-everything-at-once-once-2/',
   'http://www.rodrigoconstanzo.com/2015/02/everything-everything-at-once-once-3/',
-  'http://www.rodrigoconstanzo.com/2013/02/strikethrough-me-you-battle-pieces/',
   'http://www.rodrigoconstanzo.com/the-party-van/',
   'http://www.rodrigoconstanzo.com/2015/05/karma/',
-  'http://www.rodrigoconstanzo.com/2015/10/dfscore-2/',
-  'http://www.rodrigoconstanzo.com/dfscore'
+  'http://www.rodrigoconstanzo.com/combine/',
+  'http://www.rodrigoconstanzo.com/grassi-box/'
 ];
 
-$keywords["composition"] = ["composition", "compose", "composer"];
-$keywords["improvisation"] = ["improv", "improvised", "improviser"];
-$keywords["performance"] = ["performance", "performed"];
-$keywords["diy"] = ["diy", "DIY"];
+$keywords["composition"] = ["composed", "compose", "composer"];
+$keywords["improvisation"] = ["improv", "improvised", "improviser", "improvising"];
+$keywords["performance"] = ["performer", "performed"];
+$keywords["meta"] = ["meta", "meta-creative"];
+$keywords["diy"] = ["diy", "DIY", "luthier"];
 $keywords["software"] = ["software"];
-$keywords["controller"] = ["controller"];
+$keywords["dfscore"] = ["dfscore", "dfs", "networked score", "network score"];
+$keywords["controller"] = ["controller", "gamepad", "monome"];
+$keywords["gamepad"] = ["controller"];
 $keywords["mapping"] = ["mapping", "mapped", "map"];
 $keywords["gesture"] = ["gesture"];
-$keywords["video"] = ["video", "videos"];
-$keywords["analysis"] = ["analysis", "analyses", "analyzed", "analysed"];
-$keywords["framework"] = ["framework"];
-$keywords["feedback"] = ["feedback"];
-$keywords["noise"] = ["noise"];
+$keywords["form"] = ["form", "formal"];
+$keywords["memory"] = ["memory", "memories"];
 $keywords["interaction"] = ["interact", "interacted"];
 $keywords["behavior"] = ["behavior", "behaviour", "behaviors"];
-$keywords["game"] = ["game", "etude"];
-$keywords["battle"] = ["battle"];
-$keywords["dfscore"] = ["dfscore", "dfs", "networked score", "network score"];
+$keywords["game"] = ["game", "etude", "battle", "challenge"];
+$keywords["battle"] = ["battle", "game", "etude", "challenge"];
+$keywords["analysis"] = ["analysis", "analyses", "analyzed", "analysed"];
+$keywords["video"] = ["video", "videos", "film", "filmed"];
 $keywords["drums"] = ["drums", "percussion"];
-$keywords["memory"] = ["memory", "memories"];
-$keywords["glitch"] = ["glitch"];
+$keywords["feedback"] = ["feedback"];
 
 echo "tag,term,text,url\r\n";
 
