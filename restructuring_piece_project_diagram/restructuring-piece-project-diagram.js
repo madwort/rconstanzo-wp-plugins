@@ -59,6 +59,26 @@
             .attr('xlink:href',assets_path + i + ".jpg");
     }
 
+
+    function make_key_circle(css_class, y_pos) {
+      // Display key to circle colours
+      svg.append('circle')
+      .attr('r', object_size/2)
+      .attr('class',css_class)
+      .attr('cx', 20)
+      .attr('cy', y_pos)
+      .style('fill','white');
+
+      svg.append('text').text(css_class)
+      .attr('x',40)
+      .attr('y',y_pos + 5);
+    }
+
+    make_key_circle('Composition',40);
+    make_key_circle('Software',80);
+    make_key_circle('Framework',120);
+    make_key_circle('Concept',160);
+
     var metadata_container = 
         d3.select(parentName).append('div').attr('id','metadata_container');
 
@@ -106,11 +126,12 @@
           .attr('cy', function(d) {
             return return_within_boundary(d.y,height); });
 
-      svg.selectAll('text')
-          .attr('x', function(d) {
-            return (return_within_boundary(d.x,width)-(this.getBBox().width/2)); })
-          .attr('y', function(d) {
-            return return_within_boundary(d.y,height); });
+      // move title text
+      // svg.selectAll('text')
+      //     .attr('x', function(d) {
+      //       return (return_within_boundary(d.x,width)-(this.getBBox().width/2)); })
+      //     .attr('y', function(d) {
+      //       return return_within_boundary(d.y,height); });
 
       svg.selectAll('.link')
           .attr('x1', function(d) { return return_within_boundary(d.source.x,width); })

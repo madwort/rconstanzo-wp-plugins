@@ -10,7 +10,7 @@ svg#restructuring-piece-project-diagram .node
 {
 }
 
-svg#restructuring-piece-project-diagram .node circle
+svg#restructuring-piece-project-diagram circle
 {
 /*  fill: white;
   fill-opacity: 0.5;*/
@@ -18,25 +18,25 @@ svg#restructuring-piece-project-diagram .node circle
   stroke-width: 2;
 }
 
-svg#restructuring-piece-project-diagram .node circle.Composition
+svg#restructuring-piece-project-diagram circle.Composition
 {
   fill: #FF0066;
   stroke: #FF0066;
 }
 
-svg#restructuring-piece-project-diagram .node circle.Software
+svg#restructuring-piece-project-diagram circle.Software
 {
   fill: limegreen;
   stroke: limegreen;
 }
 
-svg#restructuring-piece-project-diagram .node circle.Framework
+svg#restructuring-piece-project-diagram circle.Framework
 {
   fill: darkgreen;
   stroke: darkgreen;
 }
 
-svg#restructuring-piece-project-diagram .node circle.Concept
+svg#restructuring-piece-project-diagram circle.Concept
 {
   fill: blue;
   stroke: blue;
