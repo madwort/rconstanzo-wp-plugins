@@ -6,6 +6,7 @@
                                         width, height)
   {
     var object_size = 25;
+    var object_edge_collision = 15;
 
     var buttonDiv = d3.select(parentName).append('div');
 
@@ -92,8 +93,8 @@
 
     function return_within_boundary(coord, boundary) {
       // console.log(coord, boundary);
-      if (coord < 0) return 0;
-      if (coord > boundary) return boundary;
+      if (coord < object_edge_collision) return object_edge_collision;
+      if (coord > (boundary - object_edge_collision)) return (boundary - object_edge_collision);
       return coord;
     }
 
