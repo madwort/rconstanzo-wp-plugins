@@ -90,21 +90,32 @@
    	 	.charge(-800)
     	.linkDistance(90);
 
+    function return_within_boundary(coord, boundary) {
+      // console.log(coord, boundary);
+      if (coord < 0) return 0;
+      if (coord > boundary) return boundary;
+      return coord;
+    }
+
     force1.on('tick',function(){
 
       svg.selectAll('g.node circle')
-          .attr('cx', function(d) { return d.x; })
-          .attr('cy', function(d) { return d.y; });
+          .attr('cx', function(d) {
+            return return_within_boundary(d.x,width); })
+          .attr('cy', function(d) {
+            return return_within_boundary(d.y,height); });
 
       svg.selectAll('text')
-          .attr('x', function(d) { return (d.x-(this.getBBox().width/2)); })
-          .attr('y', function(d) { return d.y; });
+          .attr('x', function(d) {
+            return (return_within_boundary(d.x,width)-(this.getBBox().width/2)); })
+          .attr('y', function(d) {
+            return return_within_boundary(d.y,height); });
 
       svg.selectAll('.link')
-          .attr('x1', function(d) { return d.source.x; })
-          .attr('y1', function(d) { return d.source.y; })
-          .attr('x2', function(d) { return d.target.x; })
-          .attr('y2', function(d) { return d.target.y; });
+          .attr('x1', function(d) { return return_within_boundary(d.source.x,width); })
+          .attr('y1', function(d) { return return_within_boundary(d.source.y,height); })
+          .attr('x2', function(d) { return return_within_boundary(d.target.x,width); })
+          .attr('y2', function(d) { return return_within_boundary(d.target.y,height); });
 
     });
 
