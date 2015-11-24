@@ -229,12 +229,14 @@
           .on('mouseover',function (d) {
             var body = d3.select('body')[0][0];
 
-            d3.select(parentName).append('div')
-            .attr('id','connection_hover')
-            .style('display','block')
-            .style('left',(d3.mouse(body)[0])+"px")
-            .style('top',(d3.mouse(body)[1])+"px")
-            .text('"' + d.text + '" connects ' + d.source.title + ' with ' + d.target.title);
+            if(d.text != "") {
+              d3.select(parentName).append('div')
+              .attr('id','connection_hover')
+              .style('display','block')
+              .style('left',(d3.mouse(body)[0])+"px")
+              .style('top',(d3.mouse(body)[1])+"px")
+              .text('"' + d.text + '" connects ' + d.source.title + ' with ' + d.target.title);
+            }
           })
           .on('mouseout',function (d) {
             d3.selectAll('div#connection_hover').remove();
