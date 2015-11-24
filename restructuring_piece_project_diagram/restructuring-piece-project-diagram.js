@@ -234,7 +234,7 @@
             .style('display','block')
             .style('left',(d3.mouse(body)[0])+"px")
             .style('top',(d3.mouse(body)[1])+"px")
-            .text('"' + d.text + '" connects "' + d.source.title + '" with "' + d.target.title + '"');
+            .text('"' + d.text + '" connects ' + d.source.title + ' with ' + d.target.title);
           })
           .on('mouseout',function (d) {
             d3.selectAll('div#connection_hover').remove();
