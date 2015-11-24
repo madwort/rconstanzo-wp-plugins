@@ -84,7 +84,7 @@ svg#restructuring-piece-project-diagram div.Concept
   background-color: blue;
 }
 
-div#metadata_container {
+div#metadata_container, div#connection_hover {
     width: 400px;
     display: none;
     position: absolute;

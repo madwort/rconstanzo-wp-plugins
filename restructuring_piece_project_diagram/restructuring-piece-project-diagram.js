@@ -221,10 +221,24 @@
       svg.selectAll('.link').remove();
       svg.selectAll('.node').remove();
 
-      var link_lines = svg.selectAll('.link')
-                          .data(my_links)
-                          .enter().append('line')
-                          .attr('class','link');
+      var link_lines =
+        svg.selectAll('.link')
+          .data(my_links)
+          .enter().append('line')
+          .attr('class','link')
+          .on('mouseover',function (d) {
+            var body = d3.select('body')[0][0];
+
+            d3.select(parentName).append('div')
+            .attr('id','connection_hover')
+            .style('display','block')
+            .style('left',(d3.mouse(body)[0])+"px")
+            .style('top',(d3.mouse(body)[1])+"px")
+            .text('"' + d.text + '" connects "' + d.source.title + '" with "' + d.target.title + '"');
+          })
+          .on('mouseout',function (d) {
+            d3.selectAll('div#connection_hover').remove();
+          });
 
       var node = svg.selectAll('g.node')
         .data(my_nodes)
