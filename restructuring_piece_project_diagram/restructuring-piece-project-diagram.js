@@ -78,6 +78,7 @@
     make_key_circle('Software',45);
     make_key_circle('Framework',65);
     make_key_circle('Concept',85);
+	make_key_circle('Group',105);
 
     var metadata_container = 
         d3.select(parentName).append('div').attr('id','metadata_container');
