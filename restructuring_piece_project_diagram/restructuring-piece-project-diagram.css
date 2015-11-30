@@ -15,37 +15,44 @@ svg#restructuring-piece-project-diagram circle
 /*  fill: white;
   fill-opacity: 0.5;*/
   stroke: black;
-  stroke-width: 2;
+  stroke-width: 3;
 }
 
 svg#restructuring-piece-project-diagram circle.Composition
 {
-  fill: #FF0066;
-  stroke: #FF0066;
+  fill: #227cde;
+  stroke: #227cde;
 }
 
 svg#restructuring-piece-project-diagram circle.Software
 {
-  fill: limegreen;
-  stroke: limegreen;
+  fill: #fc069e;
+  stroke: #fc069e;
 }
 
 svg#restructuring-piece-project-diagram circle.Framework
 {
-  fill: darkgreen;
-  stroke: darkgreen;
+  fill: #29c008;
+  stroke: #29c008;
 }
 
 svg#restructuring-piece-project-diagram circle.Concept
 {
-  fill: blue;
-  stroke: blue;
+  fill: #f7c802;
+  stroke: #f7c802;
 }
+
+svg#restructuring-piece-project-diagram circle.Group
+{
+  fill: #9cd7d5;
+  stroke: #9cd7d5;
+}
+
 
 svg#restructuring-piece-project-diagram .link {
   fill: none;
-  stroke: #9ecae1;
-  stroke-width: 2.5px;
+  stroke: #7991a2;
+  stroke-width: 3px;
 }
 
 button#conceptual,
@@ -62,6 +69,7 @@ button#draggable
   color: black;
   background-color: #7CAAAC;
   margin: 0.5em 1em 0 0 ;
+  border-radius: 3px;
 }
 
 svg#restructuring-piece-project-diagram div.Composition
