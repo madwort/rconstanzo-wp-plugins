@@ -24,7 +24,7 @@
 
     $("#tag_cloud .tag").css('line-height','2em').each(function (t) {
       $(this)
-        .click(function (e) {
+        .mouseenter(function (e) {
 
           if (typeof tag_data === 'undefined' ) {
             $('#tag_cloud #results').html("tag_data not loaded");
@@ -45,7 +45,12 @@
 
           my_html += "</ul>";
           $('#tag_cloud #results').html(my_html);
+          $('#tag_cloud #results').show();
         });
+      });
+    $('#tag_cloud #results')
+      .mouseleave(function (e) {
+        $('#tag_cloud #results').hide();
       });
   };
 
