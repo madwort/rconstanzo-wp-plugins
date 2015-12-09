@@ -1,20 +1,43 @@
 (function (w, d3) {
   'use strict';
-  w.drawPieceProjectDiagram = function (parentName,
-                                        nodes, links,
-                                        assets_path,
-                                        width, height)
+  w.drawPieceProjectDiagram =
+    function (parentName, nodes, links,
+              assets_path, width, height, just_csf)
   {
     var object_size = 25;
     var object_edge_collision = 15;
 
     var buttonDiv = d3.select(parentName).append('div');
 
+    if (just_csf) {
+      nodes = nodes.filter(function (node) {
+        switch (node.type) {
+        case "Composition":
+        case "Software":
+        case "Framework":
+          return true;
+          break;
+        default:
+          return false;
+        }
+      });
+    };
+
     var nodeMap = d3.map(nodes, function(d) { return d.id; });
 
-    links.forEach(function (d){
-      d.source = nodeMap.get(d.source);
-      d.target = nodeMap.get(d.target);
+    links.forEach(function (l){
+      l.source = nodeMap.get(l.source);
+      l.target = nodeMap.get(l.target);
+    })
+
+    links = links.filter(function (l) {
+      if (typeof l.source == 'undefined' ||
+          typeof l.target == 'undefined')
+      {
+        return false;
+      } else {
+        return true;
+      };
     })
 
     var CONCEPTUAL = 1;
@@ -77,8 +100,10 @@
     make_key_circle('Composition',25);
     make_key_circle('Software',45);
     make_key_circle('Framework',65);
-    make_key_circle('Concept',85);
-	make_key_circle('Group',105);
+    if (!just_csf) {
+      make_key_circle('Concept',85);
+    	make_key_circle('Group',105);
+    }
 
     var metadata_container = 
         d3.select(parentName).append('div').attr('id','metadata_container');
