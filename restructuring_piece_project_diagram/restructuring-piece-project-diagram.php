@@ -41,7 +41,7 @@ function restructuring_piece_project_diagram_handler($atts)
       'just_csf' => "false",
   ), $atts );
 
-	return "<div id='restructuring-piece-project-diagram'></div><script>
+	return "<div class='restructuring-piece-project-diagram'></div><script>
   d3.csv(
     '" . plugins_url( 'assets/blurbs.csv', __FILE__ ) . "',
     function (error, pieces) {
@@ -55,7 +55,7 @@ function restructuring_piece_project_diagram_handler($atts)
 
           var width = 650,
               height = 650;
-          drawPieceProjectDiagram('div#restructuring-piece-project-diagram', pieces, connections,
+          drawPieceProjectDiagram('div.restructuring-piece-project-diagram', pieces, connections,
                                   '" . plugins_url( 'assets/', __FILE__ ) . "',
                                   width, height, ".$a['just_csf']);
       });

@@ -15,7 +15,38 @@
 </head>
 <body>
   <div style="height: 600px;"></div>
-  <div id='restructuring-piece-project-diagram'></div>
+  <div class='restructuring-piece-project-diagram'></div>
+  <script>
+  // TODO: use queue!
+  // https://github.com/mbostock/queue
+  // http://bl.ocks.org/mbostock/4060606
+
+  d3.csv(
+    'restructuring_piece_project_diagram/assets/blurbs.csv', 
+    function (error, pieces) {
+      if (error) throw error;
+  
+      d3.csv(
+        'restructuring_piece_project_diagram/assets/connections.csv', 
+        function (error, connections) {
+          if (error) throw error;
+          console.log('csv connections', connections[0]);
+
+          var width = 650,
+              height = 650;
+          drawPieceProjectDiagram('div.restructuring-piece-project-diagram', pieces, connections, 
+                                  'restructuring_piece_project_diagram/assets/', 
+                                  width, height, false);
+      });
+    });
+  </script>
+
+  <div style="height: 400px;">
+    <p>THIS TEXT SHOULD BE BETWEEN THE TWO RPPDS</p>
+    <p>The first one has all nodes, the second has <code>just_csf</code></p>
+  </div>
+
+  <div class='restructuring-piece-project-diagram'></div>
   <script>
   // TODO: use queue!
   // https://github.com/mbostock/queue
@@ -34,7 +65,7 @@
 
           var width = 650,
               height = 650;
-          drawPieceProjectDiagram('div#restructuring-piece-project-diagram', pieces, connections, 
+          drawPieceProjectDiagram('div.restructuring-piece-project-diagram', pieces, connections, 
                                   'restructuring_piece_project_diagram/assets/', 
                                   width, height, true);
       });
