@@ -54,7 +54,7 @@ foreach ($urls as $url_key => $url) {
     foreach ($keyword_alternatives as $keyword_alt_id => $keyword_alternative) {
       // var_dump($keyword_alternative);
       preg_match_all('/.{0,15}' . $keyword_alternative . 
-                     '.{0,15}/', $clean_html, $matches
+                     '.{0,15}/u', $clean_html, $matches
                     );
       foreach ($matches[0] as $key => $match) {
         // if (htmlspecialchars($match, ENT_QUOTES, "UTF-8") == "") {
