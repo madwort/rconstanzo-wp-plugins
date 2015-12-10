@@ -29,9 +29,15 @@ add_shortcode('springy-menu', 'springy_menu_handler');
 
 function springy_menu_handler($atts)
 {
+  $a = shortcode_atts( array(
+      'nodes' => "4",
+  ), $atts );
+
+  $node_file_name = 'menu-'.$a['nodes'].'node.json';
+
 	return "<div id='springy-links'></div>
 	<script>
-  d3.json('" . plugins_url( 'menu.json', __FILE__ ) . "', function(error, graph) {
+  d3.json('" . plugins_url( $node_file_name , __FILE__ ) . "', function(error, graph) {
 	  var width = 650,
 	      height = 400;
     drawSpringyMenu('#springy-links', graph, width, height);

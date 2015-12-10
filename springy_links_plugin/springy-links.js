@@ -52,7 +52,7 @@ function drawSpringyMenu(parentName, graph, width, height) {
         .attr('x2', function(d) { return d.target.x; })
         .attr('y2', function(d) { return d.target.y; });
 
-    var myParent = d3.select('#springy-menu');
+    var myParent = d3.select(parentName).select('#springy-menu');
 
     myParent.selectAll('circle')
         .attr('cx', function(d) { return d.x; })
