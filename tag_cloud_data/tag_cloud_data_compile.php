@@ -63,7 +63,7 @@ foreach ($urls as $url_key => $url) {
         // }
         echo $keyword.",".
           $keyword_alternative.",\"".
-          str_replace('"','""',$match)."\",\"".
+          str_replace('"','""',html_entity_decode($match))."\",\"".
           $url."#".
           $keyword_alternative.
           ",".$key."\""."\r\n";
