@@ -1,4 +1,4 @@
-(function (w, d3) {
+(function (w, d3, $) {
   'use strict';
   w.drawSpringyMenu = function (parentName, graph, width, height) {
     var force = d3.layout.force()
@@ -73,5 +73,18 @@
 
     force.start();
 
+    function make_menu_move() {
+      // if we scroll the viewplane, restart the force layout
+      force.alpha(0.6);
+    }
+
+    $(w).scroll(function () {
+      make_menu_move();
+    })
+
+    $(parentName).mouseover(function(event) {
+      make_menu_move();
+    });
+
   }
-} )( window, d3 );
+} )( window, d3, jQuery );
