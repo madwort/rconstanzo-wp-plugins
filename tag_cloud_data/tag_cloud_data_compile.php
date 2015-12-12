@@ -48,7 +48,7 @@ foreach ($urls as $url_key => $url) {
   // $url = $urls[$url_key];
   $html = file_get_contents($url);
   $html_no_scripts = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $html);
-  $clean_html = strip_tags($html_no_scripts);
+  $clean_html = html_entity_decode(strip_tags($html_no_scripts));
 
   foreach ($keywords as $keyword => $keyword_alternatives) {
     foreach ($keyword_alternatives as $keyword_alt_id => $keyword_alternative) {
@@ -63,7 +63,7 @@ foreach ($urls as $url_key => $url) {
         // }
         echo $keyword.",".
           $keyword_alternative.",\"".
-          str_replace('"','""',html_entity_decode($match))."\",\"".
+          str_replace('"','""',$match)."\",\"".
           $url."#".
           $keyword_alternative.
           ",".$key."\""."\r\n";
