@@ -55,9 +55,9 @@ function restructuring_piece_project_diagram_handler($atts)
 
           var width = 650,
               height = 650;
-          drawPieceProjectDiagram('div.restructuring-piece-project-diagram', pieces, connections,
-                                  '" . plugins_url( 'assets/', __FILE__ ) . "',
-                                  width, height, ".$a['just_csf']);
+          drawPieceProjectDiagram('div.restructuring-piece-project-diagram', pieces, connections,'".
+                                  plugins_url( 'assets/', __FILE__ ) . 
+                                  "',width, height, " . $a['just_csf'].");
       });
     });
   </script>
