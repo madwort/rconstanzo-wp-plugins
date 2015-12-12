@@ -34,12 +34,13 @@ function springy_menu_handler($atts)
   ), $atts );
 
   $node_file_name = 'menu-'.$a['nodes'].'node.json';
+  $display_height = $a['nodes'].'00';
 
 	return "<div id='springy-links'></div>
 	<script>
   d3.json('" . plugins_url( $node_file_name , __FILE__ ) . "', function(error, graph) {
 	  var width = 650,
-	      height = 400;
+	      height = ".$display_height.";
     drawSpringyMenu('#springy-links', graph, width, height);
   });
 	</script>";
