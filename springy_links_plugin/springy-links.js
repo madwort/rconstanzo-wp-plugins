@@ -6,7 +6,7 @@
         .nodes(graph.nodes)
         .links(graph.links)
         .linkDistance(180)
-        .charge(-60);
+        .charge(-10);
 
     var svg = d3.select(parentName).append('svg')
         .attr('id','springy-menu')
