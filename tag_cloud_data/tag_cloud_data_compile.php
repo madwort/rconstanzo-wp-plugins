@@ -8,7 +8,7 @@ $urls = [
   'http://www.rodrigoconstanzo.com/2013/09/com-pieces/',
   'http://www.rodrigoconstanzo.com/2013/02/strikethrough-me-you-battle-pieces/',
   'http://www.rodrigoconstanzo.com/2015/11/dfscore-2/',
-  'http://www.rodrigoconstanzo.com/dfscore/',
+  'http://www.rodrigoconstanzo.com/analysis-guide/',
   'http://www.rodrigoconstanzo.com/2013/10/everything-at-once/',
   'http://www.rodrigoconstanzo.com/2014/03/everything-everything-at-once-once-2/',
   'http://www.rodrigoconstanzo.com/2015/02/everything-everything-at-once-once-3/',
