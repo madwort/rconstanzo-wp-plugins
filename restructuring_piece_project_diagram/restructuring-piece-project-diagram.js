@@ -229,6 +229,7 @@
           )
           .forEach(
             function (l) {
+              if (l.text == "") { return; }
               connection_metadata_display
                 .append('div')
                 .text(
@@ -236,6 +237,10 @@
                   " - " + l.text);
             }
           );
+
+          if(connection_metadata_display.selectAll('div')[0].length == 0) {
+            connection_metadata_display.select('h3').style('display','none');
+          }
       }
 
       function transition_to_layout(target_layout) {
