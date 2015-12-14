@@ -6,6 +6,8 @@
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 1);
   border-radius: 3px;
+  height: 400px;
+  overflow-y: scroll;
 }
 
 #tag_cloud #results li {
@@ -13,6 +15,9 @@
   font-family: Monaco, sans-serif;
 }
 
-#tag_cloud span.tag {
+#tag_cloud button.tag {
   cursor: pointer;
+  background-color: white;
+  border: none;
+  font: 1em Monaco, sans-serif;
 }
