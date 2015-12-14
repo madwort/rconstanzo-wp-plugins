@@ -22,24 +22,16 @@
 
     // similar to above, but receives a specific d3 node
     function drawPieceProjectDiagramElement(rppd_element, nodes, links,
-                assets_path, width, height, just_csf)
+                assets_path, width, height, just_thesis)
     {
-      console.log('just_csf', just_csf);
+      console.log('just_thesis', just_thesis);
       var object_size = 25;
       var object_edge_collision = 15;
       var buttonDiv = rppd_element.append('div');
 
-      if (just_csf) {
+      if (just_thesis) {
         nodes = nodes.filter(function (node) {
-          switch (node.type) {
-          case "Composition":
-          case "Software":
-          case "Framework":
-            return true;
-            break;
-          default:
-            return false;
-          }
+          return node.phd_thesis == 1;
         });
       };
 
@@ -120,7 +112,7 @@
       make_key_circle('Composition',25);
       make_key_circle('Software',45);
       make_key_circle('Framework',65);
-      if (!just_csf) {
+      if (!just_thesis) {
         make_key_circle('Concept',85);
       	make_key_circle('Group',105);
       }
