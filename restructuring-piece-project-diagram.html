@@ -15,7 +15,8 @@
 </head>
 <body>
   <div style="height: 600px;"></div>
-  <div class='restructuring-piece-project-diagram'></div>
+  <div class='restructuring-piece-project-diagram' data-justthesis='false'>
+  </div>
   <script>
   // TODO: use queue!
   // https://github.com/mbostock/queue
@@ -36,7 +37,7 @@
               height = 650;
           drawPieceProjectDiagram('div.restructuring-piece-project-diagram', pieces, connections, 
                                   'restructuring_piece_project_diagram/assets/', 
-                                  width, height, false);
+                                  width, height);
       });
     });
   </script>
@@ -46,7 +47,8 @@
     <p>The first one has all nodes, the second has <code>just_csf</code></p>
   </div>
 
-  <div class='restructuring-piece-project-diagram'></div>
+  <div class='restructuring-piece-project-diagram' data-justthesis='true'>
+  </div>
   <script>
   // TODO: use queue!
   // https://github.com/mbostock/queue
@@ -67,7 +69,7 @@
               height = 650;
           drawPieceProjectDiagram('div.restructuring-piece-project-diagram', pieces, connections, 
                                   'restructuring_piece_project_diagram/assets/', 
-                                  width, height, true);
+                                  width, height);
       });
     });
   </script>

@@ -2,7 +2,7 @@
   'use strict';
   w.drawPieceProjectDiagram =
     function (parentName, nodes, links,
-              assets_path, width, height, just_csf)
+              assets_path, width, height)
   {
     var elements = d3.selectAll(parentName);
 
@@ -17,14 +17,14 @@
 
     drawPieceProjectDiagramElement(
       d3.select(elements[0][0]), nodes, links,
-      assets_path, width, height, just_csf
+      assets_path, width, height, elements[0][0].dataset.justthesis == 'true'
     );
 
     // similar to above, but receives a specific d3 node
     function drawPieceProjectDiagramElement(rppd_element, nodes, links,
                 assets_path, width, height, just_csf)
     {
-
+      console.log('just_csf', just_csf);
       var object_size = 25;
       var object_edge_collision = 15;
       var buttonDiv = rppd_element.append('div');

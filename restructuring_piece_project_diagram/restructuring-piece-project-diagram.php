@@ -38,10 +38,11 @@ add_shortcode('restructuring-piece-project-diagram', 'restructuring_piece_projec
 function restructuring_piece_project_diagram_handler($atts)
 {
   $a = shortcode_atts( array(
-      'just_csf' => "false",
+      'just_thesis' => "false",
   ), $atts );
 
-	return "<div class='restructuring-piece-project-diagram'></div><script>
+	return "<div class='restructuring-piece-project-diagram' data-justthesis='" . 
+            $a['just_thesis']."'></div><script>
   d3.csv(
     '" . plugins_url( 'assets/blurbs.csv', __FILE__ ) . "',
     function (error, pieces) {
@@ -57,7 +58,7 @@ function restructuring_piece_project_diagram_handler($atts)
               height = 650;
           drawPieceProjectDiagram('div.restructuring-piece-project-diagram', pieces, connections,'".
                                   plugins_url( 'assets/', __FILE__ ) . 
-                                  "',width, height, " . $a['just_csf'].");
+                                  "',width, height);
       });
     });
   </script>
