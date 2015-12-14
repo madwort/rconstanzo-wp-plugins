@@ -48,9 +48,15 @@
           $('#tag_cloud #results').css('left',e.pageX);
           $('#tag_cloud #results').css('top',e.pageY);
           $('#tag_cloud #results').show();
+        })
+        .mouseleave(function (e) {
+          $('#tag_cloud #results').hide();
         });
       });
     $('#tag_cloud #results')
+      .mouseenter(function (e) {
+        $('#tag_cloud #results').show();
+      })
       .mouseleave(function (e) {
         $('#tag_cloud #results').hide();
       });

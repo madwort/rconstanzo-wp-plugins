@@ -15,6 +15,9 @@
   font-family: Monaco, sans-serif;
 }
 
-#tag_cloud span.tag {
+#tag_cloud button.tag {
   cursor: pointer;
+  background-color: white;
+  border: none;
+  font: 1em Monaco, sans-serif;
 }

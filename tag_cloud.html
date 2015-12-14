@@ -7,34 +7,41 @@
 
   <link rel="stylesheet" href="tag_cloud/tag_cloud.css" type="text/css" media="screen">
 
+  <!-- CSS that is specific to this test page -->
+  <style type="text/css" media="screen">
+  #content {
+    float: left; clear: left; width: 650px;
+  }
+  </style>
+
   <script src='bower_components/papaparse/papaparse.js' charset='utf-8'></script>
   <script src='tag_cloud/tag_cloud.js' charset='utf-8'></script>
 </head>
 <body>
-  <div id="content" style="float: left; clear: left; width: 650px;">
+  <div id="content">
     <div id='tag_cloud'>
       <div>
         [
-        <span class="tag">composition</span>,
-        <span class="tag">improvisation</span>,
-        <span class="tag">performance</span>,
-        <span class="tag">diy</span>,
-        <span class="tag">software</span>,
-        <span class="tag">controller</span>,
-        <span class="tag">mapping</span>,
-        <span class="tag">gesture</span>,
-        <span class="tag">video</span>,
-        <span class="tag">analysis</span>,
-        <span class="tag">framework</span>,
-        <span class="tag">feedback</span>,
-        <span class="tag">noise</span>,
-        <span class="tag">interaction</span>,
-        <span class="tag">behavior</span>,
-        <span class="tag">game</span>,
-        <span class="tag">battle</span>,
-        <span class="tag">dfscore</span>,
-        <span class="tag">drums</span>,
-        <span class="tag">memory</span>
+        <button class="tag">composition</button>,
+        <button class="tag">improvisation</button>,
+        <button class="tag">performance</button>,
+        <button class="tag">diy</button>,
+        <button class="tag">software</button>,
+        <button class="tag">controller</button>,
+        <button class="tag">mapping</button>,
+        <button class="tag">gesture</button>,
+        <button class="tag">video</button>,
+        <button class="tag">analysis</button>,
+        <button class="tag">framework</button>,
+        <button class="tag">feedback</button>,
+        <button class="tag">noise</button>,
+        <button class="tag">interaction</button>,
+        <button class="tag">behavior</button>,
+        <button class="tag">game</button>,
+        <button class="tag">battle</button>,
+        <button class="tag">dfscore</button>,
+        <button class="tag">drums</button>,
+        <button class="tag">memory<buttonn>
         ]
       </div>
       <div id="results"></div>
