@@ -53,9 +53,10 @@
       })
 
       var CONCEPTUAL = 1;
-      var TEMPORAL = 2;
+      var TEMPORAL_ALL = 2;
       var TECHNICAL = 3;
       var AESTHETIC = 4;
+      var TEMPORAL_THESIS = 5;
 
       function make_button(button_name, key) {
         buttonDiv.append('button')
@@ -67,7 +68,11 @@
       }
 
       make_button('Conceptual', CONCEPTUAL);
-      make_button('Temporal',TEMPORAL);
+      if (just_thesis) {
+        make_button('Temporal',TEMPORAL_THESIS);
+      } else {
+        make_button('Temporal',TEMPORAL_ALL);
+      }
       make_button('Technological',TECHNICAL);
       make_button('Aesthetic',AESTHETIC);
 
@@ -265,6 +270,7 @@
 
         // remove contents of graph & replace with new set
         // just doing .enter() didn't seem to remove links correctly
+        // TODO: use .exit() ?g
         svg.selectAll('.link').remove();
         svg.selectAll('.node').remove();
 
