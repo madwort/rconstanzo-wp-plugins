@@ -118,15 +118,19 @@
       }
 
       var metadata_container = 
-          rppd_element.append('div').attr('id','metadata_container');
+        rppd_element.append('div').attr('id','metadata_container');
 
       var metadata_display = 
-          metadata_container.append('div').attr('id','metadata');
+        metadata_container.append('div').attr('id','metadata');
       metadata_display.append('h2').text('Metadata');
 
       var connection_metadata_display = 
-          metadata_container.append('div').attr('id','metadata_connections');
+        metadata_container.append('div').attr('id','metadata_connections');
       connection_metadata_display.append('h3').text('Connections');
+
+      var connection_hover =
+        rppd_element.append('div').attr('id','connection_hover');
+
 
       function add_title(svgObjects) {
         svgObjects.append('text')
@@ -273,8 +277,7 @@
               var body = d3.select('body')[0][0];
 
               if(d.text != "") {
-                rppd_element.append('div')
-                .attr('id','connection_hover')
+                connection_hover
                 .style('display','block')
                 .style('left',(d3.mouse(body)[0])+"px")
                 .style('top',(d3.mouse(body)[1])+"px")
@@ -282,7 +285,7 @@
               }
             })
             .on('mouseout',function (d) {
-              d3.selectAll('div#connection_hover').remove();
+              d3.selectAll('div#connection_hover').style('display','none');
             });
 
         var node = svg.selectAll('g.node')
