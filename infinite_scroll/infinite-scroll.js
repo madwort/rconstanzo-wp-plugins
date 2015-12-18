@@ -29,6 +29,7 @@
   // infinite_scroll/chapter1.html
   // http://madwort.co.uk/wp-content/plugins/infinite_scroll/chapter1.html
   // http://www.rodrigoconstanzo.com/thesisfiles/chapter1.html
+  // $.get( "infinite_scroll/chapter1.html", function( data ) {
   $.get( "http://www.rodrigoconstanzo.com/thesisfiles/chapter1.html", function( data ) {
     $(w).scroll(function() {
       my_data = data;
