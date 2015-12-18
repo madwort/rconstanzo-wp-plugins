@@ -33,15 +33,10 @@ function springy_menu_handler($atts)
       'nodes' => "4",
   ), $atts );
 
-  $node_file_name = 'menu-'.$a['nodes'].'node.json';
-  $display_height = $a['nodes'].'00';
-
-	return "<div id='springy-links'></div>
+	return "<div class='springy' data-nodes='".$a['nodes']."'></div>
 	<script>
-  d3.json('" . plugins_url( $node_file_name , __FILE__ ) . "', function(error, graph) {
-	  var width = 650,
-	      height = ".$display_height.";
-    drawSpringyMenu('#springy-links', graph, width, height);
+  d3.json('" . plugins_url( 'menu.json' , __FILE__ ) . "', function(error, graph) {
+    drawSpringyMenu('div.springy', graph);
   });
 	</script>";
 }

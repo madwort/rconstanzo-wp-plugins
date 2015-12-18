@@ -13,20 +13,17 @@
 
 </head>
 <body>
-  <div id="spring1"></div>
+  <div class="springy" data-nodes="4"></div>
   <script>
-  d3.json('springy_links_plugin/menu-4node.json', function(error, graph) {
-    var width = 650,
-      height = 400;
-    drawSpringyMenu('div#spring1', graph, width, height);
+  d3.json('springy_links_plugin/menu.json', function(error, graph) {
+    drawSpringyMenu('div.springy', graph);
   });
   </script>
-  <div id="spring2"></div>
+  <p>Text in between SLMs</p>
+  <div class="springy" data-nodes="2"></div>
   <script>
-  d3.json('springy_links_plugin/menu-2node.json', function(error, graph) {
-    var width = 650,
-      height = 200;
-    drawSpringyMenu('div#spring2', graph, width, height);
+  d3.json('springy_links_plugin/menu.json', function(error, graph) {
+    drawSpringyMenu('div.springy', graph);
   });
   </script>
 
