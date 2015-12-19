@@ -28,10 +28,12 @@ add_shortcode('infinite-scroll', 'infinite_scroll_handler');
 function infinite_scroll_handler($atts)
 {
   $a = shortcode_atts( array(
-      'text' => "",
+      'text' => "This process",
+      'text2' => ", which sees no beginning or end, is presented [frozen, sanitized, cauterized] as a snapshot here. The work is made up of a network of compositions, videos, recordings, software, scores, performances, and improvisations which all interrelate and feed into each other. Each individual component rarely stands alone, or has clear temporal boundaries."
   ), $atts );
 
-  return "<div id='scroll-to-read' data-scroll-text='".$a['text']."'>".
+  return "<div id='scroll-to-read' data-scroll-text='".$a['text'].
+            "' data-scroll-text2='".$a['text2']."'>".
          "<span>".$a['text']."</span>".
          "</div>";
 }

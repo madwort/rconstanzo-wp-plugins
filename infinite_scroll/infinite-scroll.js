@@ -14,15 +14,13 @@
       var current_last_element =
         $("div#scroll-to-read span").filter(':last');
       current_last_element
-        .after(my_data + "<span>" + $("div#scroll-to-read")[0].dataset.scrollText + "</span>")
-        .hide();
+        .after("<span class='scrollText2' style='display: none;'>" + 
+                 $("div#scroll-to-read")[0].dataset.scrollText2 + 
+               "</span>" +
+               "<div class='scrollText' style='display: none;'>" + my_data + "</div>" +
+               "<span>" + $("div#scroll-to-read")[0].dataset.scrollText + "</span>");
 
-      // cosy up the first <p> to the end of the previous content
-      current_last_element.children('p').filter(':first')
-        .css('display','inline');
-
-      current_last_element
-        .fadeIn(2500);
+       $('div.scrollText, span.scrollText2').fadeIn(2500);
      }
   }
 
