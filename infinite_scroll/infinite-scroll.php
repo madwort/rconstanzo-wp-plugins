@@ -31,7 +31,7 @@ function infinite_scroll_handler($atts)
       'text' => "",
   ), $atts );
 
-  return "<div id='scroll-to-read'><p id='last'>".$a['text']."</p></div>";
+  return "<div id='scroll-to-read' data-scroll-text='".$a['text']."'><p id='last'>".$a['text']."</p></div>";
 }
 
 ?>

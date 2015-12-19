@@ -14,7 +14,7 @@
       var current_last_element =
         $("div#scroll-to-read p").filter(':last');
       current_last_element
-        .append(my_data)
+        .append(my_data + "<p id='last'>" + $("div#scroll-to-read")[0].dataset.scrollText + "</p>")
         .hide();
 
       // cosy up the first <p> to the end of the previous content
