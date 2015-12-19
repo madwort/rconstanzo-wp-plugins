@@ -12,9 +12,9 @@
   function handle_scroll() {
     if($(w).scrollTop() + $(w).height() > $(d).height() - 100) {
       var current_last_element =
-        $("div#scroll-to-read p").filter(':last');
+        $("div#scroll-to-read span").filter(':last');
       current_last_element
-        .append(my_data + "<p id='last'>" + $("div#scroll-to-read")[0].dataset.scrollText + "</p>")
+        .after(my_data + "<span>" + $("div#scroll-to-read")[0].dataset.scrollText + "</span>")
         .hide();
 
       // cosy up the first <p> to the end of the previous content
