@@ -39,7 +39,7 @@
           }));
 
           my_data.forEach(function(result, index) {
-            my_html += "<li>...<a href='" + result.url + "'>" +
+            my_html += "<li>...<a href='" + result.url + "'target='_blank'>" +
                        htmlEncode(result.text) + "</a>...</li>";
           });
 
