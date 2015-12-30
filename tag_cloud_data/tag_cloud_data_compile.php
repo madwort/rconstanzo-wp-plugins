@@ -18,26 +18,26 @@ $urls = [
   'http://www.rodrigoconstanzo.com/grassi-box/'
 ];
 
-$keywords["composition"] = ["composed", "compose", "composer"];
+$keywords["composition"] = ["composed", "compose", "composer", "composing", "composition", "compositions"];
 $keywords["improvisation"] = ["improv", "improvised", "improviser", "improvising"];
-$keywords["performance"] = ["performer", "performed"];
+$keywords["performance"] = ["performer", "performed", "performers"];
 $keywords["meta"] = ["meta", "meta-creative"];
 $keywords["diy"] = ["diy", "DIY", "luthier", "build", "instrument"];
 $keywords["software"] = ["software"];
 $keywords["dfscore"] = ["dfscore", "dfs", "networked score", "network score"];
-$keywords["controller"] = ["controller", "gamepad", "monome"];
-$keywords["gamepad"] = ["controller"];
+$keywords["controller"] = ["controller", "controllers", "gamepad", "gamepads", "monome"];
+$keywords["gamepad"] = ["controller", "controllers", "gamepad"];
 $keywords["mapping"] = ["mapping", "mapped", "map"];
-$keywords["gesture"] = ["gesture"];
+$keywords["gesture"] = ["gesture", "gestures"];
 $keywords["form"] = ["form", "formal"];
 $keywords["memory"] = ["memory", "memories"];
-$keywords["interaction"] = ["interact", "interacted"];
-$keywords["behavior"] = ["behavior", "behaviour", "behaviors"];
-$keywords["game"] = ["game", "etude", "battle", "challenge"];
-$keywords["battle"] = ["battle", "game", "etude", "challenge"];
+$keywords["interaction"] = ["interaction", "interactions", "interact", "interacted"];
+$keywords["behavior"] = ["behavior", "behaviors"];
+$keywords["game"] = ["game", "games", "etude", "etudes", "battle", "battles", "challenge", "challenges"];
+$keywords["battle"] = ["battle", "battles", "game", "etude", "etudes", "challenge", "challenges"];
 $keywords["analysis"] = ["analysis", "analyses", "analyzed", "analysed"];
 $keywords["video"] = ["video", "videos", "film", "filmed"];
-$keywords["drums"] = ["drums", "percussion"];
+$keywords["drums"] = ["drums", "drum", "percussion"];
 $keywords["feedback"] = ["feedback"];
 
 echo "tag,term,text,url\r\n";
