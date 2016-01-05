@@ -96,7 +96,9 @@ function tag_cloud_search_handler($atts)
 
   return "
   <script type='text/javascript'>
-    $(window.search_tag());
+  $(window).load(function () {
+    setTimeout(function(){ window.search_tag(); }, 200);
+  });
   </script>
 ";
 }
