@@ -11,7 +11,7 @@
   <script src='tag_cloud/tag_cloud_search.js' charset='utf-8'></script>
   <script type='text/javascript'>
     window.onload = function () {
-      setTimeout(function(){ window.search_tag(); }, 200);
+      window.document.body.onload = setTimeout(function(){ window.search_tag(); }, 200);
     };
   </script>
 </head>
