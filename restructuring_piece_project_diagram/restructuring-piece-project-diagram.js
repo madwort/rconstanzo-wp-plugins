@@ -209,11 +209,16 @@
             metadata_display.append('div').text("Date: "+d.date);
         }
         metadata_display.append('div').text(d.blurb);
+
+        if (d.page.substr(0,1) == '/') {
+            metadata_url = "http://www.rodrigoconstanzo.com" + d.page;
+        }
+
         metadata_display.append('div')
                         .append('a')
                         .attr('href',d.page)
                         .attr('target','_blank')
-                        .text(d.page);
+                        .text(metadata_url);
         metadata_display.append('div').text(d.comments);
         metadata_display.append('div')
                         .append('a')
