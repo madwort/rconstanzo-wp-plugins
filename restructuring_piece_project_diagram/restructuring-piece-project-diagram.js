@@ -210,6 +210,8 @@
         }
         metadata_display.append('div').text(d.blurb);
 
+        var metadata_url = d.page;
+        // Fixup relative URLs to look like they're to the main website
         if (d.page.substr(0,1) == '/') {
             metadata_url = "http://www.rodrigoconstanzo.com" + d.page;
         }
