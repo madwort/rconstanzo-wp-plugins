@@ -3,7 +3,7 @@
 Plugin Name: Restructuring Piece/Project Diagram
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: whizzy diagram thing
-Version: 0.5
+Version: 0.6
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
@@ -64,39 +64,39 @@ function restructuring_piece_project_diagram_handler($atts)
   </script>
   <div id='rppd-assets' style='display: none;'>
   <!-- include these statically because wget doesn't execute our JS -->
-    <a href='assets/1.jpg'>1.jpg</a>
-    <a href='assets/10.jpg'>10.jpg</a>
-    <a href='assets/11.jpg'>11.jpg</a>
-    <a href='assets/12.jpg'>12.jpg</a>
-    <a href='assets/13.jpg'>13.jpg</a>
-    <a href='assets/14.jpg'>14.jpg</a>
-    <a href='assets/15.jpg'>15.jpg</a>
-    <a href='assets/16.jpg'>16.jpg</a>
-    <a href='assets/17.jpg'>17.jpg</a>
-    <a href='assets/18.jpg'>18.jpg</a>
-    <a href='assets/19.jpg'>19.jpg</a>
-    <a href='assets/2.jpg'>2.jpg</a>
-    <a href='assets/20.jpg'>20.jpg</a>
-    <a href='assets/21.jpg'>21.jpg</a>
-    <a href='assets/22.jpg'>22.jpg</a>
-    <a href='assets/23.jpg'>23.jpg</a>
-    <a href='assets/24.jpg'>24.jpg</a>
-    <a href='assets/25.jpg'>25.jpg</a>
-    <a href='assets/26.jpg'>26.jpg</a>
-    <a href='assets/27.jpg'>27.jpg</a>
-    <a href='assets/28.jpg'>28.jpg</a>
-    <a href='assets/29.jpg'>29.jpg</a>
-    <a href='assets/3.jpg'>3.jpg</a>
-    <a href='assets/30.jpg'>30.jpg</a>
-    <a href='assets/31.jpg'>31.jpg</a>
-    <a href='assets/4.jpg'>4.jpg</a>
-    <a href='assets/5.jpg'>5.jpg</a>
-    <a href='assets/6.jpg'>6.jpg</a>
-    <a href='assets/7.jpg'>7.jpg</a>
-    <a href='assets/8.jpg'>8.jpg</a>
-    <a href='assets/9.jpg'>9.jpg</a>
-    <a href='assets/blurbs.csv'>blurbs.csv</a>
-    <a href='assets/connections.csv'>connections.csv</a>
+    <a href='".plugins_url('assets/1.jpg', __FILE__ )."'>1.jpg</a>
+    <a href='".plugins_url('assets/10.jpg', __FILE__ )."'>10.jpg</a>
+    <a href='".plugins_url('assets/11.jpg', __FILE__ )."'>11.jpg</a>
+    <a href='".plugins_url('assets/12.jpg', __FILE__ )."'>12.jpg</a>
+    <a href='".plugins_url('assets/13.jpg', __FILE__ )."'>13.jpg</a>
+    <a href='".plugins_url('assets/14.jpg', __FILE__ )."'>14.jpg</a>
+    <a href='".plugins_url('assets/15.jpg', __FILE__ )."'>15.jpg</a>
+    <a href='".plugins_url('assets/16.jpg', __FILE__ )."'>16.jpg</a>
+    <a href='".plugins_url('assets/17.jpg', __FILE__ )."'>17.jpg</a>
+    <a href='".plugins_url('assets/18.jpg', __FILE__ )."'>18.jpg</a>
+    <a href='".plugins_url('assets/19.jpg', __FILE__ )."'>19.jpg</a>
+    <a href='".plugins_url('assets/2.jpg', __FILE__ )."'>2.jpg</a>
+    <a href='".plugins_url('assets/20.jpg', __FILE__ )."'>20.jpg</a>
+    <a href='".plugins_url('assets/21.jpg', __FILE__ )."'>21.jpg</a>
+    <a href='".plugins_url('assets/22.jpg', __FILE__ )."'>22.jpg</a>
+    <a href='".plugins_url('assets/23.jpg', __FILE__ )."'>23.jpg</a>
+    <a href='".plugins_url('assets/24.jpg', __FILE__ )."'>24.jpg</a>
+    <a href='".plugins_url('assets/25.jpg', __FILE__ )."'>25.jpg</a>
+    <a href='".plugins_url('assets/26.jpg', __FILE__ )."'>26.jpg</a>
+    <a href='".plugins_url('assets/27.jpg', __FILE__ )."'>27.jpg</a>
+    <a href='".plugins_url('assets/28.jpg', __FILE__ )."'>28.jpg</a>
+    <a href='".plugins_url('assets/29.jpg', __FILE__ )."'>29.jpg</a>
+    <a href='".plugins_url('assets/3.jpg', __FILE__ )."'>3.jpg</a>
+    <a href='".plugins_url('assets/30.jpg', __FILE__ )."'>30.jpg</a>
+    <a href='".plugins_url('assets/31.jpg', __FILE__ )."'>31.jpg</a>
+    <a href='".plugins_url('assets/4.jpg', __FILE__ )."'>4.jpg</a>
+    <a href='".plugins_url('assets/5.jpg', __FILE__ )."'>5.jpg</a>
+    <a href='".plugins_url('assets/6.jpg', __FILE__ )."'>6.jpg</a>
+    <a href='".plugins_url('assets/7.jpg', __FILE__ )."'>7.jpg</a>
+    <a href='".plugins_url('assets/8.jpg', __FILE__ )."'>8.jpg</a>
+    <a href='".plugins_url('assets/9.jpg', __FILE__ )."'>9.jpg</a>
+    <a href='".plugins_url('assets/blurbs.csv', __FILE__ )."'>blurbs.csv</a>
+    <a href='".plugins_url('assets/connections.csv', __FILE__ )."'>connections.csv</a>
   </div>
 ";
 }
