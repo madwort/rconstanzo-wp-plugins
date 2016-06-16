@@ -62,6 +62,42 @@ function restructuring_piece_project_diagram_handler($atts)
       });
     });
   </script>
+  <div id='rppd-assets' style='display: none;'>
+  <!-- include these statically because wget doesn't execute our JS -->
+    <a href='assets/1.jpg'>1.jpg</a>
+    <a href='assets/10.jpg'>10.jpg</a>
+    <a href='assets/11.jpg'>11.jpg</a>
+    <a href='assets/12.jpg'>12.jpg</a>
+    <a href='assets/13.jpg'>13.jpg</a>
+    <a href='assets/14.jpg'>14.jpg</a>
+    <a href='assets/15.jpg'>15.jpg</a>
+    <a href='assets/16.jpg'>16.jpg</a>
+    <a href='assets/17.jpg'>17.jpg</a>
+    <a href='assets/18.jpg'>18.jpg</a>
+    <a href='assets/19.jpg'>19.jpg</a>
+    <a href='assets/2.jpg'>2.jpg</a>
+    <a href='assets/20.jpg'>20.jpg</a>
+    <a href='assets/21.jpg'>21.jpg</a>
+    <a href='assets/22.jpg'>22.jpg</a>
+    <a href='assets/23.jpg'>23.jpg</a>
+    <a href='assets/24.jpg'>24.jpg</a>
+    <a href='assets/25.jpg'>25.jpg</a>
+    <a href='assets/26.jpg'>26.jpg</a>
+    <a href='assets/27.jpg'>27.jpg</a>
+    <a href='assets/28.jpg'>28.jpg</a>
+    <a href='assets/29.jpg'>29.jpg</a>
+    <a href='assets/3.jpg'>3.jpg</a>
+    <a href='assets/30.jpg'>30.jpg</a>
+    <a href='assets/31.jpg'>31.jpg</a>
+    <a href='assets/4.jpg'>4.jpg</a>
+    <a href='assets/5.jpg'>5.jpg</a>
+    <a href='assets/6.jpg'>6.jpg</a>
+    <a href='assets/7.jpg'>7.jpg</a>
+    <a href='assets/8.jpg'>8.jpg</a>
+    <a href='assets/9.jpg'>9.jpg</a>
+    <a href='assets/blurbs.csv'>blurbs.csv</a>
+    <a href='assets/connections.csv'>connections.csv</a>
+  </div>
 ";
 }
 
