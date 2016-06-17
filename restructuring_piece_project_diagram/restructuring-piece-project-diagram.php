@@ -3,7 +3,7 @@
 Plugin Name: Restructuring Piece/Project Diagram
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: whizzy diagram thing
-Version: 0.8
+Version: 0.9
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
@@ -37,7 +37,7 @@ add_shortcode('restructuring-piece-project-diagram', 'restructuring_piece_projec
 
 function rppd_remove_domain($value)
 {
-  return str_replace('http://www.rodrigoconstanzo.com/' , '' , $value);
+  return str_replace('http://www.rodrigoconstanzo.com' , '' , $value);
 }
 
 function restructuring_piece_project_diagram_handler($atts)
