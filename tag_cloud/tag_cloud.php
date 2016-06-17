@@ -34,6 +34,11 @@ function tag_cloud_scripts()
 }
 add_action( 'wp_enqueue_scripts', 'tag_cloud_scripts' );
 
+function remove_domain($value)
+{
+  return str_replace('http://www.rodrigoconstanzo.com/' , '' , $value);
+}
+
 function tag_cloud_style()
 {
     wp_register_style( 'tag_cloud-style', plugins_url( '/tag_cloud.css', __FILE__ ));
@@ -48,7 +53,7 @@ function tag_cloud_handler($atts)
 {
   $a = shortcode_atts( 
           array(
-            'path' => plugins_url( '/tag_cloud_data.csv', __FILE__ ),
+            'path' => remove_domain(plugins_url( '/tag_cloud_data.csv', __FILE__ )),
           ), $atts 
         );
 
@@ -90,7 +95,7 @@ function tag_cloud_search_handler($atts)
 {
   $a = shortcode_atts( 
           array(
-            'path' => plugins_url( '/tag_cloud_assets/', __FILE__ ),
+            'path' => remove_domain(plugins_url( '/tag_cloud_assets/', __FILE__ )),
           ), $atts 
         );
 
@@ -100,7 +105,7 @@ function tag_cloud_search_handler($atts)
     window.document.body.onload = setTimeout(function(){ window.search_tag(); }, 1000);
   };
   </script>
-  <a href=".plugins_url( '/tag_cloud_data.csv', __FILE__ )." style='display:none;'>Tag cloud datafile</a>
+  <a href=".remove_domain(plugins_url( '/tag_cloud_data.csv', __FILE__ ))." style='display:none;'>Tag cloud datafile</a>
 ";
 }
 
