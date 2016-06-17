@@ -3,7 +3,7 @@
 Plugin Name: Tag cloud
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: The amazing dynamic tag cloud
-Version: 0.12.0
+Version: 0.13.0
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
@@ -34,7 +34,7 @@ function tag_cloud_scripts()
 }
 add_action( 'wp_enqueue_scripts', 'tag_cloud_scripts' );
 
-function remove_domain($value)
+function tc_remove_domain($value)
 {
   return str_replace('http://www.rodrigoconstanzo.com/' , '' , $value);
 }
@@ -53,7 +53,7 @@ function tag_cloud_handler($atts)
 {
   $a = shortcode_atts( 
           array(
-            'path' => remove_domain(plugins_url( '/tag_cloud_data.csv', __FILE__ )),
+            'path' => tc_remove_domain(plugins_url( '/tag_cloud_data.csv', __FILE__ )),
           ), $atts 
         );
 
@@ -86,7 +86,7 @@ function tag_cloud_handler($atts)
 <script type='text/javascript'>
   $(window.create_tag_handlers('".$a['path']."'));
 </script>
-<a href=".remove_domain(plugins_url( '/tag_cloud_data.csv', __FILE__ ))." style='display:none;'>Tag cloud datafile</a>
+<a href=".tc_remove_domain(plugins_url( '/tag_cloud_data.csv', __FILE__ ))." style='display:none;'>Tag cloud datafile</a>
 ";
 }
 
@@ -96,7 +96,7 @@ function tag_cloud_search_handler($atts)
 {
   $a = shortcode_atts( 
           array(
-            'path' => remove_domain(plugins_url( '/tag_cloud_assets/', __FILE__ )),
+            'path' => tc_remove_domain(plugins_url( '/tag_cloud_assets/', __FILE__ )),
           ), $atts 
         );
 
@@ -106,7 +106,7 @@ function tag_cloud_search_handler($atts)
     window.document.body.onload = setTimeout(function(){ window.search_tag(); }, 1000);
   };
   </script>
-  <a href=".remove_domain(plugins_url( '/tag_cloud_data.csv', __FILE__ ))." style='display:none;'>Tag cloud datafile</a>
+  <a href=".tc_remove_domain(plugins_url( '/tag_cloud_data.csv', __FILE__ ))." style='display:none;'>Tag cloud datafile</a>
 ";
 }
 
