@@ -3,7 +3,7 @@
 Plugin Name: Tag cloud
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: The amazing dynamic tag cloud
-Version: 0.11.0
+Version: 0.12.0
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
@@ -86,6 +86,7 @@ function tag_cloud_handler($atts)
 <script type='text/javascript'>
   $(window.create_tag_handlers('".$a['path']."'));
 </script>
+<a href=".remove_domain(plugins_url( '/tag_cloud_data.csv', __FILE__ ))." style='display:none;'>Tag cloud datafile</a>
 ";
 }
 
