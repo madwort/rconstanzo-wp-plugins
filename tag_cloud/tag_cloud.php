@@ -3,7 +3,7 @@
 Plugin Name: Tag cloud
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: The amazing dynamic tag cloud
-Version: 0.14.0
+Version: 0.15.0
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
@@ -34,11 +34,6 @@ function tag_cloud_scripts()
 }
 add_action( 'wp_enqueue_scripts', 'tag_cloud_scripts' );
 
-function tc_remove_domain($value)
-{
-  return str_replace('http://www.rodrigoconstanzo.com' , '' , $value);
-}
-
 function tag_cloud_style()
 {
     wp_register_style( 'tag_cloud-style', plugins_url( '/tag_cloud.css', __FILE__ ));
@@ -53,12 +48,13 @@ function tag_cloud_handler($atts)
 {
   $a = shortcode_atts( 
           array(
-            'path' => tc_remove_domain(plugins_url( '/tag_cloud_data.csv', __FILE__ )),
+            'path' => plugins_url( '/tag_cloud_data.csv', __FILE__ ),
           ), $atts 
         );
 
   return "
 <div id='tag_cloud'>
+  <a href=".$a['path']." style='display:none;'>Tag cloud datafile</a>
   <div>
     [
     <span class='tag'>composition</span>,
@@ -84,9 +80,9 @@ function tag_cloud_handler($atts)
   <div id='results'></div>
 </div>
 <script type='text/javascript'>
-  $(window.create_tag_handlers('".$a['path']."'));
+  var tag_cloud_url = $('#tag_cloud a').first().attr('href');
+  $(window.create_tag_handlers(tag_cloud_url));
 </script>
-<a href=".tc_remove_domain(plugins_url( '/tag_cloud_data.csv', __FILE__ ))." style='display:none;'>Tag cloud datafile</a>
 ";
 }
 
@@ -96,7 +92,7 @@ function tag_cloud_search_handler($atts)
 {
   $a = shortcode_atts( 
           array(
-            'path' => tc_remove_domain(plugins_url( '/tag_cloud_assets/', __FILE__ )),
+            'path' => plugins_url( '/tag_cloud_assets/', __FILE__ ),
           ), $atts 
         );
 
@@ -106,7 +102,7 @@ function tag_cloud_search_handler($atts)
     window.document.body.onload = setTimeout(function(){ window.search_tag(); }, 1000);
   };
   </script>
-  <a href=".tc_remove_domain(plugins_url( '/tag_cloud_data.csv', __FILE__ ))." style='display:none;'>Tag cloud datafile</a>
+  <a href=".plugins_url( '/tag_cloud_data.csv', __FILE__ )." style='display:none;' name='tag_cloud_datafile'>Tag cloud datafile</a>
 ";
 }
 
