@@ -17,27 +17,64 @@
   <div style="height: 600px;"></div>
   <div class='restructuring-piece-project-diagram' data-justthesis='false'>
   </div>
+  <div class='rppd-assets' style='display: none;'>
+  <!-- include these statically because wget doesn't execute our JS -->
+    <a href='restructuring_piece_project_diagram/assets/' class='asset_dir'>Assets directory</a>
+    <a href='restructuring_piece_project_diagram/assets/1.jpg' class='asset1'>1.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/10.jpg' class='asset10'>10.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/11.jpg' class='asset11'>11.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/12.jpg' class='asset12'>12.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/13.jpg' class='asset13'>13.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/14.jpg' class='asset14'>14.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/15.jpg' class='asset15'>15.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/16.jpg' class='asset16'>16.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/17.jpg' class='asset17'>17.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/18.jpg' class='asset18'>18.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/19.jpg' class='asset19'>19.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/2.jpg' class='asset2'>2.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/20.jpg' class='asset20'>20.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/21.jpg' class='asset21'>21.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/22.jpg' class='asset22'>22.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/23.jpg' class='asset23'>23.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/24.jpg' class='asset24'>24.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/25.jpg' class='asset25'>25.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/26.jpg' class='asset26'>26.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/27.jpg' class='asset27'>27.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/28.jpg' class='asset28'>28.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/29.jpg' class='asset29'>29.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/3.jpg' class='asset3'>3.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/30.jpg' class='asset30'>30.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/31.jpg' class='asset31'>31.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/4.jpg' class='asset4'>4.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/5.jpg' class='asset5'>5.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/6.jpg' class='asset6'>6.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/7.jpg' class='asset7'>7.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/8.jpg' class='asset8'>8.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/9.jpg' class='asset9'>9.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/blurbs.csv' class='blurbs'>blurbs.csv</a>
+    <a href='restructuring_piece_project_diagram/assets/connections.csv' class='connections'>connections.csv</a>
+  </div>
   <script>
-  // TODO: use queue!
-  // https://github.com/mbostock/queue
-  // http://bl.ocks.org/mbostock/4060606
 
+  var blurb_url = $('.rppd-assets a.blurbs').first().attr('href');
+  var connections_url = $('.rppd-assets a.connections').first().attr('href');
+  var assets_directory_url = $('.rppd-assets a.asset_dir').first().attr('href');
+  
   d3.csv(
-    'restructuring_piece_project_diagram/assets/blurbs.csv', 
+    blurb_url,
     function (error, pieces) {
       if (error) throw error;
   
       d3.csv(
-        'restructuring_piece_project_diagram/assets/connections.csv', 
+        connections_url,
         function (error, connections) {
           if (error) throw error;
-          console.log('csv connections', connections[0]);
+          console.log(connections[0]);
 
           var width = 650,
               height = 650;
-          drawPieceProjectDiagram('div.restructuring-piece-project-diagram', pieces, connections, 
-                                  'restructuring_piece_project_diagram/assets/', 
-                                  width, height);
+          drawPieceProjectDiagram('div.restructuring-piece-project-diagram', pieces, connections,
+                                  assets_directory_url, width, height);
       });
     });
   </script>
@@ -49,30 +86,68 @@
 
   <div class='restructuring-piece-project-diagram' data-justthesis='true'>
   </div>
+  <div class='rppd-assets' style='display: none;'>
+  <!-- include these statically because wget doesn't execute our JS -->
+    <a href='restructuring_piece_project_diagram/assets/' class='asset_dir'>Assets directory</a>
+    <a href='restructuring_piece_project_diagram/assets/1.jpg' class='asset1'>1.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/10.jpg' class='asset10'>10.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/11.jpg' class='asset11'>11.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/12.jpg' class='asset12'>12.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/13.jpg' class='asset13'>13.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/14.jpg' class='asset14'>14.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/15.jpg' class='asset15'>15.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/16.jpg' class='asset16'>16.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/17.jpg' class='asset17'>17.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/18.jpg' class='asset18'>18.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/19.jpg' class='asset19'>19.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/2.jpg' class='asset2'>2.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/20.jpg' class='asset20'>20.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/21.jpg' class='asset21'>21.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/22.jpg' class='asset22'>22.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/23.jpg' class='asset23'>23.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/24.jpg' class='asset24'>24.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/25.jpg' class='asset25'>25.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/26.jpg' class='asset26'>26.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/27.jpg' class='asset27'>27.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/28.jpg' class='asset28'>28.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/29.jpg' class='asset29'>29.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/3.jpg' class='asset3'>3.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/30.jpg' class='asset30'>30.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/31.jpg' class='asset31'>31.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/4.jpg' class='asset4'>4.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/5.jpg' class='asset5'>5.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/6.jpg' class='asset6'>6.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/7.jpg' class='asset7'>7.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/8.jpg' class='asset8'>8.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/9.jpg' class='asset9'>9.jpg</a>
+    <a href='restructuring_piece_project_diagram/assets/blurbs.csv' class='blurbs'>blurbs.csv</a>
+    <a href='restructuring_piece_project_diagram/assets/connections.csv' class='connections'>connections.csv</a>
+  </div>
   <script>
-  // TODO: use queue!
-  // https://github.com/mbostock/queue
-  // http://bl.ocks.org/mbostock/4060606
 
+  var blurb_url = $('.rppd-assets a.blurbs').first().attr('href');
+  var connections_url = $('.rppd-assets a.connections').first().attr('href');
+  var assets_directory_url = $('.rppd-assets a.asset_dir').first().attr('href');
+  
   d3.csv(
-    'restructuring_piece_project_diagram/assets/blurbs.csv', 
+    blurb_url,
     function (error, pieces) {
       if (error) throw error;
   
       d3.csv(
-        'restructuring_piece_project_diagram/assets/connections.csv', 
+        connections_url,
         function (error, connections) {
           if (error) throw error;
           console.log(connections[0]);
 
           var width = 650,
               height = 650;
-          drawPieceProjectDiagram('div.restructuring-piece-project-diagram', pieces, connections, 
-                                  'restructuring_piece_project_diagram/assets/', 
-                                  width, height);
+          drawPieceProjectDiagram('div.restructuring-piece-project-diagram', pieces, connections,
+                                  assets_directory_url, width, height);
       });
     });
   </script>
+
 
 </body>
 </html>
