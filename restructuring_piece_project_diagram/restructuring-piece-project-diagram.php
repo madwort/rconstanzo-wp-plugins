@@ -3,7 +3,7 @@
 Plugin Name: Restructuring Piece/Project Diagram
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: whizzy diagram thing
-Version: 0.10
+Version: 0.11
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
@@ -85,7 +85,11 @@ function restructuring_piece_project_diagram_handler($atts)
   var blurb_url = $('.rppd-assets a.blurbs').first().attr('href');
   var connections_url = $('.rppd-assets a.connections').first().attr('href');
   var assets_directory_url = $('.rppd-assets a.asset_dir').first().attr('href');
-  
+
+  // fixup: wget will rewrite a directory url to include /index.html 
+  // We need to remove it or images won't work!
+  assets_directory_url = assets_directory_url.replace('index.html','');
+
   d3.csv(
     blurb_url,
     function (error, pieces) {
