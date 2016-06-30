@@ -59,8 +59,10 @@
         .attr('class','node');
 
       function linkify() {
+        var home_url = $('#menu-main-menu #menu-item-20 a').first().attr('href').replace('index.html','');
+
         return node.append('svg:a')
-          .attr('xlink:href', function(d){ return d.url; })
+          .attr('xlink:href', function(d){ return home_url + d.url; })
           .attr('target','_blank');
       }
 
