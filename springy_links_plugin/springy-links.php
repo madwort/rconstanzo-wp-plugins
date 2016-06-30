@@ -3,7 +3,7 @@
 Plugin Name: Springy Links Menu
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: Springy menu built with d3!
-Version: 0.7
+Version: 0.8
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
@@ -34,8 +34,11 @@ function springy_menu_handler($atts)
   ), $atts );
 
 	return "<div class='springy' data-nodes='".$a['nodes']."'></div>
+  <div class='springy-assets' style='display: none;'>
+    <a href='". plugins_url( 'menu.json' , __FILE__ ). "'></a>
+  </div>
 	<script>
-  d3.json('" . plugins_url( 'menu.json' , __FILE__ ) . "', function(error, graph) {
+  d3.json($('.springy-assets a').first().attr('href'), function(error, graph) {
     drawSpringyMenu('div.springy', graph);
   });
 	</script>";
