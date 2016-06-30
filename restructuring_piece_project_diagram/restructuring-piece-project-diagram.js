@@ -213,7 +213,10 @@
         var metadata_url = d.page;
         // Fixup relative URLs to look like they're to the main website
         if (d.page.substr(0,1) == '/') {
-            metadata_url = "http://www.rodrigoconstanzo.com" + d.page;
+          // get the home url from the wordpress menu link
+          // wget should rewrite this for us when local!
+          var home_url = $('#menu-main-menu #menu-item-20 a').first().attr('href').replace('index.html','');
+          metadata_url = home_url + d.page;
         }
 
         metadata_display.append('div')
