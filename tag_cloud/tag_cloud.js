@@ -38,8 +38,12 @@
             return (d.tag == e.target.textContent);
           }));
 
+          // get the home url from the wordpress menu link
+          // wget should rewrite this for us when local!
+          var home_url = $('#menu-main-menu #menu-item-20 a').first().attr('href').replace('index.html','');
+
           my_data.forEach(function(result, index) {
-            my_html += "<li>...<a href='" + result.url + "'target='_blank'>" +
+            my_html += "<li>...<a href='" + home_url + result.url + "'target='_blank'>" +
                        htmlEncode(result.text) + "</a>...</li>";
           });
 
