@@ -59,10 +59,20 @@
         .attr('class','node');
 
       function linkify() {
-        var home_url = $('#menu-main-menu #menu-item-20 a').first().attr('href').replace('index.html','');
+        var home_url = $('#menu-main-menu #menu-item-20 a').first()
+                         .attr('href').replace('index.html','')
+                         .replace('../../rodrigoconstanzo.com/','../');
 
         return node.append('svg:a')
-          .attr('xlink:href', function(d){ return home_url + d.url; })
+          .attr('xlink:href', 
+                 function(d){ 
+                   var full_url = home_url + d.url;
+                   if (home_url.substring(0, 7) == "file://" && home_url.substring(-1,1) == '/') {
+                     full_url += 'index.html';
+                   }
+                   return full_url;
+                 }
+               )
           .attr('target','_blank');
       }
 

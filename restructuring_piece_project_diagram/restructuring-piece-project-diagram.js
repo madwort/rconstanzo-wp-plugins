@@ -215,8 +215,14 @@
         if (d.page.substr(0,1) == '/') {
           // get the home url from the wordpress menu link
           // wget should rewrite this for us when local!
-          var home_url = $('#menu-main-menu #menu-item-20 a').first().attr('href').replace('index.html','');
+          var home_url = $('#menu-main-menu #menu-item-20 a').first()
+                           .attr('href').replace('index.html','')
+                           .replace('../../rodrigoconstanzo.com/','../');
+
           metadata_url = home_url + d.page;
+          if (home_url.substring(0, 7) == "file://" && home_url.substring(-1,1) == '/') {
+            metadata_url += 'index.html';
+          }
         }
 
         metadata_display.append('div')
