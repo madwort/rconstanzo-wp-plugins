@@ -37,7 +37,10 @@ function infinite_scroll_handler($atts)
          "<div id='scroll-to-read' data-scroll-text='".$a['text'].
          "' data-scroll-text2='".$a['text2']."'>".
          "<span>".$a['text']."</span>".
-         "</div>";
+         "</div>".
+         "<script>
+           window.initialise_infinite_scroll();
+         </script>";
 }
 
 ?>
