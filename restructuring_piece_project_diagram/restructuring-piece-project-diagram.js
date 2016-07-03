@@ -215,12 +215,18 @@
         if (d.page.substr(0,1) == '/') {
           // get the home url from the wordpress menu link
           // wget should rewrite this for us when local!
-          var home_url = $('#menu-main-menu #menu-item-20 a').first()
-                           .attr('href').replace('index.html','')
-                           .replace('../../rodrigoconstanzo.com/','../');
+          var home_url = 
+            $('#menu-main-menu #menu-item-20 a').first()
+            .attr('href');
+          var file_type_urls = false;
+          if (home_url.indexOf('index.html') >= 0) {
+            file_type_urls = true;
+            home_url = home_url.replace('index.html','')
+            .replace('../../rodrigoconstanzo.com/','../');
+          }
 
           metadata_url = home_url + d.page;
-          if (home_url.substring(0, 7) == "file://" && home_url.substring(-1,1) == '/') {
+          if (file_type_urls && metadata_url.substring(-1,1) == '/') {
             metadata_url += 'index.html';
           }
         }
