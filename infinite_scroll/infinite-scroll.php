@@ -32,11 +32,11 @@ function infinite_scroll_handler($atts)
       'text2' => ", which sees no beginning or end, is presented [frozen, sanitized, cauterized] as a snapshot here. The work is made up of a network of compositions, videos, recordings, software, scores, performances, and improvisations which all interrelate and feed into each other. Each individual component rarely stands alone, or has clear temporal boundaries."
   ), $atts );
 
-  return "<div id='scroll-to-read' data-scroll-text='".$a['text'].
-            "' data-scroll-text2='".$a['text2']."'>".
+  return "<a href='/thesisfiles/chapter1.html' style='display: none;' class='infinite_scroll_url'>".
+         "Infinite scroll text</a>".
+         "<div id='scroll-to-read' data-scroll-text='".$a['text'].
+         "' data-scroll-text2='".$a['text2']."'>".
          "<span>".$a['text']."</span>".
-         "<a href='/thesisfiles/chapter1.html' style='display: none;' class='infinite_scroll_data_url'>".
-              "Infinite scroll text</a>".
          "</div>";
 }
 
