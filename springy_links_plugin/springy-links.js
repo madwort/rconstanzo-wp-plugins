@@ -66,7 +66,7 @@
           if (home_url.indexOf('index.html') >= 0) {
             file_type_urls = true;
             home_url = home_url.replace('index.html','')
-            .replace('../../rodrigoconstanzo.com/','../');
+            .replace('/rodrigoconstanzo.com/','/www.rodrigoconstanzo.com/');
           }
 
           return node.append('svg:a')
