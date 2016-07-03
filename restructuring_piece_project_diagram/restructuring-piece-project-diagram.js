@@ -226,9 +226,9 @@
           }
 
           metadata_url = home_url + d.page;
-          if (file_type_urls && d.page.substring(-1,1) == '/') {
-            metadata_url += 'index.html';
-          }
+          if (file_type_urls) {
+            metadata_url = metadata_url.replace(/\/(#[a-z]*)?$/i,'/index.html$1');
+          } 
         }
 
         metadata_display.append('div')
