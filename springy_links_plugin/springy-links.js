@@ -58,23 +58,32 @@
         .enter().append('g')
         .attr('class','node');
 
-      function linkify() {
-        var home_url = $('#menu-main-menu #menu-item-20 a').first()
-                         .attr('href').replace('index.html','')
-                         .replace('../../rodrigoconstanzo.com/','../');
+        function linkify() {
+          var home_url = 
+            $('#menu-main-menu #menu-item-20 a').first()
+            .attr('href');
+          var file_type_urls = false;
+          if (home_url.indexOf('index.html') >= 0) {
+            file_type_urls = true;
+            home_url = home_url.replace('index.html','')
+            .replace('../../rodrigoconstanzo.com/','../');
+          }
 
-        return node.append('svg:a')
-          .attr('xlink:href', 
-                 function(d){ 
-                   var full_url = home_url + d.url;
-                   if (home_url.substring(0, 7) == "file://" && home_url.substring(-1,1) == '/') {
-                     full_url += 'index.html';
+          return node.append('svg:a')
+            .attr('xlink:href', 
+                   function(d){ 
+                     var full_url = home_url + d.url;
+                     console.log("home_url", home_url);
+                     if (file_type_urls && d.url.substring(-1,1) == '/') {
+                       full_url += 'index.html';
+                     }
+                     console.log("full_url", full_url);
+                     return full_url;
                    }
-                   return full_url;
-                 }
-               )
-          .attr('target','_blank');
-      }
+                 )
+            .attr('target','_blank');
+        }
+
 
       linkify().append('circle')
         // radius of the circles
