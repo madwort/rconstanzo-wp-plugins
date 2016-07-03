@@ -226,14 +226,14 @@
           }
 
           metadata_url = home_url + d.page;
-          if (file_type_urls && metadata_url.substring(-1,1) == '/') {
+          if (file_type_urls && d.page.substring(-1,1) == '/') {
             metadata_url += 'index.html';
           }
         }
 
         metadata_display.append('div')
                         .append('a')
-                        .attr('href',d.page)
+                        .attr('href',metadata_url)
                         .attr('target','_blank')
                         .text(metadata_url);
         metadata_display.append('div').text(d.comments);
