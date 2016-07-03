@@ -40,14 +40,20 @@
 
           // get the home url from the wordpress menu link
           // wget should rewrite this for us when local!
-          var home_url = $('#menu-main-menu #menu-item-20 a').first()
-                           .attr('href').replace('index.html','')
-                           .replace('../../rodrigoconstanzo.com/','../');
+          var home_url = 
+            $('#menu-main-menu #menu-item-20 a').first()
+            .attr('href');
+          var file_type_urls = false;
+          if (home_url.indexOf('index.html') >= 0) {
+            file_type_urls = true;
+            home_url = home_url.replace('index.html','')
+            .replace('../../rodrigoconstanzo.com/','../');
+          }
 
           my_data.forEach(function(result, index) {
             my_html += "<li>...<a href='" + home_url + result.url;
-            if (home_url.substring(0, 7) == "file://" && home_url.substring(-1,1) == '/') {
-              my_html += 'index.html';
+            if (file_type_urls) {
+              my_html = my_html.replace(/\/(#[a-z]*)?$/i,'/index.html$1');
             }
             my_html += "'target='_blank'>" +
                        htmlEncode(result.text) + "</a>...</li>";
