@@ -35,6 +35,8 @@ function infinite_scroll_handler($atts)
   return "<div id='scroll-to-read' data-scroll-text='".$a['text'].
             "' data-scroll-text2='".$a['text2']."'>".
          "<span>".$a['text']."</span>".
+         "<a href='/thesisfiles/chapter1.html' style='display: none;' class='infinite_scroll_data_url'>".
+              "Infinite scroll text</a>".
          "</div>";
 }
 

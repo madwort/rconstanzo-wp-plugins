@@ -28,7 +28,7 @@
   // http://madwort.co.uk/wp-content/plugins/infinite_scroll/chapter1.html
   // http://www.rodrigoconstanzo.com/thesisfiles/chapter1.html
   // $.get( "infinite_scroll/chapter1.html", function( data ) {
-  $.get( "http://www.rodrigoconstanzo.com/thesisfiles/chapter1.html", function( data ) {
+  $.get( $('a.infinite_scroll_data_url').first().attr('href'), function( data ) {
     $(w).scroll(function() {
       my_data = data;
       debounce(handle_scroll, 200);
