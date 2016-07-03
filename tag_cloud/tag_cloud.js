@@ -53,7 +53,7 @@
           my_data.forEach(function(result, index) {
             my_html += "<li>...<a href='" + home_url + result.url;
             if (file_type_urls) {
-              my_html = my_html.replace(/\/(#[a-z]*)?$/i,'/index.html$1');
+              my_html = my_html.replace(/\/(#[a-z]*,[0-9]*)?$/i,'/index.html$1');
             }
             my_html += "'target='_blank'>" +
                        htmlEncode(result.text) + "</a>...</li>";
