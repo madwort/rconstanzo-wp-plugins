@@ -3,7 +3,7 @@
 Plugin Name: Thesis Infinite Scroll
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: Scroll..scroll..scroll..FOREVER!!!!
-Version: 0.9
+Version: 0.10
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
@@ -40,7 +40,7 @@ function infinite_scroll_handler($atts)
          "</div>".
          "<script>
            window.initialise_infinite_scroll();
-         </script>";
+         </script>g";
 }
 
 ?>
