@@ -3,7 +3,7 @@
 Plugin Name: Tag cloud
 Plugin URI: http://www.rodrigoconstanzo.com/thesis/
 Description: The amazing dynamic tag cloud
-Version: 0.18
+Version: 0.19
 Author: MADWORT
 Author URI: http://www.madwort.co.uk
 */
