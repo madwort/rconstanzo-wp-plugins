@@ -40,7 +40,7 @@ function infinite_scroll_handler($atts)
          "</div>".
          "<script>
            window.initialise_infinite_scroll();
-         </script>g";
+         </script>";
 }
 
 ?>
