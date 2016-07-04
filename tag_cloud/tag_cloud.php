@@ -99,7 +99,7 @@ function tag_cloud_search_handler($atts)
   return "
   <script type='text/javascript'>
   window.onload = function () {
-    window.document.body.onload = setTimeout(function(){ window.search_tag(); }, 1000);
+    window.document.body.onload = setTimeout(function(){ window.search_tag(); }, 2500);
   };
   </script>
   <a href=".plugins_url( '/tag_cloud_data.csv', __FILE__ )." style='display:none;' name='tag_cloud_datafile'>Tag cloud datafile</a>
