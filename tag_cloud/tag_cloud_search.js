@@ -1,5 +1,9 @@
 ( function(w, $) {
   w.search_tag = function () {
+    if (window.location.hash == '') {
+      // console.log("empty hash");
+      return;
+    }
     var params = window.location.hash.split(',');
     var search_term = params[0].replace('#','');
     var search_id = parseInt(params[1]) - 1;
